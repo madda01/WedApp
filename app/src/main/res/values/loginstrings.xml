@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lgusernamehint">Enter your email</string>
+    <string name="lgpasswordhint">Enter your password</string>
+    <string name="lghead">Login</string>
+    <string name="btnlog">Log In</string>
+    <string name="etpassword">Password</string>
+    <string name="etor">OR</string>
+    <string name="etusername">Email</string>
+    <string name="etforgetpasswordlink">Forget Password ?</string>
+    <string name="headreset">Reset Password</string>
+    <string name="btnreset">Reset My Password</string>
+    <string name="resetemail">Enter your email</string>
+    <string name="resetpass1">Enter your new password</string>
+</resources>

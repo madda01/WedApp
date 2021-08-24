@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/lgimage"
+        android:layout_width="289dp"
+        android:layout_height="143dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lghead"
+        android:layout_width="70dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/lghead"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lgimage" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="306dp"
+        android:layout_height="185dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/layout_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lghead">
+
+        <TextView
+            android:id="@+id/etusername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/etusername"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etenteremail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/lgusernamehint"
+            android:inputType="textEmailAddress"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/etusername"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.652"
+            app:layout_constraintStart_toEndOf="@+id/etusername" />
+
+        <TextView
+            android:id="@+id/etpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:text="@string/etpassword"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etenteremail" />
+
+        <EditText
+            android:id="@+id/etenterpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/lgpasswordhint"
+            android:inputType="textPassword"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/etpassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.407"
+            app:layout_constraintStart_toEndOf="@+id/etpassword" />
+
+        <TextView
+            android:id="@+id/forgetpasswordlink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/etforgetpasswordlink"
+            android:textColor="@color/tea_green_our"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.909"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnreg"
+        android:layout_width="116dp"
+        android:layout_height="40dp"
+        android:background="@color/tea_green_our"
+        android:text="@string/btnreg"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="@color/tea_green_our"
+        android:textColorLink="@color/tea_green_our"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etor"
+        app:layout_constraintVertical_bias="0.0"
+        app:rippleColor="#007FD6CE" />
+
+    <TextView
+        android:id="@+id/etor"
+        android:layout_width="25dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/etor"
+        app:layout_constraintBottom_toTopOf="@+id/btnreg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnlog" />
+
+    <Button
+        android:id="@+id/btnlog"
+        android:layout_width="116dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/tea_green_our"
+        android:text="@string/btnlog"
+        android:textColor="@android:color/white"
+        android:textColorHighlight="@color/tea_green_our"
+        android:textColorLink="@color/tea_green_our"
+        app:layout_constraintBottom_toTopOf="@+id/etor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.218"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
