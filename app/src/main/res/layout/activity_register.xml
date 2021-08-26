@@ -213,7 +213,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="56dp"
-            android:background="@color/tea_green_our"
+            android:background="@drawable/button_layout"
             android:text="@string/btnreg"
             android:textColor="@android:color/white"
             app:cornerRadius="0dp"

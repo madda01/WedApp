@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LoginActivity extends AppCompatActivity {
 
     Button btnreg, btnlog;
-    //EditText etforget;
+    EditText etusername,etpassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +20,8 @@ public class LoginActivity extends AppCompatActivity {
         //mapping the button
         btnreg=findViewById(R.id.btnreg);
         btnlog=findViewById(R.id.btnlog);
-        //etforget=findViewById(R.id.forgetpasswordlink);
+        etusername=findViewById(R.id.etenteremail);
+        etpassword=findViewById(R.id.etenterpassword);
     }
 
     @Override

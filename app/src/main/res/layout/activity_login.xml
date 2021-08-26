@@ -106,13 +106,11 @@
 
     <Button
         android:id="@+id/btnreg"
-        android:layout_width="116dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:background="@color/tea_green_our"
+        android:background="@drawable/button_layout"
         android:text="@string/btnreg"
         android:textColor="@android:color/white"
-        android:textColorHighlight="@color/tea_green_our"
-        android:textColorLink="@color/tea_green_our"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -135,14 +133,12 @@
 
     <Button
         android:id="@+id/btnlog"
-        android:layout_width="116dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/tea_green_our"
         android:text="@string/btnlog"
         android:textColor="@android:color/white"
-        android:textColorHighlight="@color/tea_green_our"
-        android:textColorLink="@color/tea_green_our"
+        android:background="@drawable/button_layout"
         app:layout_constraintBottom_toTopOf="@+id/etor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
