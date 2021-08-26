@@ -12,4 +12,7 @@
     <string name="btnreset">Reset My Password</string>
     <string name="resetemail">Enter your email</string>
     <string name="resetpass1">Enter your new password</string>
+    <string name="headpassupdate">PASSWORD</string>
+    <string name="headpassupdates2">UPDATED</string>
+    <string name="etresetmsg">your password has been updated!</string>
 </resources>

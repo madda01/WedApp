@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +13,7 @@ public class LoginActivity extends AppCompatActivity {
 
     Button btnreg, btnlog;
     EditText etusername,etpassword;
+    TextView etforget;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         btnlog=findViewById(R.id.btnlog);
         etusername=findViewById(R.id.etenteremail);
         etpassword=findViewById(R.id.etenterpassword);
+        etforget=findViewById(R.id.forgetpasswordlink);
     }
 
     @Override
@@ -33,28 +36,31 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //intent creation: Explicit
                 Intent i= new Intent(LoginActivity.this,RegisterActivity.class);
+                i.putExtra("Message1","New User");
                 startActivity(i);
             }
         });
 
         //event handling for going to home
-        btnreg.setOnClickListener(new View.OnClickListener() {
+        btnlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //intent creation: Explicit
                 Intent i= new Intent();
+                i.putExtra("Message2","Directing To Home");
                 startActivity(i);
             }
         });
 
         //event handling for forget password
-        /*etforget.setOnClickListener(new View.OnClickListener() {
+        etforget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //intent creation: Explicit
                 Intent i= new Intent(LoginActivity.this,ForgetPasswordActivity.class);
+                i.putExtra("Message3","Reset Password");
                 startActivity(i);
             }
-        });*/
+        });
     }
 }

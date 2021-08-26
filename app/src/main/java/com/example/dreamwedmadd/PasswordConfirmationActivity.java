@@ -1,35 +1,29 @@
 package com.example.dreamwedmadd;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class PasswordConfirmationActivity extends AppCompatActivity {
 
-public class RegisterActivity extends AppCompatActivity {
-
-    Button btnreg;
+    Button btnresetpass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_password_confirmation);
 
         //mapping the button
-        btnreg=findViewById(R.id.btnregform);
-
-        //get intents
-        Intent receiveintent= getIntent();
-        String message1=receiveintent.getStringExtra("Message1");
-        Toast.makeText(getApplicationContext(),message1,Toast.LENGTH_LONG).show();
+        btnresetpass=findViewById(R.id.btnresetlogin);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         //event handling for login
-        btnreg.setOnClickListener(new View.OnClickListener() {
+        btnresetpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //intent creation: Explicit
