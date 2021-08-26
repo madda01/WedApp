@@ -15,12 +15,10 @@ public class DBConnection extends SQLiteOpenHelper {
 
     //COLUMN NAMES FOR USER
     private static final String Userid="userid";
-    private static final String Fname="fname";
-    private static final String Lname="lname";
+    private static final String Name="name";
     private static final String Email="email";
     private static final String Mobile="mobile";
     private static final String Password="password";
-    private static final String Repassword="repassword";
 
     //COLUMN NAMES FOR COSTUME
     private static final String Cosid="cosid";
@@ -42,12 +40,10 @@ public class DBConnection extends SQLiteOpenHelper {
         String TABLE_CREATE_QUERY1 = "CREATE TABLE "+TABLE_NAME1+" "+
                 "("
                 +Userid+"INTEGER PRIMARY KEY AUTOINCREMENT,"
-                +Fname+ "TEXT,"
-                +Lname+ "TEXT,"
+                +Name+ "TEXT,"
                 +Email+ "TEXT,"
                 +Mobile+ "TEXT,"
-                +Password+ "TEXT,"
-                +Repassword+ "TEXT" +
+                +Password+ "TEXT" +
                 ");";
 
         String TABLE_CREATE_QUERY2 = "CREATE TABLE "+TABLE_NAME2+" "+

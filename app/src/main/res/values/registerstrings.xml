@@ -2,16 +2,12 @@
 <resources>
     <string name="reghead">Register</string>
     <string name="btnreg">Register</string>
-    <string name="etfname">First Name</string>
-    <string name="etlname">Last Name</string>
-    <string name="etemail">Email</string>
+    <string name="etfname">Full Name</string>
+      <string name="etemail">Email</string>
     <string name="etphoneno">Mobile Number</string>
     <string name="etpass">Password</string>
-    <string name="etreenterpass">Re-enter Password</string>
-    <string name="hintfname">Enter your first name</string>
-    <string name="hintlname">Enter your last name</string>
-    <string name="hintemail">Enter your email</string>
+    <string name="hintfname">Enter your name</string>
+       <string name="hintemail">Enter your email</string>
     <string name="hintmobile">Enter your mobile number</string>
     <string name="hintpass">Enter your password</string>
-    <string name="hintrepass">Re-enter your password</string>
 </resources>

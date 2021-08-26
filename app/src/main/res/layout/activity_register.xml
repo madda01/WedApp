@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:padding="20dp"
         tools:context=".RegisterActivity">
 
@@ -18,7 +18,7 @@
             android:id="@+id/reghead"
             android:layout_width="87dp"
             android:layout_height="34dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="40dp"
             android:text="@string/reghead"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
@@ -30,12 +30,12 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
-            android:layout_width="305dp"
-            android:layout_height="513dp"
+            android:layout_width="341dp"
+            android:layout_height="349dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/layout_border"
             app:layout_constraintBottom_toTopOf="@+id/btnregform"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/reghead">
 
@@ -63,37 +63,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/etfname" />
 
             <TextView
-                android:id="@+id/etlname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/etlname"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hintfname" />
-
-            <EditText
-                android:id="@+id/hintlname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:hint="@string/hintlname"
-                android:inputType="textPersonName"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etlname" />
-
-            <TextView
                 android:id="@+id/teemail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
                 android:text="@string/etemail"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hintlname" />
+                app:layout_constraintTop_toBottomOf="@+id/hintfname" />
 
             <EditText
                 android:id="@+id/hintemail"
@@ -154,43 +130,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etpass" />
 
-            <TextView
-                android:id="@+id/etreenterpass"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/etreenterpass"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hintpass" />
-
-            <EditText
-                android:id="@+id/hintrepass"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:ems="10"
-                android:hint="@string/hintrepass"
-                android:inputType="textPassword"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etreenterpass" />
-
             <CheckBox
                 android:id="@+id/checkbox"
                 android:layout_width="113dp"
                 android:layout_height="21dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginBottom="8dp"
                 android:text="CheckBox"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/hintrepass"
-                app:layout_constraintVertical_bias="0.121" />
+                app:layout_constraintTop_toBottomOf="@+id/hintpass"
+                app:layout_constraintVertical_bias="0.142" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -201,11 +153,13 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="3dp"
+            android:src="@drawable/reg_back"
             app:layout_constraintBottom_toBottomOf="@+id/reghead"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/reghead"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/reg_back" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/btnregform"
