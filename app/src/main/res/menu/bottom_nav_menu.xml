@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title=""
+        android:icon="@drawable/home"
+        android:id="@+id/homeFragment"/>
+
+    <item android:title=""
+        android:icon="@drawable/car"
+        android:id="@+id/carFragment"/>
+
+    <item android:title=""
+        android:icon="@drawable/cam"
+        android:id="@+id/cameraFragment"/>
+
+    <item android:title=""
+        android:icon="@drawable/dress"
+        android:id="@+id/cosFragment"/>
+
+    <item android:title=""
+        android:icon="@drawable/deco"
+        android:id="@+id/decoFragment"/>
+</menu>

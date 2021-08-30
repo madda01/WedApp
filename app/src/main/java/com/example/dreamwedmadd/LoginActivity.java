@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //intent creation: Explicit
-                Intent i= new Intent();
+                Intent i= new Intent(LoginActivity.this,MainActivity2.class);
                 i.putExtra("Message2","Directing To Home");
                 startActivity(i);
             }

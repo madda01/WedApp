@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="headallcos">Costumes</string>
+    <string name="headcos1">Jay Trim Fit Solid Wool Suit</string>
+    <string name="deccos1">Finely textured super 130s Italian wool</string>
+    <string name="btnview">VIEW</string>
+    <string name="titledress1">Low Cut Layered Tulle Dress</string>
+    <string name="descdress1">Cinderella Divine</string>
+    <string name="headcos2">Josh Trim Mohair Tuxedo</string>
+    <string name="descsuit2">Sleek contrast shawl lapels frame</string>
+    <string name="headdress2">Embroidered Mermaid Gown</string>
+    <string name="descdress2">Floor length lace applique design</string>
+</resources>

@@ -3,9 +3,12 @@
     <string name="idapp">Dream Wedding</string>
     <string name="btnnext">Next</string>
     <string name="resetpass2">Re-enter your new password</string>
-    <string name="title_activity_main_home">MainActivity</string>
+    <string name="title_activity_main_home">BottomNavActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_vehicles">Vehicles</string>
+    <string name="title_photography">Photography</string>
+    <string name="title_decorations">Decorations</string>
+    <string name="title_costumes">Costumes</string>
     <string name="resetpass2text">Re-enter your password</string>
+
 </resources>

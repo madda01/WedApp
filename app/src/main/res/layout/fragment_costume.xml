@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:outlineProvider="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        tools:context=".DisplayCostumeActivity">
+
+        <TextView
+            android:id="@+id/headallcostumes"
+            android:layout_width="105dp"
+            android:layout_height="22dp"
+            android:text="@string/headallcos"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="347dp"
+            android:layout_height="107dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/layout_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/suit1"
+                android:layout_width="120dp"
+                android:layout_height="83dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/suit1" />
+
+            <Button
+                android:id="@+id/btn_view1"
+                android:layout_width="71dp"
+                android:layout_height="30dp"
+                android:text="@string/btnview"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.931"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/suit1head"
+                android:layout_width="202dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="3dp"
+                android:text="@string/headcos1"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/suit1des"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/suit1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.764" />
+
+            <TextView
+                android:id="@+id/suit1des"
+                android:layout_width="202dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginBottom="3dp"
+                android:outlineProvider="bounds"
+                android:text="@string/deccos1"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/btn_view1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/suit1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="344dp"
+            android:layout_height="104dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/layout_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+            <ImageView
+                android:id="@+id/dress1"
+                android:layout_width="120dp"
+                android:layout_height="83dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/bride2" />
+
+            <Button
+                android:id="@+id/btn_view2"
+                android:layout_width="71dp"
+                android:layout_height="30dp"
+                android:text="@string/btnview"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.932"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/dress1head"
+                android:layout_width="202dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="11dp"
+                android:text="@string/titledress1"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/dress1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dress1des"
+                android:layout_width="202dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginBottom="3dp"
+                android:text="@string/descdress1"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/btn_view2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/dress1"
+                app:layout_constraintTop_toBottomOf="@+id/dress1head"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout6"
+            android:layout_width="348dp"
+            android:layout_height="105dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/layout_border"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+
+            <ImageView
+                android:id="@+id/suit4"
+                android:layout_width="120dp"
+                android:layout_height="83dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/suit4" />
+
+            <Button
+                android:id="@+id/btn_view3"
+                android:layout_width="71dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/btnview"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.931"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/suit4head"
+                android:layout_width="202dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="11dp"
+                android:text="@string/headcos2"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/suit4des"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/suit4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/suit4des"
+                android:layout_width="202dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginBottom="3dp"
+                android:text="@string/descsuit2"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/btn_view3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/suit4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="348dp"
+            android:layout_height="105dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/layout_border"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
+
+            <ImageView
+                android:id="@+id/dress4"
+                android:layout_width="120dp"
+                android:layout_height="83dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/bride4" />
+
+            <Button
+                android:id="@+id/btn_view4"
+                android:layout_width="71dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/btnview"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.931"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/dress4head"
+                android:layout_width="202dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="11dp"
+                android:text="@string/headdress2"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dress4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dress4des"
+                android:layout_width="202dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginBottom="3dp"
+                android:text="@string/descdress2"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@+id/btn_view4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dress4"
+                app:layout_constraintTop_toBottomOf="@+id/dress4head" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+

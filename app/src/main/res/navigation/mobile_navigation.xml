@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment"
+    app:startDestination="@id/homeFragment">
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.dreamwedmadd.common.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/carFragment"
+        android:name="com.example.dreamwedmadd.common.VehicleFragment"
+        android:label="Vehicles"
+        tools:layout="@layout/fragment_vehicle" />
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.example.dreamwedmadd.common.PhotographyFragment"
+        android:label="Photography"
+        tools:layout="@layout/fragment_photography" />
+    <fragment
+        android:id="@+id/decoFragment"
+        android:name="com.example.dreamwedmadd.common.DecorationFragment"
+        android:label="Decorations"
+        tools:layout="@layout/fragment_decoration" />
+    <fragment
+        android:id="@+id/cosFragment"
+        android:name="com.example.dreamwedmadd.common.CostumeFragment"
+        android:label="Costumes"
+        tools:layout="@layout/fragment_costume" />
+</navigation>

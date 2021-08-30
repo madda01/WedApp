@@ -33,7 +33,8 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //intent creation: Explicit
-                Intent i = new Intent();
+                Intent i = new Intent(RegisterActivity.this,MainActivity2.class);
+                i.putExtra("MessageReg","Successfully created an account");
                 startActivity(i);
             }
         });
