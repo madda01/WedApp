@@ -1,15 +1,27 @@
 package com.example.dreamwedmadd.models;
 
 public class Costume {
-    String title;
-    String price;
-    String discount;
-    String sizes;
-    String shop;
-    String tmobile;
-    String description;
+    private int cosid;
+    private String title;
+    private String price;
+    private String discount;
+    private String sizes;
+    private String shop;
+    private String tmobile;
+    private String description;
 
     public Costume(){}
+
+    public Costume(int cosid,String title, String price, String discount, String sizes, String shop, String tmobile, String description) {
+        this.cosid=cosid;
+        this.title = title;
+        this.price = price;
+        this.discount = discount;
+        this.sizes = sizes;
+        this.shop = shop;
+        this.tmobile = tmobile;
+        this.description = description;
+    }
 
     public Costume(String title, String price, String discount, String sizes, String shop, String tmobile, String description) {
         this.title = title;
@@ -20,6 +32,10 @@ public class Costume {
         this.tmobile = tmobile;
         this.description = description;
     }
+
+    public int getCosid() { return cosid; }
+
+    public void setCosid(int cosid) { this.cosid = cosid; }
 
     public String getTitle() {
         return title;

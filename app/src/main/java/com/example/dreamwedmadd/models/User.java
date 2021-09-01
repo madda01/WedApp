@@ -1,36 +1,39 @@
 package com.example.dreamwedmadd.models;
 
 public class User {
-    String fname;
-    String lname;
-    String email;
-    String mobile;
-    String password;
+    private int id;
+    private String name;
+    private String email;
+    private String mobile;
+    private String password;
 
     public User() {}
 
-    public User(String fname, String lname, String email, String mobile, String password) {
-        this.fname = fname;
-        this.lname = lname;
+    public User(int id, String name, String email, String mobile, String password) {
+        this.id=id;
+        this.name = name;
         this.email = email;
         this.mobile = mobile;
         this.password = password;
     }
 
-    public String getFname() {
-        return fname;
+    public User(String name, String email, String mobile, String password) {
+        this.name = name;
+        this.email = email;
+        this.mobile = mobile;
+        this.password = password;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
+
+    public String getName() {
+        return name;
     }
 
-    public String getLname() {
-        return lname;
-    }
-
-    public void setLname(String lname) {
-        this.lname = lname;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
