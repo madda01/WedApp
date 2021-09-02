@@ -27,7 +27,7 @@ public class PasswordConfirmationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //intent creation: Explicit
-                Intent i = new Intent(PasswordConfirmationActivity.this,MainActivity2.class);
+                Intent i = new Intent(PasswordConfirmationActivity.this,LoginActivity.class);
                 i.putExtra("MessageReset","Successfully reset your password");
                 startActivity(i);
             }
