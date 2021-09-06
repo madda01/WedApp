@@ -2,123 +2,141 @@ package com.example.dreamwedmadd.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.example.dreamwedmadd.models.Costume;
 import com.example.dreamwedmadd.models.User;
 
 public class DBConnection extends SQLiteOpenHelper {
 
-    private static final int VERSION=1; //version
-    private static final String DB_NAME="dreamwed"; //database name
-    private static final String TABLE_NAME1="user"; //table1 name
-    private static final String TABLE_NAME2="costume"; //table2 name
+    private static final int VERSION = 1; //version
+    private static final String DB_NAME = "dreamwed"; //database name
 
-    //COLUMN NAMES FOR USER
-    private static final String Userid="userid";
-    private static final String Name="name";
-    private static final String Email="email";
-    private static final String Mobile="mobile";
-    private static final String Password="password";
-
-    //COLUMN NAMES FOR COSTUME
-    private static final String Cosid="cosid";
-    private static final String Title="title";
-    private static final String Shop="shop";
-    private static final String Price="price";
-    private static final String Discount="discount";
-    private static final String Cphone="cphone";
-    private static final String Sizes="sizes";
-    private static final String Description="description";
-
-    public DBConnection(@Nullable Context context) {
-        super(context, DB_NAME, null, VERSION);
+    public DBConnection(Context context) {
+        super(context,DB_NAME, null, VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
-        //creating tables
-        String TABLE_CREATE_QUERY1 = "CREATE TABLE "+TABLE_NAME1+" "+
-                "("
-                +Userid+"INTEGER PRIMARY KEY AUTOINCREMENT,"
-                +Name+ "TEXT,"
-                +Email+ "TEXT,"
-                +Mobile+ "TEXT,"
-                +Password+ "TEXT" +
-                ");";
-
-        String TABLE_CREATE_QUERY2 = "CREATE TABLE "+TABLE_NAME2+" "+
-                "("
-                +Cosid+"INTEGER PRIMARY KEY AUTOINCREMENT,"
-                +Title+ "TEXT,"
-                +Shop+ "TEXT,"
-                +Price+ "TEXT,"
-                +Discount+ "TEXT,"
-                +Cphone+ "TEXT,"
-                +Sizes+ "TEXT,"
-                +Description+ "TEXT" +
-                ");";
-        sqLiteDatabase.execSQL(TABLE_CREATE_QUERY1);
-        sqLiteDatabase.execSQL(TABLE_CREATE_QUERY2);
+        String SQL_CREATE_USER_ENTRIES =
+                "CREATE TABLE "+ DBMaster.Users.TABLE_NAME1 + " (" +
+                        DBMaster.Users._ID + " INTEGER PRIMARY KEY," +
+                        DBMaster.Users.COLUMN_NAME_NAME + " TEXT," +
+                        DBMaster.Users.COLUMN_NAME_EMAIL + " TEXT," +
+                        DBMaster.Users.COLUMN_NAME_MOBILE + " TEXT," +
+                        DBMaster.Users.COLUMN_NAME_PASSWORD + " TEXT)";
+        sqLiteDatabase.execSQL(SQL_CREATE_USER_ENTRIES);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {}
 
-        String DROP_TABLE_QUERY1="DROP TABLE IF EXISTS "+ TABLE_NAME1;
-        String DROP_TABLE_QUERY2="DROP TABLE IF EXISTS "+ TABLE_NAME2;
-
-        //drop older user table if exists
-        sqLiteDatabase.execSQL(DROP_TABLE_QUERY1);
-        //create user table again
-        onCreate(sqLiteDatabase);
-
-        //drop older costume table if exists
-        sqLiteDatabase.execSQL(DROP_TABLE_QUERY2);
-        //create costume table again
-        onCreate(sqLiteDatabase);
-    }
-
-    //insert a user to the db
-    public void insertUser(User newuser){
-        SQLiteDatabase sqLiteDatabase=getWritableDatabase();
-
-        //structure the data add store in db
+    //add a new user
+    public boolean insertUser(User user){
+        SQLiteDatabase db= getWritableDatabase();
         ContentValues values= new ContentValues();
-        values.put(Name,newuser.getName());
-        values.put(Email,newuser.getEmail());
-        values.put(Mobile,newuser.getMobile());
-        values.put(Password,newuser.getPassword());
+        values.put(DBMaster.Users.COLUMN_NAME_NAME,user.getName());
+        values.put(DBMaster.Users.COLUMN_NAME_EMAIL,user.getEmail());
+        values.put(DBMaster.Users.COLUMN_NAME_MOBILE,user.getMobile());
+        values.put(DBMaster.Users.COLUMN_NAME_PASSWORD,user.getPassword());
 
-        //save to the user table
-        sqLiteDatabase.insert(TABLE_NAME1,null,values);
-
-        //close the db
-        sqLiteDatabase.close();
+        long newRowId= db.insert(DBMaster.Users.TABLE_NAME1,null,values);
+        if (newRowId>=1)
+            return true;
+        else
+            return false;
     }
 
-    //insert a costume to the db
-    public void insertCostume(Costume newcostume){
-        SQLiteDatabase sqLiteDatabase=getWritableDatabase();
+    //check user when register
+    public boolean checkUser(String email){
+        //array of columns to fetch
+        String[] columns={DBMaster.Users._ID};
+        SQLiteDatabase db= this.getReadableDatabase();
 
-        //structure the data add store in db
-        ContentValues values= new ContentValues();
-        values.put(Title,newcostume.getTitle());
-        values.put(Shop,newcostume.getShop());
-        values.put(Price,newcostume.getPrice());
-        values.put(Discount,newcostume.getDiscount());
-        values.put(Cphone,newcostume.getTmobile());
-        values.put(Sizes,newcostume.getSizes());
-        values.put(Description,newcostume.getDescription());
+        //selection criteria
+        String selection= DBMaster.Users.COLUMN_NAME_EMAIL +" = ?";
 
-        //save to the costume table
-        sqLiteDatabase.insert(TABLE_NAME2,null,values);
+        //selection arugument
+        String[] selectionArgs={email};
 
-        //close the db
-        sqLiteDatabase.close();
+        Cursor cursor=db.query(DBMaster.Users.TABLE_NAME1,
+                columns,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null);
+        int cursorCount=cursor.getCount();
+        cursor.close();
+        db.close();
+
+        if(cursorCount>0)
+            return true;
+        else
+            return false;
     }
+
+    //check user when login
+    public boolean checkUser(String email, String password) {
+
+        // array of columns to fetch
+        String[] columns = {
+                DBMaster.Users._ID
+        };
+        SQLiteDatabase db = this.getReadableDatabase();
+        // selection criteria
+        String selection = DBMaster.Users.COLUMN_NAME_EMAIL + " = ?" + " AND " + DBMaster.Users.COLUMN_NAME_PASSWORD + " = ?";
+
+        // selection arguments
+        String[] selectionArgs = {email, password};
+
+        Cursor cursor = db.query(DBMaster.Users.TABLE_NAME1, //Table to query
+                columns,                    //columns to return
+                selection,                  //columns for the WHERE clause
+                selectionArgs,              //The values for the WHERE clause
+                null,                //group the rows
+                null,                 //filter by row groups
+                null);               //The sort order
+
+        int cursorCount = cursor.getCount();
+
+        cursor.close();
+        db.close();
+        if (cursorCount > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    //delete user
+    public void deleteUser(User email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] selectionArgs= {String.valueOf(email)};
+        // delete user record by id
+        db.delete(DBMaster.Users.TABLE_NAME1, DBMaster.Users.COLUMN_NAME_EMAIL + " LIKE ?", selectionArgs);
+        db.close();
+    }
+
+    //update user
+    public void updateUser(String email, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(DBMaster.Users.COLUMN_NAME_PASSWORD,password);
+
+        String selection= DBMaster.Users.COLUMN_NAME_EMAIL + " LIKE ?";
+        String[] selectionArgs={email};
+
+        int count= db.update(
+                DBMaster.Users.TABLE_NAME1,
+                values,
+                selection,
+                selectionArgs
+        );
+    }
+
 }

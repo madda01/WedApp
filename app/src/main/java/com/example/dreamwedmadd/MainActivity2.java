@@ -32,12 +32,12 @@ public class MainActivity2 extends AppCompatActivity {
         String message2=receiveintent.getStringExtra("Message2");
         Toast.makeText(getApplicationContext(),message2,Toast.LENGTH_LONG).show();
 
-        Intent recieveintent1= getIntent();
+        /*Intent recieveintent1= getIntent();
         String messageReg=recieveintent1.getStringExtra("MessageReg");
-        Toast.makeText(getApplicationContext(),messageReg,Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),messageReg,Toast.LENGTH_LONG).show();*/
 
         Intent recieveintent2= getIntent();
-        String messagerestpass=recieveintent1.getStringExtra("MessageReset");
+        String messagerestpass=recieveintent2.getStringExtra("MessageReset");
         Toast.makeText(getApplicationContext(),messagerestpass,Toast.LENGTH_LONG).show();
 
     }

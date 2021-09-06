@@ -17,9 +17,8 @@ public class RegisterActivity extends AppCompatActivity {
 
     Button btnreg;
     EditText etname,etemail,etmobile,etpassword;
-    User newuser;
-    DBConnection dbHandler;
-    Context context;
+    private User newuser;
+    private DBConnection dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,34 +33,58 @@ public class RegisterActivity extends AppCompatActivity {
         etpassword=findViewById(R.id.hintpass);
 
         //create db connection
-        context=this;
-        dbHandler=new DBConnection(context);
+        dbHandler= new DBConnection(getApplicationContext());
+        newuser= new User();
 
         //get intents
         Intent receiveintent= getIntent();
         String message1=receiveintent.getStringExtra("Message1");
         Toast.makeText(getApplicationContext(),message1,Toast.LENGTH_LONG).show();
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
         //event handling for register new user
         btnreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //intent creation: Explicit
-                Intent i = new Intent(RegisterActivity.this,MainActivity2.class);
-                i.putExtra("MessageReg","Successfully created an account");
-                startActivity(i);
 
-                String name=etname.getText().toString();
+                /*String name=etname.getText().toString();
                 String email=etemail.getText().toString();
                 String mobile=etmobile.getText().toString();
                 String password=etpassword.getText().toString();
 
                 newuser=new User(name,email,mobile,password);
-                dbHandler.insertUser(newuser);
+                dbHandler.insertUser(newuser);*/
+
+                if (etname.getText().toString().isEmpty()) {
+                    etname.setError("Username can not be empty.");
+                }
+                if (etemail.getText().toString().isEmpty()) {
+                    etemail.setError("Email field can not be empty.");
+                }
+                if (etpassword.getText().toString().isEmpty()) {
+                    etpassword.setError("Password can not be empty.");
+                }
+
+                if (!dbHandler.checkUser(etemail.getText().toString().trim())) {
+
+                    newuser.setName(etname.getText().toString().trim());
+                    newuser.setEmail(etemail.getText().toString().trim());
+                    newuser.setPassword(etpassword.getText().toString().trim());
+
+                    dbHandler.insertUser(newuser);
+
+                    //intent creation: Explicit
+                    /*Intent i = new Intent(RegisterActivity.this,MainActivity2.class);
+                    i.putExtra("MessageReg","Successfully created an account");
+                    startActivity(i);*/
+
+                    // Snack Bar to show success message that record saved successfully
+                    Toast.makeText(getApplicationContext(),"Successfully created an account",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(RegisterActivity.this,MainActivity2.class));
+
+                } else {
+                    // Snack Bar to show error message that record already exists
+                    Toast.makeText(getApplicationContext(),"Registration was unsuccessfull..",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
