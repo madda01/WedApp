@@ -16,4 +16,6 @@
     <string name="headpassupdate">PASSWORD</string>
     <string name="headpassupdates2">UPDATED</string>
     <string name="etresetmsg">your password has been updated!</string>
+    <string name="hint2pass">Re-enter your password</string>
+    <string name="btncheck">Check Email</string>
 </resources>
