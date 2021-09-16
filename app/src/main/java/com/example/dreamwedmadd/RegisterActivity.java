@@ -79,7 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     // Snack Bar to show success message that record saved successfully
                     Toast.makeText(getApplicationContext(),"Successfully created an account",Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(RegisterActivity.this,MainActivity2.class));
+                    startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
 
                 } else {
                     // Snack Bar to show error message that record already exists

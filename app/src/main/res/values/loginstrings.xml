@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    //strings needed for the login
     <string name="lgusernamehint">Enter your email</string>
     <string name="lgpasswordhint">Enter your password</string>
     <string name="lghead">Login</string>

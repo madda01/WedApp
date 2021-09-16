@@ -1,5 +1,5 @@
 package com.example.dreamwedmadd.models;
-
+//model class for user
 public class User {
     private int id;
     private String name;
