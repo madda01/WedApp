@@ -72,7 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
                 awesomeValidation.addValidation(RegisterActivity.this,R.id.hintpass,
                         ".{6,}",R.string.invalid_password);*/
 
-              if (etname.getText().toString().isEmpty()) {
+                if (etname.getText().toString().isEmpty()) {
                     etname.setError("Username can not be empty.");
                 }
                 if (etemail.getText().toString().isEmpty()) {

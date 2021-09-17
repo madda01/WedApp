@@ -22,9 +22,11 @@ public class ForgetPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password);
 
-        //map the elements
+        //map the button
         btnreset=findViewById(R.id.btnreset);
-        username=findViewById(R.id.resetemailtext);
+        username=findViewById(R.id.checkemailtext);
+
+        //initialize database
         db=new DBConnection(this);
 
         //get intents
@@ -37,15 +39,19 @@ public class ForgetPasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String user= username.getText().toString();
+
                 Boolean checkuser= db.checkUser(user);
-                if (checkuser==true){
+
+                if(checkuser==true){
                     //intent creation: Explicit
                     Intent i = new Intent(ForgetPasswordActivity.this,PasswordConfirmationActivity.class);
-                    i.putExtra("email",user);
+                    i.putExtra("username",user);
+                    Toast.makeText(ForgetPasswordActivity.this,"User exists",Toast.LENGTH_LONG).show();
                     startActivity(i);
                 }else{
-                    Toast.makeText(ForgetPasswordActivity.this,"User does not exists",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPasswordActivity.this,"User does not exists",Toast.LENGTH_LONG).show();
                 }
+
 
             }
         });

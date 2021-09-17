@@ -114,20 +114,6 @@ public class DBConnection extends SQLiteOpenHelper {
         return false;
     }
 
-    //reset password
-    public boolean updatePassword(String username,String password){
-        SQLiteDatabase db= getWritableDatabase();
-        ContentValues values= new ContentValues();
-        values.put(DBMaster.Users.COLUMN_NAME_PASSWORD,password);
-
-        long newRowId= db.update(DBMaster.Users.TABLE_NAME1,values,DBMaster.Users.COLUMN_NAME_EMAIL + " LIKE ?", new String[] {username});
-        if (newRowId==-1)
-            return false;
-        else
-            return true;
-    }
-
-
     //delete user
     public void deleteUser(User email) {
         SQLiteDatabase db = this.getReadableDatabase();
