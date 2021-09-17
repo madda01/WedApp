@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 
 import com.example.dreamwedmadd.models.User;
 
+import java.net.ConnectException;
+
 public class DBConnection extends SQLiteOpenHelper {
 
     private static final int VERSION = 1; //version
@@ -122,21 +124,18 @@ public class DBConnection extends SQLiteOpenHelper {
     }
 
     //update user
-    public void updateUser(String email, String password) {
-        SQLiteDatabase db = this.getReadableDatabase();
+    public boolean updateUser(String email, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(DBMaster.Users.COLUMN_NAME_PASSWORD,password);
 
-        String selection= DBMaster.Users.COLUMN_NAME_EMAIL + " LIKE ?";
-        String[] selectionArgs={email};
+        long count=db.update(DBMaster.Users.TABLE_NAME1,values,DBMaster.Users.COLUMN_NAME_EMAIL+" = ?",new String[]{ email });
 
-        int count= db.update(
-                DBMaster.Users.TABLE_NAME1,
-                values,
-                selection,
-                selectionArgs
-        );
+        if (count==-1)
+            return false;
+        else
+            return true;
     }
 
 }
