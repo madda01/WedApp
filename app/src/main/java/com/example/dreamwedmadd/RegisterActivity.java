@@ -3,6 +3,7 @@ package com.example.dreamwedmadd;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +11,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.example.dreamwedmadd.database.DBConnection;
 import com.example.dreamwedmadd.models.User;
 
@@ -19,6 +23,8 @@ public class RegisterActivity extends AppCompatActivity {
     EditText etname,etemail,etmobile,etpassword;
     private User newuser;
     private DBConnection dbHandler;
+
+    //AwesomeValidation awesomeValidation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,20 +47,32 @@ public class RegisterActivity extends AppCompatActivity {
         String message1=receiveintent.getStringExtra("Message1");
         Toast.makeText(getApplicationContext(),message1,Toast.LENGTH_LONG).show();
 
+        //initialize validation style
+        //awesomeValidation= new AwesomeValidation(ValidationStyle.BASIC);
+
         //event handling for register new user
         btnreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                /*String name=etname.getText().toString();
-                String email=etemail.getText().toString();
-                String mobile=etmobile.getText().toString();
-                String password=etpassword.getText().toString();
+               /*
+                //name validation
+                awesomeValidation.addValidation(RegisterActivity.this,R.id.hintfname,
+                        RegexTemplate.NOT_EMPTY,R.string.invalid_name);
 
-                newuser=new User(name,email,mobile,password);
-                dbHandler.insertUser(newuser);*/
+                //email validation
+                awesomeValidation.addValidation(RegisterActivity.this,R.id.hintemail,
+                        Patterns.EMAIL_ADDRESS,R.string.invalid_email);
 
-                if (etname.getText().toString().isEmpty()) {
+                //mobile validation
+                awesomeValidation.addValidation(RegisterActivity.this,R.id.hintmobile,
+                        "[0-9]{10}$",R.string.invalid_mobile);
+
+                //password validation
+                awesomeValidation.addValidation(RegisterActivity.this,R.id.hintpass,
+                        ".{6,}",R.string.invalid_password);*/
+
+              if (etname.getText().toString().isEmpty()) {
                     etname.setError("Username can not be empty.");
                 }
                 if (etemail.getText().toString().isEmpty()) {
@@ -68,6 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     newuser.setName(etname.getText().toString().trim());
                     newuser.setEmail(etemail.getText().toString().trim());
+                    newuser.setMobile(etmobile.getText().toString().trim());
                     newuser.setPassword(etpassword.getText().toString().trim());
 
                     dbHandler.insertUser(newuser);

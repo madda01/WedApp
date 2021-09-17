@@ -11,4 +11,8 @@
        <string name="hintemail">Enter your email</string>
     <string name="hintmobile">Enter your mobile number</string>
     <string name="hintpass">Enter your password</string>
+    <string name="invalid_name">Please enter valid name</string>
+    <string name="invalid_mobile">Please enter valid mobile number</string>
+    <string name="invalid_email">Please enter a valid email</string>
+    <string name="invalid_password">Enter a 6 digit password</string>
 </resources>
