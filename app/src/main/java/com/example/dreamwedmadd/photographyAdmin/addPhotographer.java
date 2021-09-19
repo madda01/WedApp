@@ -3,6 +3,7 @@ package com.example.dreamwedmadd.photographyAdmin;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -69,6 +70,7 @@ public class addPhotographer extends AppCompatActivity {
                         mobilen
                 );
                 photoDbhandler.addPhotographer(phto);
+                startActivity(new Intent(context,photography_Mainlist.class));
 
             }
         });

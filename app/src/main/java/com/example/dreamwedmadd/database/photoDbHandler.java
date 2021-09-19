@@ -2,6 +2,7 @@ package com.example.dreamwedmadd.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -83,5 +84,14 @@ public class photoDbHandler extends SQLiteOpenHelper {
                 sqLiteDatabase.close();
 
 
+    }
+
+    public int countPhotographer(){
+        SQLiteDatabase db = getReadableDatabase();
+
+        String query = "SELECT * FROM "+ TABLE_NAME;
+
+        Cursor cursor = db.rawQuery(query,null);
+        return cursor.getCount();
     }
 }

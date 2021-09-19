@@ -29,7 +29,7 @@
         android:id="@+id/tvtext3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="111dp"
+        android:layout_marginStart="16dp"
         android:text="TextView"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/btn1"
