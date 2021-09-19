@@ -44,7 +44,7 @@ public class DecoAdaptor extends ArrayAdapter<Decorator> {
 
         Decorator decorator=decorators.get(position);
 
-        name.setText(decorator.getfName());
+        name.setText(decorator.getfName()+" "+decorator.getlName());
         description.setText(decorator.getDescription());
 
 
