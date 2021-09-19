@@ -37,6 +37,7 @@ public class AdminDecoView extends AppCompatActivity {
         decorators=dbDecorator.getAllDeco();
         decoAdaptor=new DecoAdaptor(context,R.layout.decosingleraw,decorators);
         listView.setAdapter(decoAdaptor);
+        textView.setText("Decorators "+dbDecorator.DecoCount());
 
 
 

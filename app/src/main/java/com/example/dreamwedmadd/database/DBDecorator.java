@@ -106,39 +106,16 @@ public class DBDecorator extends SQLiteOpenHelper {
         return decorators;
     }
 
+    public int DecoCount(){
+        SQLiteDatabase db=getReadableDatabase();
+        String sql="SELECT * FROM "+TABLE_NAME;
 
+        Cursor cursor=db.rawQuery(sql,null);
 
-
-
+        return cursor.getCount();
+    }
 
 
 
 }
 
-
-//
-//    public List<ToDo> getAllToDo(){
-//
-//        List<ToDo> toDos=new ArrayList();
-//        SQLiteDatabase db=getReadableDatabase();
-//        String query="SELECT * FROM "+TABLE_NAME;
-//
-//        Cursor cursor=db.rawQuery(query,null);
-//
-//        if (cursor.moveToFirst()){
-//            do {
-//                ToDo toDo=new ToDo();
-//
-//                toDo.setId(cursor.getInt(0));
-//                toDo.setTitle(cursor.getString(1));
-//                toDo.setDescription(cursor.getString(2));
-//                toDo.setStarted(cursor.getLong(3));
-//                toDo.setFinished(cursor.getLong(4));
-//
-//                toDos.add(toDo);
-//            }while(cursor.moveToNext());
-//
-//        }
-//        return toDos;
-//
-//    }
