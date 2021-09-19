@@ -3,7 +3,6 @@
     <string name="app_name">Dream Wedding</string>
     <string name="idapp">Dream Wedding</string>
     <string name="btnnext">Next</string>
-    <string name="resetpass2">Re-enter your new password</string>
     <string name="title_activity_main_home">BottomNavActivity</string>
     <string name="title_home">Home</string>
     <string name="title_vehicles">Vehicles</string>
@@ -11,5 +10,6 @@
     <string name="title_decorations">Decorations</string>
     <string name="title_costumes">Costumes</string>
     <string name="resetpass2text">Re-enter your password</string>
+
 
 </resources>
