@@ -12,6 +12,10 @@ import android.widget.TextView;
 
 import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.database.photoDbHandler;
+import com.example.dreamwedmadd.models.Photographermodel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class photography_Mainlist extends AppCompatActivity {
 
@@ -20,6 +24,7 @@ public class photography_Mainlist extends AppCompatActivity {
     private TextView count;
     private Context context;
     private photoDbHandler photoDbhandler;
+    private List<Photographermodel> photogra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,15 @@ public class photography_Mainlist extends AppCompatActivity {
         count = findViewById(R.id.tvtext3);
         context = this;
         photoDbhandler = new photoDbHandler(context);
+        photogra = new ArrayList<>();
+
+        //get photographer details
+        photogra = photoDbhandler.getAllPhotographers();
+
+
+        //set photographers list to view
+        photographerAdapter adapter = new photographerAdapter(context,R.layout.photography_single_row,photogra);
+        listView.setAdapter(adapter);
 
         //get photographer count
         int photographercount = photoDbhandler.countPhotographer();

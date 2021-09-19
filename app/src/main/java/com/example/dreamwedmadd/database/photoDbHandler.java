@@ -10,6 +10,9 @@ import androidx.annotation.Nullable;
 
 import com.example.dreamwedmadd.models.Photographermodel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class photoDbHandler extends SQLiteOpenHelper {
 
     private static final int VERSION = 2;
@@ -93,5 +96,36 @@ public class photoDbHandler extends SQLiteOpenHelper {
 
         Cursor cursor = db.rawQuery(query,null);
         return cursor.getCount();
+    }
+
+    //get all photographers
+
+    public List<Photographermodel> getAllPhotographers(){
+
+        List<Photographermodel> photogra = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        String query = "SELECT * FROM "+TABLE_NAME;
+
+        Cursor cursor = db.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                Photographermodel photodb = new Photographermodel();
+
+                photodb.setId(cursor.getInt(0));
+                photodb.setFnamee(cursor.getString(1));
+                photodb.setLnamee(cursor.getString(2));
+                photodb.setEmaile(cursor.getString(3));
+                photodb.setPhonee(cursor.getString(4));
+                photodb.setComanpnynamee(cursor.getString(5));
+                photodb.setDescriptione(cursor.getString(6));
+                photodb.setPricee(cursor.getDouble(7));
+
+
+
+                photogra.add(photodb);
+            }while (cursor.moveToNext());
+        }
+        return  photogra;
     }
 }
