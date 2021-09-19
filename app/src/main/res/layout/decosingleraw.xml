@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tvtitle"
+        android:id="@+id/SingleDecTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -15,21 +15,21 @@
         android:text="TextView"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tvdecription"
+        app:layout_constraintBottom_toTopOf="@+id/SingleDecdis"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageview"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/tvdecription"
+        android:id="@+id/SingleDecdis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvtitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvtitle" />
+        app:layout_constraintStart_toStartOf="@+id/SingleDecTitle"
+        app:layout_constraintTop_toBottomOf="@+id/SingleDecTitle" />
 
     <ImageView
         android:id="@+id/imageview"
@@ -40,7 +40,7 @@
         android:layout_marginEnd="115dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvtitle"
+        app:layout_constraintEnd_toStartOf="@+id/SingleDecTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
