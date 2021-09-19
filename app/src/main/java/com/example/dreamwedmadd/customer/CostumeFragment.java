@@ -1,4 +1,4 @@
-package com.example.dreamwedmadd.common;
+package com.example.dreamwedmadd.customer;
 
 import android.os.Bundle;
 
@@ -10,12 +10,12 @@ import android.view.ViewGroup;
 
 import com.example.dreamwedmadd.R;
 
-public class PhotographyFragment extends Fragment {
+public class CostumeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_photography, container, false);
+        return inflater.inflate(R.layout.fragment_costume, container, false);
     }
 }

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:outlineProvider="none">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.CostumeInfoActivity">
+
+        <TextView
+            android:id="@+id/displayCostumeHead"
+            android:layout_width="105dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/head_cos1"
+            android:textColor="#2E2D2D"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="380dp"
+            android:layout_height="560dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/layout_border"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/displayCostumeHead">
+
+            <ImageView
+                android:id="@+id/imageViewInfo"
+                android:layout_width="163dp"
+                android:layout_height="146dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/bride1" />
+
+            <TextView
+                android:id="@+id/titleheaddressInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/title_des"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.031"
+                app:layout_constraintStart_toEndOf="@+id/imageViewInfo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/titleheadshopinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/tailor_name"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.047"
+                app:layout_constraintStart_toEndOf="@+id/imageViewInfo"
+                app:layout_constraintTop_toBottomOf="@+id/titledressInfo" />
+
+            <TextView
+                android:id="@+id/titleheadpriceinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/et_price"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.051"
+                app:layout_constraintStart_toEndOf="@+id/imageViewInfo"
+                app:layout_constraintTop_toBottomOf="@+id/titleshopinfo" />
+
+            <TextView
+                android:id="@+id/titleheadmobileinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/head_mobileNumber"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.024"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewInfo" />
+
+            <TextView
+                android:id="@+id/titleheadsizeinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/et_sizes"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titlemobileinfo" />
+
+            <TextView
+                android:id="@+id/titleheaddescinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/CosDescri"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titlesizeinfo" />
+
+            <TextView
+                android:id="@+id/titledressInfo"
+                android:layout_width="155dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/title_1"
+                android:textColor="#2E2D2D"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.393"
+                app:layout_constraintStart_toEndOf="@+id/imageViewInfo"
+                app:layout_constraintTop_toBottomOf="@+id/titleheaddressInfo" />
+
+            <TextView
+                android:id="@+id/titleshopinfo"
+                android:layout_width="94dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/tailor_shop"
+                android:textColor="#2E2D2D"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.052"
+                app:layout_constraintStart_toEndOf="@+id/imageViewInfo"
+                app:layout_constraintTop_toBottomOf="@+id/titleheadshopinfo" />
+
+            <TextView
+                android:id="@+id/titlepriceinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@string/price_cos1"
+                android:textColor="#2E2D2D"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toEndOf="@+id/imageViewInfo"
+                app:layout_constraintTop_toBottomOf="@+id/titleheadpriceinfo" />
+
+            <TextView
+                android:id="@+id/titlemobileinfo"
+                android:layout_width="146dp"
+                android:layout_height="17dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/mobile_cos1"
+                android:textColor="#2E2D2D"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleheadmobileinfo" />
+
+            <TextView
+                android:id="@+id/titlesizeinfo"
+                android:layout_width="236dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/avaiSizes"
+                android:textColor="#2E2D2D"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleheadsizeinfo" />
+
+            <Button
+                android:id="@+id/btnbookthis"
+                android:layout_width="130dp"
+                android:layout_height="37dp"
+                android:layout_marginBottom="104dp"
+                android:text="@string/btBook"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.896"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titledescinfo" />
+
+            <TextView
+                android:id="@+id/titledescinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/desc1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.525"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleheaddescinfo" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
