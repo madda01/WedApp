@@ -128,4 +128,53 @@ public class photoDbHandler extends SQLiteOpenHelper {
         }
         return  photogra;
     }
+
+    public Photographermodel getSinglePhotographer(int id){
+
+        SQLiteDatabase db =getWritableDatabase();
+        Cursor cursor = db.query(TABLE_NAME,new String[]{ID,FIRSTNAME,LASTNAME,EMAIL,MOBILENUMBER,COMPANYNAME,
+        ADDRESS,PRICE,DESCRIPTION},ID + "= ?",new String[]{String.valueOf(id)},null,null,null);
+
+        Photographermodel photoobj ;
+        if(cursor != null){
+            cursor.moveToFirst();
+            photoobj = new Photographermodel (
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getDouble(7),
+                    cursor.getString(8)
+            );
+            return  photoobj;
+        }
+        return  null;
+
+    }
+
+    public int updatePhotographer(Photographermodel photogrp){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(FIRSTNAME,photogrp.getFnamee());
+        contentValues.put(LASTNAME,photogrp.getLnamee());
+        contentValues.put(EMAIL,photogrp.getEmaile());
+        contentValues.put(MOBILENUMBER,photogrp.getPhonee());
+        contentValues.put(COMPANYNAME,photogrp.getComanpnynamee());
+        contentValues.put(ADDRESS,photogrp.getAddresse());
+        contentValues.put(PRICE,photogrp.getPricee());
+        contentValues.put(DESCRIPTION,photogrp.getDescriptione());
+
+        int stetus = db.update(TABLE_NAME,contentValues,ID +" =?"
+                ,new String[]{String.valueOf(photogrp.getId())});
+
+        db.close();
+        return stetus;
+
+    }
 }
