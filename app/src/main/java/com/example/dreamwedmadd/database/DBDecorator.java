@@ -86,7 +86,7 @@ public class DBDecorator extends SQLiteOpenHelper {
         if (cursor.moveToFirst()){
             do {
                 Decorator decorator=new Decorator();
-
+                decorator.setId(cursor.getInt(0));
                 decorator.setfName(cursor.getString(1));
                 decorator.setlName(cursor.getString(2));
                 decorator.setEmail(cursor.getString(3));
@@ -115,7 +115,73 @@ public class DBDecorator extends SQLiteOpenHelper {
         return cursor.getCount();
     }
 
+    public void deleteDeco(int id){
+        SQLiteDatabase db=getWritableDatabase();
+        db.delete(TABLE_NAME,ID+" =?",new String[]{String.valueOf(id)});
+        db.close();
+    }
+    public Decorator getSingleDeco(int id){
+        Decorator decorator;
+        SQLiteDatabase db=getReadableDatabase();
+
+        Cursor cursor=db.query(TABLE_NAME,new String[]{ID,FNAME,LNAME,EMAIL,MOBILE,CNAME,ADDRESS,DESCRIPTION,PRICE},ID+" =?",new String[]{String.valueOf(id)},null,null,null);
+        if (cursor != null){
+            cursor.moveToFirst();
+            decorator=new Decorator(cursor.getInt(0),cursor.getString(1),cursor.getString(2),
+                    cursor.getString(3),cursor.getString(4),
+                    cursor.getString(5),cursor.getString(6),cursor.getString(7),cursor.getDouble(8)
+                    );
+            return decorator;
+
+        }
+        return null;
+
+    }
+
+    public int UpdateDeco(Decorator decorator){
+        SQLiteDatabase db=getWritableDatabase();
+
+        ContentValues contentValues=new ContentValues();
+
+        contentValues.put(FNAME,decorator.getfName());
+        contentValues.put(LNAME,decorator.getlName());
+        contentValues.put(EMAIL,decorator.getEmail());
+        contentValues.put(MOBILE,decorator.getMobile());
+        contentValues.put(CNAME,decorator.getcName());
+        contentValues.put(ADDRESS,decorator.getAddress());
+        contentValues.put(PRICE,decorator.getPrice());
+        contentValues.put(DESCRIPTION,decorator.getDescription());
+
+        int status=db.update(TABLE_NAME,contentValues,ID+" =?",new String[]{String.valueOf(decorator.getId())});
+
+        db.close();
+        return status;
+    }
+
+
 
 
 }
+
+
+
+//    public int UpdateSngleToDo(ToDo toDo){
+//        SQLiteDatabase db=getWritableDatabase();
+//
+//        ContentValues contentValues=new ContentValues();
+//
+//
+//        contentValues.put(TITLE,toDo.getTitle());
+//        contentValues.put(DESCRIPTION,toDo.getDescription());
+//        contentValues.put(STARED,toDo.getStarted());
+//        contentValues.put(FINISHED,toDo.getFinished());
+//
+//        int status=db.update(TABLE_NAME,contentValues,ID+ "=?",new String[]{String.valueOf(toDo.getId())});
+//
+//        db.close();
+//
+//        return status;
+//    }
+
+
 

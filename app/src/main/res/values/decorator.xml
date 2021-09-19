@@ -21,6 +21,7 @@
     <string name="hint_companyName">Company Name</string>
     <string name="btn_submit">Submit</string>
     <string name="Add">Add</string>
+    <string name="Update_Decorator">Update Decorator</string>
 
 
 </resources>
