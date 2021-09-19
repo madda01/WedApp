@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tvtitle1n">Title</string>
+    <string name="btn1va">ADD</string>
+    <string name="tv2value">Description</string>
+    <string name="addphoto">Add Photographer</string>
+    <string name="etfnamevalue">First Name</string>
+    <string name="etlastnamevalue">Last Name</string>
+    <string name="etphonevalue">Mobile Number</string>
+    <string name="etpricevalue">Price</string>
+    <string name="btn2value">SUBMIT</string>
+    <string name="etemailvalue">Email</string>
+    <string name="etcompanynamevalue">Company Name</string>
+    <string name="etaddressvalue">Address</string>
+    <string name="etdescriptionvalue">Description</string>
+    <string name="etuploadvalue">Upload</string>
+    <string name="tveditphoto">Edit Photographer</string>
+
+
+</resources>

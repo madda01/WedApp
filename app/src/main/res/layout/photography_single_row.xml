@@ -12,7 +12,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="92dp"
         android:layout_marginBottom="11dp"
-        android:text="TextView"
+        android:hint="@string/tvtitle1n"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvdecription"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
-        android:text="TextView"
+        android:hint="@string/tv2value"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tvtitle"
         app:layout_constraintTop_toBottomOf="@+id/tvtitle" />
