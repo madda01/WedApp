@@ -27,16 +27,16 @@ public class addPhotographer extends AppCompatActivity {
         setContentView(R.layout.activity_add_photographer);
 
         fname = findViewById(R.id.etfirstname);
-        lname = findViewById(R.id.etlastname);
-        email = findViewById(R.id.etemail);
-        mobilenum = findViewById(R.id.etphone);
-        companyname = findViewById(R.id.etcompanyname);
-        address = findViewById(R.id.etaddress);
-        price = findViewById(R.id.etprice);
-        description = findViewById(R.id.etdescription);
+        lname = findViewById(R.id.vehModel);
+        email = findViewById(R.id.vehYear);
+        mobilenum = findViewById(R.id.vehPhone);
+        companyname = findViewById(R.id.vehOwner);
+        address = findViewById(R.id.vehAddress);
+        price = findViewById(R.id.vehPrice);
+        description = findViewById(R.id.vehDescription);
 
         context=this;
-        addbtn = findViewById(R.id.btn2);
+        addbtn = findViewById(R.id.vehAddBtn);
 
         photoDbhandler = new photoDbHandler(context);
 

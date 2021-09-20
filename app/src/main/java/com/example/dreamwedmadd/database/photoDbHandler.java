@@ -15,7 +15,7 @@ import java.util.List;
 
 public class photoDbHandler extends SQLiteOpenHelper {
 
-    private static final int VERSION = 2;
+    private static final int VERSION = 3;
     private static final String DB_NAME = "dreamwed" ;
     private static final String TABLE_NAME = "photographyadmin" ;
 
@@ -118,8 +118,10 @@ public class photoDbHandler extends SQLiteOpenHelper {
                 photodb.setEmaile(cursor.getString(3));
                 photodb.setPhonee(cursor.getString(4));
                 photodb.setComanpnynamee(cursor.getString(5));
-                photodb.setDescriptione(cursor.getString(6));
+                photodb.setAddresse(cursor.getString(6));
                 photodb.setPricee(cursor.getDouble(7));
+                photodb.setDescriptione(cursor.getString(8));
+
 
 
 
@@ -175,6 +177,14 @@ public class photoDbHandler extends SQLiteOpenHelper {
 
         db.close();
         return stetus;
+
+    }
+
+    public void deletePhotographer(int id){
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(TABLE_NAME,ID +" =?",new String[]{String.valueOf(id)});
+        db.close();
 
     }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 
 public class DBDecorator extends SQLiteOpenHelper {
 
-    private static final int VERSION=2;
+    private static final int VERSION=3;
     private static final String DB_NAME="dreamwed";
     private static final String TABLE_NAME="decorator";
     private static final String ID="id";
@@ -124,7 +124,7 @@ public class DBDecorator extends SQLiteOpenHelper {
         Decorator decorator;
         SQLiteDatabase db=getReadableDatabase();
 
-        Cursor cursor=db.query(TABLE_NAME,new String[]{ID,FNAME,LNAME,EMAIL,MOBILE,CNAME,ADDRESS,DESCRIPTION,PRICE},ID+" =?",new String[]{String.valueOf(id)},null,null,null);
+        Cursor cursor=db.query(TABLE_NAME,new String[]{ID,FNAME,LNAME,EMAIL,MOBILE,CNAME,DESCRIPTION,ADDRESS,PRICE},ID+" =?",new String[]{String.valueOf(id)},null,null,null);
         if (cursor != null){
             cursor.moveToFirst();
             decorator=new Decorator(cursor.getInt(0),cursor.getString(1),cursor.getString(2),

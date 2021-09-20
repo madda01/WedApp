@@ -9,16 +9,14 @@
 
 
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".photographyAdmin.editPhotographer">
+    tools:context=".photographyAdmin.deletePhotographer">
 
 
     <LinearLayout
-        android:id="@+id/linearLayoutedit"
+        android:id="@+id/linearLayouteditr"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
@@ -27,10 +25,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvaddphotoedit">
+        app:layout_constraintTop_toBottomOf="@+id/tvaddphotoeditr">
 
         <EditText
-            android:id="@+id/etfirstnameedit"
+            android:id="@+id/etfirstnameeditr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -42,7 +40,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/etlastnameedit"
+            android:id="@+id/etlastnameeditr"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
@@ -53,7 +51,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/etemailedit"
+            android:id="@+id/etemaileditr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -63,7 +61,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/etphoneedit"
+            android:id="@+id/etphoneeditr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -73,7 +71,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/etcompanynameedit"
+            android:id="@+id/etcompanynameeditr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -83,7 +81,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/etaddressedit"
+            android:id="@+id/etaddresseditr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -93,7 +91,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/etpriceedit"
+            android:id="@+id/etpriceeditr"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
@@ -104,7 +102,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/etdescriptionedit"
+            android:id="@+id/etdescriptioneditr"
             android:layout_width="match_parent"
             android:layout_height="67dp"
             android:layout_marginTop="10dp"
@@ -116,14 +114,14 @@
             android:textSize="14sp" />
 
         <View
-            android:id="@+id/viewedit"
+            android:id="@+id/vieweditr"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="10dp"
             android:background="#DCDBDB" />
 
         <TextView
-            android:id="@+id/etuploadedit"
+            android:id="@+id/etuploadeditr"
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:text="@string/etuploadvalue"
@@ -131,36 +129,36 @@
             android:textColorHint="#80B9B2" />
 
         <CheckBox
-            android:id="@+id/VehcheckBox"
+            android:id="@+id/checkBoxr"
             android:layout_width="139dp"
             android:layout_height="21dp"
             android:text="CheckBox"
             android:textColor="#80B9B2" />
 
         <Button
-            android:id="@+id/btn5edit"
+            android:id="@+id/btn5editr"
             android:layout_width="90dp"
             android:layout_height="40dp"
             android:text="@string/btn2value"
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/textView6edit"
+            android:id="@+id/textView6editr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tvaddphotoedit"
+        android:id="@+id/tvaddphotoeditr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
-        android:text="@string/tveditphoto"
+        android:text="@string/deletetvn"
         android:textColor="#80B9B2"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayoutedit"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayouteditr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

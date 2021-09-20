@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/activity_add_deco.xml" value="0.2" />
+        <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/activity_add_photographer.xml" value="0.2" />
+        <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/activity_add_vehicle.xml" value="0.4" />
+        <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/activity_addmin_vehicle_list.xml" value="0.264" />
+        <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/activity_admin_deco_view.xml" value="0.21822916666666667" />
+        <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/activity_edit_vehicle.xml" value="0.27447916666666666" />
+        <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/activity_main3.xml" value="0.2" />
+        <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/decosingleraw.xml" value="0.21822916666666667" />
+        <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/photography_single_row.xml" value="0.21822916666666667" />
+        <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/vehicle_single_row.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

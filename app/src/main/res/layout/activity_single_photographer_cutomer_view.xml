@@ -3,160 +3,162 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/etDecoPrice"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/tvVehicle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="50dp"
-        tools:context=".CarFragment">
+        tools:context=".photographyAdmin.deletePhotographer">
+
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/linearLayouteditre"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginBottom="28dp"
             android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDecCount">
+            app:layout_constraintTop_toBottomOf="@+id/tvaddphotoeditre">
 
             <EditText
-                android:id="@+id/etDecoFnameUP"
+                android:id="@+id/etfirstnameeditre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:ems="10"
-                android:hint="@string/hint_Fname"
+                android:hint="@string/etfnamevalue"
                 android:inputType="textPersonName"
                 android:textAlignment="viewStart"
                 android:textColorHint="#80B9B2"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/etDecoLnameUP"
+                android:id="@+id/etlastnameeditre"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:hint="@string/hint_Lname"
+                android:hint="@string/etlastnamevalue"
                 android:inputType="textPersonName"
                 android:textColorHint="#80B9B2"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/etDecoEmailUP"
+                android:id="@+id/etemaileditre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/hint_Email"
+                android:hint="@string/etemailvalue"
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/tea_green_our"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/etDecoMobileUP"
+                android:id="@+id/etphoneeditre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/hint_Phone"
+                android:hint="@string/etphonevalue"
                 android:inputType="phone"
                 android:textColorHint="@color/tea_green_our"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/etDecoCnameUP"
+                android:id="@+id/etcompanynameeditre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/hint_companyName"
+                android:hint="@string/etcompanynamevalue"
                 android:inputType="textPersonName"
                 android:textColorHint="@color/tea_green_our"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/etDecoAddressUP"
+                android:id="@+id/etaddresseditre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/hint_Address"
+                android:hint="@string/etaddressvalue"
                 android:inputType="textPostalAddress"
                 android:textColorHint="@color/tea_green_our"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/etDecoPRiceUP"
+                android:id="@+id/etpriceeditre"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:ems="10"
-                android:hint="@string/hint_price"
+                android:hint="@string/etpricevalue"
                 android:inputType="number"
                 android:textColorHint="#80B9B2"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/etDecoDesUP"
+                android:id="@+id/etdescriptioneditre"
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:gravity="start|top"
-                android:hint="@string/vhDis"
+                android:hint="@string/etdescriptionvalue"
                 android:inputType="textMultiLine"
                 android:textColorHint="#80B9B2"
                 android:textSize="14sp" />
 
             <View
-                android:id="@+id/view"
+                android:id="@+id/vieweditre"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
                 android:background="#DCDBDB" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/etuploadeditre"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                android:text="@string/vhUpimg"
+                android:text="@string/etuploadvalue"
                 android:textColor="#80B9B2"
                 android:textColorHint="#80B9B2" />
 
             <CheckBox
-                android:id="@+id/VehcheckBox"
+                android:id="@+id/checkBoxre"
                 android:layout_width="139dp"
                 android:layout_height="21dp"
                 android:text="CheckBox"
                 android:textColor="#80B9B2" />
 
             <Button
-                android:id="@+id/btnDecoSubUP"
+                android:id="@+id/btn5editre"
                 android:layout_width="90dp"
                 android:layout_height="40dp"
-                android:text="@string/btn_submit"
+                android:text="@string/btn2value"
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/textView6editre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvDecCount"
+            android:id="@+id/tvaddphotoeditre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Update_Decorator"
+            android:layout_marginBottom="6dp"
+            android:text="@string/photographerview"
             android:textColor="#80B9B2"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayouteditre"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
