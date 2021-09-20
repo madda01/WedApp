@@ -39,7 +39,7 @@ public class DecorationFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getContext(),DecoCusView.class));
+                startActivity(new Intent(getContext(), com.example.dreamwedmadd.customer.DecoCusView.class));
             }
         });
 
