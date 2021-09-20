@@ -75,6 +75,9 @@ public class photography_Mainlist extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
+                        Intent intent = new Intent(context,deletePhotographer.class);
+                        intent.putExtra("id",String.valueOf(phtodetails.getId()));
+                        startActivity(intent);
                     }
                 });
 
