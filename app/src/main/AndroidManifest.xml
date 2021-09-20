@@ -49,7 +49,6 @@
         <activity android:name=".costumeAdmin.CostumeAdd" android:exported="true"/>
         <activity android:name=".costumeAdmin.CostumeUpdate" android:exported="true"/>
 
-
     </application>
 
 </manifest>
