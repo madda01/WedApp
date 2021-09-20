@@ -17,6 +17,7 @@
     <string name="etuploadvalue">Upload</string>
     <string name="tveditphoto">Edit Photographer</string>
     <string name="deletetvn">Delete Photographer</string>
+    <string name="photocusbtnv1">View Photographers</string>
 
 
 </resources>
