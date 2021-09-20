@@ -107,7 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/vehOwner"
+            android:hint="@string/vehAddress"
             android:inputType="textPostalAddress"
             android:textColorHint="@color/tea_green_our"
             android:textSize="14sp" />
