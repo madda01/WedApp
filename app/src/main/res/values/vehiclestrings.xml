@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="AddVehbtn">"ADD "</string>
+    <string name="VehCount">You have x vehicles</string>
+    <string name="addVehTitle">Add New Wedding Car</string>
+    <string name="vehBrand">Vehicle Brand</string>
+    <string name="vehModel">Vehicle Model</string>
+    <string name="vehYear">Model Year</string>
+    <string name="vehPrice">Price Per Day</string>
+    <string name="vehDescription">Description</string>
+    <string name="vehOwner">Vehicle Owner</string>
+    <string name="vehPhone">Owner Mobile Number</string>
+    <string name="vehAddress">Address</string>
+    <string name="vehUpload">Upload</string>
+    <string name="vehAddbtn">Add</string>
+    <string name="editVehTitle">Edit Vehicle Details</string>
+</resources>
