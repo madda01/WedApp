@@ -59,8 +59,9 @@ public class AdminDecoView extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        dbDecorator.deleteDeco(decorator.getId());
-                        startActivity(new Intent(context, AdminDecoView.class));
+                        Intent intent=new Intent(context,DeleteDeco.class);
+                        intent.putExtra("idDel",decorator.getId());
+                        startActivity(intent);
                     }
                 });
                 builder.setNegativeButton("update", new DialogInterface.OnClickListener() {
