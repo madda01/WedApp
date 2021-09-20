@@ -18,6 +18,7 @@
     <string name="tveditphoto">Edit Photographer</string>
     <string name="deletetvn">Delete Photographer</string>
     <string name="photocusbtnv1">View Photographers</string>
+    <string name="photographerview">Photographer</string>
 
 
 </resources>
