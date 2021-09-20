@@ -16,8 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DreamWedMADD">
 
-
-        <activity android:name=".photographyAdmin.editPhotographer"></activity>
+        <activity android:name=".photographyAdmin.deletePhotographer"></activity>
+        <activity android:name=".photographyAdmin.editPhotographer" />
         <activity android:name=".photographyAdmin.addPhotographer" />
         <activity android:name=".photographyAdmin.photography_Mainlist" android:exported="true"> </activity>
 
@@ -27,7 +27,6 @@
         <activity android:name=".photographyAdmin.photography_Mainlist" android:exported="true">  </activity>
 
       
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
