@@ -16,6 +16,7 @@
     <string name="etdescriptionvalue">Description</string>
     <string name="etuploadvalue">Upload</string>
     <string name="tveditphoto">Edit Photographer</string>
+    <string name="deletetvn">Delete Photographer</string>
 
 
 </resources>

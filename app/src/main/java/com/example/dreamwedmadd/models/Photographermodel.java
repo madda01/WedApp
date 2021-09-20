@@ -8,7 +8,7 @@ public class Photographermodel {
 
     public Photographermodel(){}
 
-    public Photographermodel(int id, String fnamee, String lnamee, String emaile, String addresse, String comanpnynamee, double pricee, String descriptione, String phonee) {
+    public Photographermodel(int id, String fnamee, String lnamee, String emaile,String phonee,String comanpnynamee,String addresse ,double pricee, String descriptione) {
         this.id = id;
         this.fnamee = fnamee;
         this.lnamee = lnamee;
@@ -20,7 +20,7 @@ public class Photographermodel {
         this.phonee = phonee;
     }
 
-    public Photographermodel(String fnamee, String lnamee, String emaile, String addresse, String comanpnynamee, double pricee, String descriptione, String phonee) {
+    public Photographermodel(String fnamee, String lnamee, String emaile,String phonee,String comanpnynamee,String addresse ,double pricee, String descriptione) {
         this.fnamee = fnamee;
         this.lnamee = lnamee;
         this.emaile = emaile;

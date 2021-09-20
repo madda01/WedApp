@@ -1,11 +1,14 @@
 package com.example.dreamwedmadd.photographyAdmin;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -55,6 +58,38 @@ public class photography_Mainlist extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(context,addPhotographer.class));
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                final Photographermodel phtodetails = photogra.get(i);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle(phtodetails.getFnamee()+" "+phtodetails.getLnamee());
+                builder.setMessage(phtodetails.getComanpnynamee());
+
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        Intent intent = new Intent(context,deletePhotographer.class);
+                        intent.putExtra("id",String.valueOf(phtodetails.getId()));
+                        startActivity(intent);
+                    }
+                });
+
+                builder.setNegativeButton("Update", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                       Intent intent = new Intent(context,editPhotographer.class);
+                       intent.putExtra("id",String.valueOf(phtodetails.getId()));
+                       startActivity(intent);
+                    }
+                });
+                builder.show();
             }
         });
     }
