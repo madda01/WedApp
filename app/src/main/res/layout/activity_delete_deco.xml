@@ -130,7 +130,7 @@
           android:textColorHint="#80B9B2" />
 
       <CheckBox
-          android:id="@+id/checkBox"
+          android:id="@+id/VehcheckBox"
           android:layout_width="139dp"
           android:layout_height="21dp"
           android:text="CheckBox"
