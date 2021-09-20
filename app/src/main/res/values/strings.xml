@@ -10,5 +10,11 @@
     <string name="title_decorations">Decorations</string>
     <string name="title_costumes">Costumes</string>
     <string name="resetpass2text">Re-enter your password</string>
+<<<<<<< HEAD
+=======
+
+    <string name="btnDecoView">View Decorators</string>
+>>>>>>> 1cd92f40c67481474a23f00932d548a40e6234a0
+
 
 </resources>
