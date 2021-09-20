@@ -37,14 +37,13 @@
          <activity android:name=".customer.SngleDecoCus"></activity>
 
 
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            android:exported="true" >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -57,10 +56,15 @@
         <activity android:name=".ForgetPasswordActivity" android:exported="true" />
         <activity android:name=".PasswordConfirmationActivity" android:exported="true" />
         <activity android:name=".MainActivity2" android:exported="true" />
-        <activity android:name=".costumeAdmin.CostumeAdminHome" android:exported="true"/>
+
+        <activity android:name=".costumeAdmin.CostumeAdminHome" android:exported="true"></activity>
         <activity android:name=".costumeAdmin.CostumeAdd" android:exported="true"/>
         <activity android:name=".costumeAdmin.CostumeUpdate" android:exported="true"/>
-        
+        <activity android:name=".costumeAdmin.CostumeDelete" android:exported="true"/>
+        <activity android:name=".customer.CostumeView" android:exported="true"/>
+        <activity android:name=".customer.CostumeEach" android:exported="true"/>
+
+
     </application>
 
 </manifest>

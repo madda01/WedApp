@@ -39,4 +39,7 @@
     <string name="etCon">Are You Sure ?</string>
     <string name="etConDes">Do you want to book this costume</string>
     <string name="headupdatecostume">Update Costume</string>
+    <string name="headDeleteCostume">Delete Costume</string>
+    <string name="btnCosView">View Costumes</string>
+    <string name="btnbook">Book This</string>
 </resources>
