@@ -154,7 +154,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dp"
-        android:text="@string/deletetv"
+        android:text="@string/deletetvn"
         android:textColor="#80B9B2"
         android:textSize="20sp"
         android:textStyle="bold"
