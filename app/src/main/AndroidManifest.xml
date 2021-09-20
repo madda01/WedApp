@@ -15,6 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DreamWedMADD">
+
         <activity android:name=".photographyAdmin.deletePhotographer"></activity>
         <activity android:name=".photographyAdmin.editPhotographer" />
         <activity android:name=".photographyAdmin.addPhotographer" />

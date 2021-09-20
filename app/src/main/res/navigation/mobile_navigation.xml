@@ -8,27 +8,27 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.dreamwedmadd.common.HomeFragment"
+        android:name="com.example.dreamwedmadd.customer.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/carFragment"
-        android:name="com.example.dreamwedmadd.common.VehicleFragment"
+        android:name="com.example.dreamwedmadd.customer.VehicleFragment"
         android:label="Vehicles"
         tools:layout="@layout/fragment_vehicle" />
     <fragment
         android:id="@+id/cameraFragment"
-        android:name="com.example.dreamwedmadd.common.PhotographyFragment"
+        android:name="com.example.dreamwedmadd.customer.PhotographyFragment"
         android:label="Photography"
         tools:layout="@layout/fragment_photography" />
     <fragment
         android:id="@+id/decoFragment"
-        android:name="com.example.dreamwedmadd.common.DecorationFragment"
+        android:name="com.example.dreamwedmadd.customer.DecorationFragment"
         android:label="Decorations"
         tools:layout="@layout/fragment_decoration" />
     <fragment
         android:id="@+id/cosFragment"
-        android:name="com.example.dreamwedmadd.common.CostumeFragment"
+        android:name="com.example.dreamwedmadd.customer.CostumeFragment"
         android:label="Costumes"
         tools:layout="@layout/fragment_costume" />
 </navigation>
