@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".photographyAdmin.addPhotographer">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvaddphoto">
+
+        <EditText
+            android:id="@+id/etfirstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="@string/etfnamevalue"
+            android:inputType="textPersonName"
+            android:textAlignment="viewStart"
+            android:textColorHint="#80B9B2"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etlastname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/etlastnamevalue"
+            android:inputType="textPersonName"
+            android:textColorHint="#80B9B2"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/etemailvalue"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/tea_green_our"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/etphonevalue"
+            android:inputType="phone"
+            android:textColorHint="@color/tea_green_our"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etcompanyname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/etcompanynamevalue"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/tea_green_our"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etaddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/etaddressvalue"
+            android:inputType="textPostalAddress"
+            android:textColorHint="@color/tea_green_our"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etprice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="@string/etpricevalue"
+            android:inputType="number"
+            android:textColorHint="#80B9B2"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etdescription"
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/etdescriptionvalue"
+            android:inputType="textMultiLine"
+            android:textColorHint="#80B9B2"
+            android:textSize="14sp" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:background="#DCDBDB" />
+
+        <TextView
+            android:id="@+id/etupload"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/etuploadvalue"
+            android:textColor="#80B9B2"
+            android:textColorHint="#80B9B2" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="139dp"
+            android:layout_height="21dp"
+            android:text="CheckBox"
+            android:textColor="#80B9B2" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:text="@string/btn2value"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvaddphoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/addphoto"
+        android:textColor="#80B9B2"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
