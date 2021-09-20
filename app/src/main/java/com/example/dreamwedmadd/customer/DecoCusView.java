@@ -1,4 +1,4 @@
-package com.example.dreamwedmadd.common;
+package com.example.dreamwedmadd.customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 

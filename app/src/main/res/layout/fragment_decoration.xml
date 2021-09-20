@@ -5,12 +5,7 @@
     android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-=======
     tools:context=".customer.DecorationFragment">
->>>>>>> 899af20789dd646e7f4df33fcb1d5a5ef98aedb2
-
-    android:orientation="vertical" >
 
     <Button
         android:id="@+id/btnDecocusView"
