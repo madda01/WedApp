@@ -63,11 +63,12 @@ public class addPhotographer extends AppCompatActivity {
                         fnme,
                         lnme,
                         eml,
-                        addr,
+                        mobilen,
                         cpyname,
+                        addr,
                         prise,
-                        dcri,
-                        mobilen
+                        dcri
+
                 );
                 photoDbhandler.addPhotographer(phto);
                 startActivity(new Intent(context,photography_Mainlist.class));

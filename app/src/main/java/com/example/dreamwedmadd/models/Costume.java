@@ -1,41 +1,39 @@
 package com.example.dreamwedmadd.models;
 //model class for costumes
 public class Costume {
-    private int cosid;
+    private int id;
     private String title;
     private String price;
-    private String discount;
-    private String sizes;
+    private String size;
     private String shop;
-    private String tmobile;
+    private String phone;
     private String description;
+    private int costumepic;
 
     public Costume(){}
 
-    public Costume(int cosid,String title, String price, String discount, String sizes, String shop, String tmobile, String description) {
-        this.cosid=cosid;
+    public Costume(int id,String title, String price, String size, String shop, String phone, String description) {
+        this.id=id;
         this.title = title;
         this.price = price;
-        this.discount = discount;
-        this.sizes = sizes;
+        this.size = size;
         this.shop = shop;
-        this.tmobile = tmobile;
+        this.phone = phone;
         this.description = description;
     }
 
-    public Costume(String title, String price, String discount, String sizes, String shop, String tmobile, String description) {
+    public Costume(String title, String price, String size, String shop, String phone, String description) {
         this.title = title;
         this.price = price;
-        this.discount = discount;
-        this.sizes = sizes;
+        this.size = size;
         this.shop = shop;
-        this.tmobile = tmobile;
+        this.phone = phone;
         this.description = description;
     }
 
-    public int getCosid() { return cosid; }
+    public int getId() { return id; }
 
-    public void setCosid(int cosid) { this.cosid = cosid; }
+    public void setId(int cosid) { this.id = cosid; }
 
     public String getTitle() {
         return title;
@@ -53,20 +51,12 @@ public class Costume {
         this.price = price;
     }
 
-    public String getDiscount() {
-        return discount;
+    public String getSize() {
+        return size;
     }
 
-    public void setDiscount(String discount) {
-        this.discount = discount;
-    }
-
-    public String getSizes() {
-        return sizes;
-    }
-
-    public void setSizes(String sizes) {
-        this.sizes = sizes;
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public String getShop() {
@@ -77,12 +67,12 @@ public class Costume {
         this.shop = shop;
     }
 
-    public String getTmobile() {
-        return tmobile;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTmobile(String tmobile) {
-        this.tmobile = tmobile;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getDescription() {
@@ -92,6 +82,10 @@ public class Costume {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public int getCostumepic() { return costumepic; }
+
+    public void setCostumepic(int costumepic) { this.costumepic = costumepic; }
 }
 
 
