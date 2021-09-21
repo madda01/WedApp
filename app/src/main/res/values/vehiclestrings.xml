@@ -16,4 +16,6 @@
     <string name="editVehTitle">Edit Vehicle Details</string>
     <string name="deleteVehTitle">Delete Wedding Car</string>
     <string name="vehDeletebtn">Delete</string>
+    <string name="cusViewVehListBtn">View Wedding Cars</string>
+    <string name="vehBooktbtn">BOOK THIS</string>
 </resources>

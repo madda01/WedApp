@@ -14,6 +14,7 @@
     <string name="vehEditbtn">Update</string>
 
     <string name="btnDecoView">View Decorators</string>
+    <string name="ViewVehTitle">VEHICLE DETAILS</string>
 
 
 </resources>

@@ -23,7 +23,7 @@ public class VehicleAdapter extends ArrayAdapter<Vehicle> {
     private int resource;
     List<Vehicle> vehicles;
 
-    VehicleAdapter(Context context, int resource, List<Vehicle> vehicles){
+    public VehicleAdapter(Context context, int resource, List<Vehicle> vehicles){
 
         super(context,resource,vehicles);
         this.context=context;
