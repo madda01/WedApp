@@ -10,6 +10,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.dreamwedmadd.DecorationAdmin.AdminDecoView;
+import com.example.dreamwedmadd.photographyAdmin.photography_Mainlist;
+import com.example.dreamwedmadd.DecorationAdmin.AdminDecoView;
+import com.example.dreamwedmadd.costumeAdmin.CostumeAdminHome;
 import com.example.dreamwedmadd.database.DBConnection;
 
 public class LoginActivity extends AppCompatActivity {
@@ -42,14 +46,31 @@ public class LoginActivity extends AppCompatActivity {
                 if (etpassword.getText().toString().isEmpty()) {
                     etpassword.setError("Password field can not be empty.");
                 }
-                if (databaseHelper.checkUser(etusername.getText().toString()
+                if((etusername.getText().toString().equals("c"))&&(etpassword.getText().toString().equals("c"))){
+                    Toast.makeText(getApplicationContext(),"Redirecting to Costume admin",Toast.LENGTH_LONG).show();
+                    Intent start= new Intent(LoginActivity.this, CostumeAdminHome.class);
+                    startActivity(start);
+                } else if((etusername.getText().toString().equals("d"))&&(etpassword.getText().toString().equals("d"))){
+                    Toast.makeText(getApplicationContext(),"Redirecting to Decoration admin",Toast.LENGTH_LONG).show();
+                    Intent start= new Intent(LoginActivity.this, AdminDecoView.class);
+                    startActivity(start);
+                } else if((etusername.getText().toString().equals("v"))&&(etpassword.getText().toString().equals("v"))){
+                    Toast.makeText(getApplicationContext(),"Redirecting to Vehicle admin",Toast.LENGTH_LONG).show();
+                    Intent start= new Intent(LoginActivity.this, AdminDecoView.class);
+                    startActivity(start);
+                } else if((etusername.getText().toString().equals("p"))&&(etpassword.getText().toString().equals("p"))){
+                    Toast.makeText(getApplicationContext(),"Redirecting to Photography admin",Toast.LENGTH_LONG).show();
+                    Intent start= new Intent(LoginActivity.this, photography_Mainlist.class);
+                    startActivity(start);
+                }
+                else if (databaseHelper.checkUser(etusername.getText().toString()
                         , etpassword.getText().toString())) {
-                    //intent creation: Explicit
-                    Intent i= new Intent(LoginActivity.this,MainActivity2.class);
-                    i.putExtra("Message2","Directing To Home");
-                    i.putExtra("email",etusername.getText().toString().trim());
-                    i.putExtra("password",etpassword.getText().toString().trim());
-                    startActivity(i);
+                        //intent creation: Explicit
+                        Intent i = new Intent(LoginActivity.this, MainActivity2.class);
+                        i.putExtra("Message2", "Directing To Customer Home");
+                        i.putExtra("email", etusername.getText().toString().trim());
+                        i.putExtra("password", etpassword.getText().toString().trim());
+                        startActivity(i);
 
                 } else {
                     // toast to show success message that record is wrong
