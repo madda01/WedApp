@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DreamWedMADD">
         <activity
+            android:name=".VehicleAddmin.DeleteVehicle"
+            android:exported="true" />
+        <activity
             android:name=".VehicleAddmin.EditVehicle"
             android:exported="true" />
         <activity

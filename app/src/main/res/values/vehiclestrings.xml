@@ -14,4 +14,6 @@
     <string name="vehUpload">Upload</string>
     <string name="vehAddbtn">Add</string>
     <string name="editVehTitle">Edit Vehicle Details</string>
+    <string name="deleteVehTitle">Delete Wedding Car</string>
+    <string name="vehDeletebtn">Delete</string>
 </resources>

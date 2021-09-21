@@ -87,7 +87,9 @@ public class AddminVehicleList extends AppCompatActivity {
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        Intent intent = new Intent(context,DeleteVehicle.class);
+                        intent.putExtra("idd",String.valueOf(vehicle.getId()));
+                        startActivity(intent);
                     }
                 });
                 builder.show();
