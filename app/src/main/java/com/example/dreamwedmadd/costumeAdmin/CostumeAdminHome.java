@@ -69,8 +69,11 @@ public class CostumeAdminHome extends AppCompatActivity {
                 builder.setNegativeButton("Delete Costume", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        db.deleteCostume(costume.getId());
-                        startActivity(new Intent(context,CostumeAdminHome.class));
+                        Intent intent = new Intent(context,CostumeDelete.class);
+                        intent.putExtra("idDel",String.valueOf(costume.getId()));
+                        startActivity(intent);
+                        //db.deleteCostume(costume.getId());
+                        //startActivity(new Intent(context,CostumeAdminHome.class));
                     }
                 });
                 builder.setNeutralButton("Update Costume", new DialogInterface.OnClickListener() {

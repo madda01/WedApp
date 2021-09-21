@@ -252,15 +252,11 @@ public class DBConnection extends SQLiteOpenHelper {
 
     // Get a single costume
     public Costume getSingleCostume(int cosid){
+        Costume costume;
         SQLiteDatabase db = getWritableDatabase();
 
-        Cursor cursor = db.query(DBMaster.Costumes.TABLE_NAME2,new String[]{DBMaster.Costumes._ID,DBMaster.Costumes.COLUMN_NAME_TITLE,
-                        DBMaster.Costumes.COLUMN_NAME_PRICE,DBMaster.Costumes.COLUMN_NAME_SIZE,DBMaster.Costumes.COLUMN_NAME_SHOP,
-                        DBMaster.Costumes.COLUMN_NAME_PHONE,DBMaster.Costumes.COLUMN_NAME_DESCRIPTION},
-                DBMaster.Costumes._ID + " LIKE ?",new String[]{String.valueOf(cosid)}
-                ,null,null,null);
+        Cursor cursor = db.query(DBMaster.Costumes.TABLE_NAME2,new String[]{DBMaster.Costumes._ID,DBMaster.Costumes.COLUMN_NAME_TITLE, DBMaster.Costumes.COLUMN_NAME_PRICE,DBMaster.Costumes.COLUMN_NAME_SIZE,DBMaster.Costumes.COLUMN_NAME_SHOP, DBMaster.Costumes.COLUMN_NAME_PHONE,DBMaster.Costumes.COLUMN_NAME_DESCRIPTION}, DBMaster.Costumes._ID + " =?",new String[]{String.valueOf(cosid)},null,null,null);
 
-        Costume costume;
         if(cursor != null){
             cursor.moveToFirst();
             costume = new Costume(
@@ -273,8 +269,10 @@ public class DBConnection extends SQLiteOpenHelper {
                     cursor.getString(6)
             );
             return costume;
+
         }
         return null;
+
     }
 
 }
