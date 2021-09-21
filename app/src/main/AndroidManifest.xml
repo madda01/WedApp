@@ -16,10 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DreamWedMADD">
 
-      
+
         <activity android:name=".VehicleAddmin.EditVehicle" android:exported="true" />
         <activity android:name=".VehicleAddmin.AddVehicle" android:exported="true" />
-        <activity android:name=".VehicleAddmin.AddminVehicleList" android:exported="true">
+        <activity android:name=".VehicleAddmin.AddminVehicleList" android:exported="true"/>
+        <activity android:name=".VehicleAddmin.DeleteVehicle" android:exported="true" />
 
 
         <activity android:name=".photographyAdmin.deletePhotographer"></activity>
@@ -37,10 +38,10 @@
          <activity android:name=".customer.SngleDecoCus"></activity>
 
 
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
