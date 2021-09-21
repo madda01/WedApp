@@ -11,8 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dreamwedmadd.DecorationAdmin.AdminDecoView;
+import com.example.dreamwedmadd.VehicleAddmin.AddminVehicleList;
 import com.example.dreamwedmadd.photographyAdmin.photography_Mainlist;
-import com.example.dreamwedmadd.DecorationAdmin.AdminDecoView;
 import com.example.dreamwedmadd.costumeAdmin.CostumeAdminHome;
 import com.example.dreamwedmadd.database.DBConnection;
 
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(start);
                 } else if((etusername.getText().toString().equals("v"))&&(etpassword.getText().toString().equals("v"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Vehicle admin",Toast.LENGTH_LONG).show();
-                    Intent start= new Intent(LoginActivity.this, AdminDecoView.class);
+                    Intent start= new Intent(LoginActivity.this, AddminVehicleList.class);
                     startActivity(start);
                 } else if((etusername.getText().toString().equals("p"))&&(etpassword.getText().toString().equals("p"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Photography admin",Toast.LENGTH_LONG).show();
