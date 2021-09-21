@@ -19,14 +19,20 @@
 
         <activity android:name=".VehicleAddmin.EditVehicle" android:exported="true" />
         <activity android:name=".VehicleAddmin.AddVehicle" android:exported="true" />
-        <activity android:name=".VehicleAddmin.AddminVehicleList" android:exported="true"/>
+        <activity android:name=".VehicleAddmin.AddminVehicleList" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".VehicleAddmin.DeleteVehicle" android:exported="true" />
 
 
-        <activity android:name=".photographyAdmin.deletePhotographer"></activity>
+        <activity android:name=".photographyAdmin.deletePhotographer"/>
         <activity android:name=".photographyAdmin.editPhotographer" />
         <activity android:name=".photographyAdmin.addPhotographer" />
-        <activity android:name=".photographyAdmin.photography_Mainlist" android:exported="true"> </activity>
+        <activity android:name=".photographyAdmin.photography_Mainlist" android:exported="true"/>
 
 
         <activity android:name=".DecorationAdmin.AddDeco" android:exported="true"></activity>
@@ -36,14 +42,7 @@
         <activity android:name=".customer.DecoCusView" android:exported="true"></activity>
 
 
-        <activity android:name=".MainActivity" android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+        <activity android:name=".MainActivity" android:exported="true"/>
 
         <activity android:name=".LoginActivity" android:exported="true" />
         <activity android:name=".RegisterActivity" android:exported="true" />
