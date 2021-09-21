@@ -7,183 +7,161 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".VehicleAddmin.DeleteVehicle">
+        tools:context=".photographyAdmin.deletePhotographer">
+
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/linearLayouteditre"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="28dp"
             android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvdeleteVeh">
+            app:layout_constraintTop_toBottomOf="@+id/tvaddphotoeditre">
 
             <EditText
-                android:id="@+id/deleteVehBrand"
+                android:id="@+id/etfirstnameeditre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:background="@drawable/layout_border"
+                android:layout_marginTop="10dp"
                 android:ems="10"
-                android:hint="@string/vehBrand"
+                android:hint="@string/etfnamevalue"
                 android:inputType="textPersonName"
                 android:textAlignment="viewStart"
                 android:textColorHint="#80B9B2"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/deleteVehModel"
+                android:id="@+id/etlastnameeditre"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:padding="5dp"
-                android:background="@drawable/layout_border"
+                android:layout_marginTop="8dp"
                 android:ems="10"
-                android:hint="@string/vehModel"
+                android:hint="@string/etlastnamevalue"
                 android:inputType="textPersonName"
                 android:textColorHint="#80B9B2"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/deleteVehYear"
+                android:id="@+id/etemaileditre"
                 android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:background="@drawable/layout_border"
                 android:ems="10"
-                android:hint="@string/vehYear"
-                android:inputType="date"
+                android:hint="@string/etemailvalue"
+                android:inputType="textEmailAddress"
                 android:textColorHint="@color/tea_green_our"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/deleteVehPrice"
+                android:id="@+id/etphoneeditre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/etphonevalue"
+                android:inputType="phone"
+                android:textColorHint="@color/tea_green_our"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etcompanynameeditre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/etcompanynamevalue"
+                android:inputType="textPersonName"
+                android:textColorHint="@color/tea_green_our"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etaddresseditre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/etaddressvalue"
+                android:inputType="textPostalAddress"
+                android:textColorHint="@color/tea_green_our"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etpriceeditre"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:padding="5dp"
-                android:background="@drawable/layout_border"
                 android:ems="10"
-                android:hint="@string/vehPrice"
+                android:hint="@string/etpricevalue"
                 android:inputType="number"
                 android:textColorHint="#80B9B2"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/deleteVehDescription"
+                android:id="@+id/etdescriptioneditre"
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
                 android:layout_marginTop="10dp"
-                android:padding="5dp"
-                android:background="@drawable/layout_border"
                 android:ems="10"
                 android:gravity="start|top"
-                android:hint="@string/vehDescription"
+                android:hint="@string/etdescriptionvalue"
                 android:inputType="textMultiLine"
                 android:textColorHint="#80B9B2"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/deleteVehOwner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:padding="5dp"
-                android:background="@drawable/layout_border"
-                android:ems="10"
-                android:hint="@string/vehOwner"
-                android:inputType="textPersonName"
-                android:textColorHint="@color/tea_green_our"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/deleteVehPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:padding="5dp"
-                android:background="@drawable/layout_border"
-                android:ems="10"
-                android:hint="@string/vehPhone"
-                android:inputType="phone"
-                android:textColorHint="@color/tea_green_our"
-                android:textSize="14sp" />
-
-
-            <EditText
-                android:id="@+id/deleteVehAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:padding="5dp"
-                android:background="@drawable/layout_border"
-                android:ems="10"
-                android:hint="@string/vehAddress"
-                android:inputType="textPostalAddress"
-                android:textColorHint="@color/tea_green_our"
-                android:textSize="14sp" />
-
             <View
-                android:id="@+id/view"
+                android:id="@+id/vieweditre"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
                 android:background="#DCDBDB" />
 
             <TextView
-                android:id="@+id/deleteVehUpload"
+                android:id="@+id/etuploadeditre"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
-                android:text="@string/vehUpload"
+                android:text="@string/etuploadvalue"
                 android:textColor="#80B9B2"
                 android:textColorHint="#80B9B2" />
 
             <CheckBox
-                android:id="@+id/deleteVehcheckBox"
+                android:id="@+id/checkBoxre"
                 android:layout_width="139dp"
                 android:layout_height="21dp"
                 android:text="CheckBox"
                 android:textColor="#80B9B2" />
 
             <Button
-                android:id="@+id/vehdeleteBtn"
+                android:id="@+id/btn5editre"
                 android:layout_width="90dp"
                 android:layout_height="40dp"
-                android:text="@string/vehDeletebtn"
+                android:text="@string/btn2value"
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/deleteVehtextView6"
+                android:id="@+id/textView6editre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
 
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvdeleteVeh"
+            android:id="@+id/tvaddphotoeditre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/deleteVehTitle"
+            android:layout_marginBottom="6dp"
+            android:text="@string/photographerview"
             android:textColor="#80B9B2"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayouteditre"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

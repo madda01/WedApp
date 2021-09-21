@@ -23,7 +23,7 @@ public class CostumeAdapter extends ArrayAdapter<Costume> {
     private int resource;
     List<Costume> costumes;
 
-    CostumeAdapter(Context context, int resource, List<Costume> costumes){
+    public CostumeAdapter(Context context, int resource, List<Costume> costumes){
         super(context,resource,costumes);
         this.context = context;
         this.resource = resource;
@@ -38,14 +38,14 @@ public class CostumeAdapter extends ArrayAdapter<Costume> {
 
         TextView title = row.findViewById(R.id.tvtitle);
         TextView description = row.findViewById(R.id.tvdecription);
-        ImageView imageView = row.findViewById(R.id.imageview);
+        //ImageView imageView = row.findViewById(R.id.imageview);
 
 
         // costumes [obj1,obj2,obj3]
         Costume costume = costumes.get(position);
         title.setText(costume.getTitle());
         description.setText(costume.getDescription());
-        imageView.setVisibility(row.VISIBLE);
+        //imageView.setVisibility(row.VISIBLE);
 
         return row;
     }

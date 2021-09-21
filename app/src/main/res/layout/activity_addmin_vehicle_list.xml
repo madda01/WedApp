@@ -8,7 +8,7 @@
 
     <ListView
         android:id="@+id/adminVehicleList"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="626dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

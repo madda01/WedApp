@@ -14,21 +14,22 @@ import com.example.dreamwedmadd.R;
 
 public class VehicleFragment extends Fragment {
 
+    //define variables
     Button btn;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root=inflater.inflate(R.layout.fragment_decoration, container, false);
+        View root=inflater.inflate(R.layout.fragment_vehicle, container, false);
 
-        btn=root.findViewById(R.id.btnDecocusView);
+        btn=root.findViewById(R.id.cusViewVehicleListBtn);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(getContext(), com.example.dreamwedmadd.customer.DecoCusView.class));
+                //navigate customer to the Vehicle list
+                startActivity(new Intent(getContext(), com.example.dreamwedmadd.customer.CustomerVehicleList.class));
             }
         });
 

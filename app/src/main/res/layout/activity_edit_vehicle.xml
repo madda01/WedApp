@@ -25,14 +25,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tveditVeh">
 
+
         <EditText
             android:id="@+id/editVehBrand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+
             android:ems="10"
             android:hint="@string/vehBrand"
             android:inputType="textPersonName"
+            android:padding="5dp"
+            android:background="@drawable/layout_border"
             android:textAlignment="viewStart"
             android:textColorHint="#80B9B2"
             android:textSize="14sp" />
@@ -41,10 +44,12 @@
             android:id="@+id/editVehModel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="@string/vehModel"
             android:inputType="textPersonName"
+            android:padding="5dp"
+            android:background="@drawable/layout_border"
             android:textColorHint="#80B9B2"
             android:textSize="14sp" />
 
@@ -55,6 +60,9 @@
             android:ems="10"
             android:hint="@string/vehYear"
             android:inputType="date"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:background="@drawable/layout_border"
             android:textColorHint="@color/tea_green_our"
             android:textSize="14sp" />
 
@@ -66,6 +74,8 @@
             android:ems="10"
             android:hint="@string/vehPrice"
             android:inputType="number"
+            android:padding="5dp"
+            android:background="@drawable/layout_border"
             android:textColorHint="#80B9B2"
             android:textSize="14sp" />
 
@@ -78,6 +88,8 @@
             android:gravity="start|top"
             android:hint="@string/vehDescription"
             android:inputType="textMultiLine"
+            android:padding="5dp"
+            android:background="@drawable/layout_border"
             android:textColorHint="#80B9B2"
             android:textSize="14sp" />
 
@@ -88,6 +100,9 @@
             android:ems="10"
             android:hint="@string/vehOwner"
             android:inputType="textPersonName"
+            android:padding="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/layout_border"
             android:textColorHint="@color/tea_green_our"
             android:textSize="14sp" />
 
@@ -98,6 +113,9 @@
             android:ems="10"
             android:hint="@string/vehPhone"
             android:inputType="phone"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:background="@drawable/layout_border"
             android:textColorHint="@color/tea_green_our"
             android:textSize="14sp" />
 
@@ -109,6 +127,9 @@
             android:ems="10"
             android:hint="@string/vehAddress"
             android:inputType="textPostalAddress"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:background="@drawable/layout_border"
             android:textColorHint="@color/tea_green_our"
             android:textSize="14sp" />
 
