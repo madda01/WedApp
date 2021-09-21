@@ -104,14 +104,16 @@ public class customercart extends AppCompatActivity {
 
 
         //check total price is 0
-        if(toprice.length()>0){
-            tview9.setVisibility(View.VISIBLE);
-            etext9.setVisibility(View.VISIBLE);
+        if(toprice.equals("0.0")){
+            tview9.setVisibility(View.INVISIBLE);
+            etext9.setVisibility(View.INVISIBLE);
+
             //etext9.setText(toprice);
         }
         else{
-            tview9.setVisibility(View.INVISIBLE);
-            etext9.setVisibility(View.INVISIBLE);
+            tview9.setVisibility(View.VISIBLE);
+            etext9.setVisibility(View.VISIBLE);
+
         }
 
 
