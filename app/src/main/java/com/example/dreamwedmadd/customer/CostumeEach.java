@@ -18,7 +18,7 @@ import com.example.dreamwedmadd.models.Costume;
 public class CostumeEach extends AppCompatActivity {
     Button btn;
     Context context;
-    EditText price,description,size,title,shop,phone;
+    EditText price,description,email,title,shop,phone;
     DBConnection db;
     Costume costume;
     TextView textView;
@@ -32,7 +32,7 @@ public class CostumeEach extends AppCompatActivity {
         btn = findViewById(R.id.btnCostumeBook);
         title=findViewById(R.id.viewtitle);
         price = findViewById(R.id.viewprice);
-        size=findViewById(R.id.viewsizes);
+        email=findViewById(R.id.viewsizes);
         shop=findViewById(R.id.viewshop);
         phone=findViewById(R.id.viewmobile);
         description = findViewById(R.id.viewdesc);
@@ -49,7 +49,7 @@ public class CostumeEach extends AppCompatActivity {
         textView.setText(costume.getTitle());
         title.setText(costume.getTitle());
         price.setText(String.valueOf(costume.getPrice()));
-        size.setText(costume.getSize());
+        email.setText(costume.getEmail());
         shop.setText(costume.getShop());
         phone.setText(costume.getPhone());
         description.setText(costume.getDescription());
@@ -57,7 +57,7 @@ public class CostumeEach extends AppCompatActivity {
         textView.setKeyListener(null);
         title.setKeyListener(null);
         price.setKeyListener(null);
-        size.setKeyListener(null);
+        email.setKeyListener(null);
         shop.setKeyListener(null);
         phone.setKeyListener(null);
         description.setKeyListener(null);

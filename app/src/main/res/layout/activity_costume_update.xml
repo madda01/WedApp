@@ -13,8 +13,8 @@
 
         <TextView
             android:id="@+id/textView18"
-            android:layout_width="200dp"
-            android:layout_height="29dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/headupdatecostume"
             android:textColor="#2E2D2D"
@@ -45,7 +45,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/title_des"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.052"
+                app:layout_constraintHorizontal_bias="0.045"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,7 +59,7 @@
                 android:paddingLeft="5dp"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.473"
+                app:layout_constraintHorizontal_bias="0.346"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
@@ -78,7 +78,6 @@
                 android:id="@+id/addprice"
                 android:layout_width="129dp"
                 android:layout_height="23dp"
-                android:layout_marginTop="8dp"
                 android:background="@drawable/layout_border"
                 android:ems="10"
                 android:inputType="numberDecimal"
@@ -94,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/et_sizes"
+                android:text="@string/et_email"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.057"
                 app:layout_constraintStart_toStartOf="parent"
@@ -104,14 +103,13 @@
                 android:id="@+id/addsizes"
                 android:layout_width="248dp"
                 android:layout_height="28dp"
-                android:layout_marginTop="4dp"
                 android:background="@drawable/layout_border"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="5dp"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.162"
+                app:layout_constraintHorizontal_bias="0.119"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
@@ -130,14 +128,13 @@
                 android:id="@+id/addshop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
                 android:background="@drawable/layout_border"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingLeft="5dp"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.088"
+                app:layout_constraintHorizontal_bias="0.071"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
@@ -157,14 +154,13 @@
                 android:id="@+id/addmobile"
                 android:layout_width="133dp"
                 android:layout_height="25dp"
-                android:layout_marginTop="4dp"
                 android:background="@drawable/layout_border"
                 android:ems="10"
                 android:inputType="numberDecimal"
                 android:paddingLeft="5dp"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.084"
+                app:layout_constraintHorizontal_bias="0.064"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
@@ -183,7 +179,6 @@
                 android:id="@+id/adddesc"
                 android:layout_width="350dp"
                 android:layout_height="62dp"
-                android:layout_marginTop="8dp"
                 android:background="@drawable/layout_border"
                 android:ems="10"
                 android:gravity="start|top"
