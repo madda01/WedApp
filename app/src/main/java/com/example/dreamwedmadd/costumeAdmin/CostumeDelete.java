@@ -46,7 +46,7 @@ public class CostumeDelete extends AppCompatActivity {
         costume=dbHandler.getSingleCostume(Integer.parseInt(id));
 
         title.setText(costume.getTitle());
-        price.setText(costume.getPrice());
+        price.setText(String.valueOf(costume.getPrice()));
         size.setText(costume.getSize());
         shop.setText(costume.getShop());
         phone.setText(costume.getPhone());

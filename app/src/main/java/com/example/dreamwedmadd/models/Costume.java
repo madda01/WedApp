@@ -3,16 +3,16 @@ package com.example.dreamwedmadd.models;
 public class Costume {
     private int id;
     private String title;
-    private String price;
+    private double price;
     private String size;
     private String shop;
     private String phone;
     private String description;
-    private int costumepic;
+    private byte[] image;
 
     public Costume(){}
 
-    public Costume(int id,String title, String price, String size, String shop, String phone, String description) {
+    public Costume(int id,String title, double price, String size, String shop, String phone, String description, byte[] image) {
         this.id=id;
         this.title = title;
         this.price = price;
@@ -20,9 +20,21 @@ public class Costume {
         this.shop = shop;
         this.phone = phone;
         this.description = description;
+        this.image=image;
     }
 
-    public Costume(String title, String price, String size, String shop, String phone, String description) {
+    public Costume(String title, double price, String size, String shop, String phone, String description, byte[] image) {
+        this.title = title;
+        this.price = price;
+        this.size = size;
+        this.shop = shop;
+        this.phone = phone;
+        this.description = description;
+        this.image=image;
+    }
+
+    public Costume(int id, String title, double price, String size, String shop, String phone, String description) {
+        this.id=id;
         this.title = title;
         this.price = price;
         this.size = size;
@@ -43,11 +55,11 @@ public class Costume {
         this.title = title;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -83,9 +95,9 @@ public class Costume {
         this.description = description;
     }
 
-    public int getCostumepic() { return costumepic; }
+    public byte[] getImage() { return image; }
 
-    public void setCostumepic(int costumepic) { this.costumepic = costumepic; }
+    public void setImage(byte[] image) { this.image = image; }
 }
 
 
