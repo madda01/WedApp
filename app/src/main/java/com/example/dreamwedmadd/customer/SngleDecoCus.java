@@ -91,6 +91,9 @@ public class SngleDecoCus extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("namedeco",et1.getText().toString() +"" + et2.getText().toString() );
                 editor.putString("pricedeco",et7.getText().toString());
+                editor.putString("emaildeco",et3.getText().toString());
+
+
                 editor.commit();
 
                 startActivity(new Intent(context, customercart.class));

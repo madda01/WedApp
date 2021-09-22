@@ -7,21 +7,29 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dreamwedmadd.MainActivity2;
 import com.example.dreamwedmadd.R;
+import com.example.dreamwedmadd.models.User;
+
+import java.util.List;
 
 public class customercart extends AppCompatActivity {
 
     EditText etext, etext2,etext3,etext4,etext5,etext6,etext7,etext8,etext9 ;
     TextView tview1,tview2,tview3,tview4,tview5,tview6,tview7,tview8,tview9;
-    Button   btn1,btn2,btn3,btn4;
+    Button   btn1,btn2,btn3,btn4,btn5;
+    ImageView imagel;
     Context context ;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +37,7 @@ public class customercart extends AppCompatActivity {
 
         context = this;
 
-        etext  = findViewById(R.id.etcart1);
+        etext = findViewById(R.id.etcart1);
         etext2 = findViewById(R.id.etcart2);
         etext3 = findViewById(R.id.etcart3);
         etext4 = findViewById(R.id.etcart4);
@@ -54,33 +62,39 @@ public class customercart extends AppCompatActivity {
         btn2 = findViewById(R.id.btnl2);
         btn3 = findViewById(R.id.btnl3);
         btn4 = findViewById(R.id.btnl4);
+        btn5 = findViewById(R.id.btnlbook);
+
+        imagel = findViewById(R.id.imagecart);
 
 
-
-
-
-        SharedPreferences sharedPreferences = getSharedPreferences("customercart",MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("customercart", MODE_PRIVATE);
 
         //photography
-        String pname = sharedPreferences.getString("name","No Photographer");
-        String pprice = sharedPreferences.getString("price","0.00");
+        String pname = sharedPreferences.getString("name", "No Photographer");
+        String pprice = sharedPreferences.getString("price", "0.00");
+        String pemail = sharedPreferences.getString("email", "No email");
 
         //deco
-        String deconame = sharedPreferences.getString("namedeco","No Decorator");
-        String decoprice = sharedPreferences.getString("pricedeco","0.00");
-
-
-
+        String deconame = sharedPreferences.getString("namedeco", "No Decorator");
+        String decoprice = sharedPreferences.getString("pricedeco", "0.00");
+        String demail = sharedPreferences.getString("emaildeco", "No email");
 
         //vehicle
-        String vhname = sharedPreferences.getString("vename","No Vehicle");
-        String vhprice = sharedPreferences.getString("veprice","0.00");
+        String vhname = sharedPreferences.getString("vename", "No Vehicle");
+        String vhprice = sharedPreferences.getString("veprice", "0.00");
+        String vhowner = sharedPreferences.getString("vowner", "No Owner");
+
+        //costume
+        String costumename  = sharedPreferences.getString("costumename", "No Costume");
+        String costumeprice = sharedPreferences.getString("costumeprice", "0.00");
+        String costmeshop = sharedPreferences.getString("costumeshop", "No Shop");
 
 
-        double prise1=0,dprice=0,vhlprice=0,totalprice=0;
-        prise1 =Double.parseDouble(pprice);
+        double prise1 = 0, dprice = 0, vhlprice = 0,ctmprioce=0, totalprice = 0;
+        prise1 = Double.parseDouble(pprice);
         dprice = Double.parseDouble(decoprice);
         vhlprice = Double.parseDouble(vhprice);
+        ctmprioce = Double.parseDouble(costumeprice);
 
         //photography
         etext.setText(pname);
@@ -95,30 +109,41 @@ public class customercart extends AppCompatActivity {
         etext5.setText(vhname);
         etext6.setText(String.valueOf(vhlprice));
 
+        //costume
+        etext7.setText(costumename);
+        etext8.setText(String.valueOf(ctmprioce));
+
+
         //totalprice
-        totalprice =prise1 + dprice + vhlprice ;
-        String toprice = totalprice+"";
+        totalprice = prise1 + dprice + vhlprice + ctmprioce ;
+        String toprice = totalprice + "";
         etext9.setText(toprice);
 
 
-
-
         //check total price is 0
-        if(toprice.equals("0.0")){
+        if (toprice.equals("0.0")) {
             tview9.setVisibility(View.INVISIBLE);
             etext9.setVisibility(View.INVISIBLE);
 
             //etext9.setText(toprice);
-        }
-        else{
+        } else {
             tview9.setVisibility(View.VISIBLE);
             etext9.setVisibility(View.VISIBLE);
 
         }
 
 
+        //Home button
+        imagel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context,MainActivity2.class));
+            }
+        });
+
+
         //photographer empty check
-        if(pname.length()>0){
+        if (pname.length() > 0) {
 
             etext.setVisibility(View.VISIBLE);
             etext2.setVisibility(View.VISIBLE);
@@ -127,39 +152,37 @@ public class customercart extends AppCompatActivity {
             tview2.setVisibility(View.VISIBLE);
 
             //check value empty
-            if(pname.equals("No Photographer")){
-               btn1.setVisibility(View.INVISIBLE);
-           }
-                btn1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+            if (pname.equals("No Photographer")) {
+                btn1.setVisibility(View.INVISIBLE);
+            }
+            btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-                        SharedPreferences sharedPreferences = getSharedPreferences("customercart", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                    SharedPreferences sharedPreferences = getSharedPreferences("customercart", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                        editor.remove("name");
-                        editor.remove("price");
-                        editor.apply();
-
-
-                        double prise1 = 0, dprice = 0, totalprice = 0;
-                        prise1 = Double.parseDouble(pprice);
-                        totalprice = 0 + dprice;
-                        String toprice = totalprice + "";
-
-                        startActivity(new Intent(context, MainActivity2.class));
-
-                    }
-                });
+                    editor.remove("name");
+                    editor.remove("price");
+                    editor.apply();
 
 
+                    double prise1 = 0, dprice = 0, totalprice = 0;
+                    prise1 = Double.parseDouble(pprice);
+                    totalprice = 0 + dprice;
+                    String toprice = totalprice + "";
+
+                    startActivity(new Intent(context, MainActivity2.class));
+
+                }
+            });
 
 
         }
 
 
         //deco
-        if(deconame.length()>0) {
+        if (deconame.length() > 0) {
             etext3.setVisibility(View.VISIBLE);
             etext4.setVisibility(View.VISIBLE);
             btn2.setVisibility(View.VISIBLE);
@@ -189,7 +212,7 @@ public class customercart extends AppCompatActivity {
         }
 
         //vehicle
-        if(vhname.length()>0){
+        if (vhname.length() > 0) {
 
             etext5.setVisibility(View.VISIBLE);
             etext6.setVisibility(View.VISIBLE);
@@ -200,7 +223,7 @@ public class customercart extends AppCompatActivity {
 
             if (vhname.equals("No Vehicle")) {
                 btn3.setVisibility(View.INVISIBLE);
-            } else{
+            } else {
                 btn3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -224,6 +247,82 @@ public class customercart extends AppCompatActivity {
         }
 
 
+        //costume
+        if (costumename.length() > 0) {
+
+            etext7.setVisibility(View.VISIBLE);
+            etext8.setVisibility(View.VISIBLE);
+            btn4.setVisibility(View.VISIBLE);
+            tview7.setVisibility(View.VISIBLE);
+            tview8.setVisibility(View.VISIBLE);
+
+
+            if (costumename.equals("No Costume")) {
+                btn4.setVisibility(View.INVISIBLE);
+            } else {
+                btn3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        SharedPreferences sharedPreferences = getSharedPreferences("customercart", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                        editor.remove("costumename");
+                        editor.remove("costumeprice");
+                        editor.apply();
+
+                        startActivity(new Intent(context, MainActivity2.class));
+
+
+                    }
+                });
+
+
+            }
+
+        }
+
+
+        if (toprice.equals("0.0")) {
+            btn5.setVisibility(View.INVISIBLE);
+
+        }else{
+
+
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                final Intent chooser;
+                intent.setData(Uri.parse("mailto:"));
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"gtxdimal@yahoo.com"});
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Package Book");
+                intent.putExtra
+                        (Intent.EXTRA_TEXT,
+                                "---Package Information--" +
+                                        "\n\nPhotographer Name : "+pname+
+                                        "\nPhotographer price :Rs."+pprice+
+                                        "\n\nDecorator Name : "+deconame+
+                                        "\nDecorator Price :Rs."+decoprice+
+                                        "\n\nCostume Name : "+costumename+
+                                        "\nCostume Shop : "+costmeshop+
+                                        "\n\nVehicle Name : "+vhname+
+                                        "\nVehicle Owner : "+vhowner+
+                                        "\n\nTotal price :Rs."+toprice);
+
+
+
+                intent.setType("message/rfc822");
+                chooser = Intent.createChooser(intent, "send booking details to package providers");
+
+                btn5.setVisibility(View.VISIBLE);
+                btn5.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(chooser);
+                    }
+                });
+
+
+
+        }
 
     }
 }
