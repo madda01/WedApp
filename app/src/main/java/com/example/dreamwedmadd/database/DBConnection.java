@@ -21,11 +21,8 @@ import java.util.List;
 public class DBConnection extends SQLiteOpenHelper {
 
 
-<<<<<<< HEAD
     private static final int VERSION = 15; //version
-=======
-    private static final int VERSION = 9; //version
->>>>>>> master
+
 
     private static final String DB_NAME = "dreamwed"; //database name
 
