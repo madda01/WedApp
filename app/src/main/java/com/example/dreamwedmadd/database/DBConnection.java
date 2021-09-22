@@ -41,11 +41,12 @@ public class DBConnection extends SQLiteOpenHelper {
                 "CREATE TABLE "+ DBMaster.Costumes.TABLE_NAME2 + "(" +
                         DBMaster.Costumes._ID + " INTEGER PRIMARY KEY," +
                         DBMaster.Costumes.COLUMN_NAME_TITLE + " TEXT," +
-                        DBMaster.Costumes.COLUMN_NAME_PRICE + " TEXT," +
+                        DBMaster.Costumes.COLUMN_NAME_PRICE + " REAL," +
                         DBMaster.Costumes.COLUMN_NAME_SIZE + " TEXT," +
                         DBMaster.Costumes.COLUMN_NAME_SHOP + " TEXT," +
                         DBMaster.Costumes.COLUMN_NAME_PHONE + " TEXT," +
-                        DBMaster.Costumes.COLUMN_NAME_DESCRIPTION + " TEXT)";
+                        DBMaster.Costumes.COLUMN_NAME_DESCRIPTION + " TEXT," +
+                        "avatar blob);";
         sqLiteDatabase.execSQL(SQL_CREATE_COSTUME_ENTRIES);
     }
 
@@ -88,7 +89,7 @@ public class DBConnection extends SQLiteOpenHelper {
         values.put(DBMaster.Costumes.COLUMN_NAME_SHOP,costume.getShop());
         values.put(DBMaster.Costumes.COLUMN_NAME_PHONE,costume.getPhone());
         values.put(DBMaster.Costumes.COLUMN_NAME_DESCRIPTION,costume.getDescription());
-
+        values.put("avatar",costume.getImage());
         long newRowId= db.insert(DBMaster.Costumes.TABLE_NAME2,null,values);
         if (newRowId>=1)
             return true;
@@ -161,11 +162,11 @@ public class DBConnection extends SQLiteOpenHelper {
     }
 
     //delete user
-    public void deleteUser(User uid) {
+    public void deleteUser(String email) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] selectionArgs= {String.valueOf(uid)};
+        String[] selectionArgs= {String.valueOf(email)};
         // delete user record by id
-        db.delete(DBMaster.Users.TABLE_NAME1, DBMaster.Users._ID + " LIKE ?", selectionArgs);
+        db.delete(DBMaster.Users.TABLE_NAME1, DBMaster.Users.COLUMN_NAME_EMAIL + " LIKE ?", selectionArgs);
         db.close();
     }
 
@@ -173,7 +174,7 @@ public class DBConnection extends SQLiteOpenHelper {
     public void deleteCostume(int cosid) {
         SQLiteDatabase db = this.getWritableDatabase();
         String[] selectionArgs= {String.valueOf(cosid)};
-        // delete user record by id
+        // delete costume record by id
         db.delete(DBMaster.Costumes.TABLE_NAME2, DBMaster.Costumes._ID + " LIKE ?", selectionArgs);
         db.close();
     }
@@ -237,11 +238,12 @@ public class DBConnection extends SQLiteOpenHelper {
 
                 costume.setId(cursor.getInt(0));
                 costume.setTitle(cursor.getString(1));
-                costume.setPrice(cursor.getString(2));
+                costume.setPrice(cursor.getDouble(2));
                 costume.setSize(cursor.getString(3));
                 costume.setShop(cursor.getString(4));
                 costume.setPhone(cursor.getString(5));
                 costume.setDescription(cursor.getString(6));
+                costume.setImage(cursor.getBlob(9));
 
                 costumes.add(costume);
             }while (cursor.moveToNext());
@@ -262,7 +264,7 @@ public class DBConnection extends SQLiteOpenHelper {
             costume = new Costume(
                     cursor.getInt(0),
                     cursor.getString(1),
-                    cursor.getString(2),
+                    cursor.getDouble(2),
                     cursor.getString(3),
                     cursor.getString(4),
                     cursor.getString(5),
@@ -275,4 +277,19 @@ public class DBConnection extends SQLiteOpenHelper {
 
     }
 
+    //update user profile
+    public boolean Updateuser(String name, String email, String mobile) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(DBMaster.Users.COLUMN_NAME_NAME,name);
+        values.put(DBMaster.Users.COLUMN_NAME_MOBILE,mobile);
+
+        long count=db.update(DBMaster.Users.TABLE_NAME1,values,DBMaster.Users.COLUMN_NAME_EMAIL+" = ?",new String[]{ email });
+
+        if (count==-1)
+            return false;
+        else
+            return true;
+    }
 }
