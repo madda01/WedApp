@@ -13,7 +13,11 @@ import java.util.List;
 
 public class DBDecorator extends SQLiteOpenHelper {
 
+<<<<<<< HEAD
     private static final int VERSION=15;
+=======
+    private static final int VERSION=9;
+>>>>>>> master
 
     private static final String DB_NAME="dreamwed";
     private static final String TABLE_NAME="decorator";
