@@ -27,6 +27,8 @@ public final class DBMaster {
         public static final String COLUMN_NAME_SIZE="size";
         public static final String COLUMN_NAME_DESCRIPTION="description";
         public static final String COLUMN_NAME_IMAGE="image";
+        public static final String COLUMN_NAME_AVATAR="avatar";
+
     }
 
 }

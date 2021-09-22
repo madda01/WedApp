@@ -5,6 +5,33 @@ public class Photographermodel {
     private int id;
     private String fnamee,lnamee,emaile,addresse,comanpnynamee,descriptione,phonee ;
     private double pricee;
+    private byte[] image;
+
+
+    public Photographermodel(String fnamee, String lnamee, String emaile,String phonee,String comanpnynamee,String addresse ,double pricee, String descriptione, byte[] image) {
+        this.fnamee = fnamee;
+        this.lnamee = lnamee;
+        this.emaile = emaile;
+        this.addresse = addresse;
+        this.comanpnynamee = comanpnynamee;
+        this.descriptione = descriptione;
+        this.phonee = phonee;
+        this.pricee = pricee;
+        this.image = image;
+    }
+
+    public Photographermodel(int id, String fnamee, String lnamee, String emaile,String phonee,String comanpnynamee,String addresse ,double pricee, String descriptione, byte[] image) {
+        this.id = id;
+        this.fnamee = fnamee;
+        this.lnamee = lnamee;
+        this.emaile = emaile;
+        this.addresse = addresse;
+        this.comanpnynamee = comanpnynamee;
+        this.descriptione = descriptione;
+        this.phonee = phonee;
+        this.pricee = pricee;
+        this.image = image;
+    }
 
     public Photographermodel(){}
 
@@ -101,5 +128,12 @@ public class Photographermodel {
 
     public void setPhonee(String phonee) {
         this.phonee = phonee;
+    }
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

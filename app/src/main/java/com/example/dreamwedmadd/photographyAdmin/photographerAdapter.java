@@ -1,6 +1,8 @@
 package com.example.dreamwedmadd.photographyAdmin;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +43,14 @@ public class photographerAdapter extends ArrayAdapter<Photographermodel> {
         TextView titledecrption = row.findViewById(R.id.tvdecription);
         ImageView image = row.findViewById(R.id.DecoSingImg);
 
+
+
         Photographermodel phtolist = phto.get(position);
+
+        byte[] data = phtolist.getImage();
+        Bitmap bmp = BitmapFactory.decodeByteArray(data, 0,data.length);
+        image.setImageBitmap(bmp);
+
         titletv.setText(phtolist.getFnamee()+" "+phtolist.getLnamee());
         titledecrption.setText(phtolist.getDescriptione());
         image.setVisibility(row.VISIBLE);

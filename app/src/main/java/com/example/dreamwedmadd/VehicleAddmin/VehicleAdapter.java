@@ -1,6 +1,8 @@
 package com.example.dreamwedmadd.VehicleAddmin;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,10 +44,18 @@ public class VehicleAdapter extends ArrayAdapter<Vehicle> {
         TextView description = row.findViewById(R.id.singleVehDescription);
         ImageView imageView =row.findViewById(R.id.singleVehImageView);
 
+
+
+
         Vehicle vehicle = vehicles.get(position);
+
+        byte[] data = vehicle.getImage();
+        Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
+        imageView.setImageBitmap(bmp);
+
         title.setText(vehicle.getBrand());
         description.setText(vehicle.getDescription());
-        imageView.setVisibility(row.VISIBLE);
+
 
         return row;
     }

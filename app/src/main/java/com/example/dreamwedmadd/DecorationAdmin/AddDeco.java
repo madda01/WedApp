@@ -224,7 +224,8 @@ public class AddDeco extends AppCompatActivity {
 
             if (resultCode==RESULT_OK){
                 Uri resultUri=result.getUri();
-                Picasso.with(AddDeco.this).load(resultUri).into(imageView);            }
+                Picasso.with(AddDeco.this).load(resultUri).into(imageView);
+            }
         }
 
     }
