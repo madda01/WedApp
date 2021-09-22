@@ -18,7 +18,7 @@ import java.util.List;
 public class DBConnection extends SQLiteOpenHelper {
 
 
-    private static final int VERSION = 8; //version
+    private static final int VERSION = 9; //version
 
     private static final String DB_NAME = "dreamwed"; //database name
 
@@ -48,7 +48,8 @@ public class DBConnection extends SQLiteOpenHelper {
                         DBMaster.Costumes.COLUMN_NAME_SHOP + " TEXT," +
                         DBMaster.Costumes.COLUMN_NAME_PHONE + " TEXT," +
                         DBMaster.Costumes.COLUMN_NAME_DESCRIPTION + " TEXT," +
-                        "avatar blob);";
+                        DBMaster.Costumes.COLUMN_NAME_IMAGE + " BLOB"+
+                        ");";
         sqLiteDatabase.execSQL(SQL_CREATE_COSTUME_ENTRIES);
     }
 
@@ -91,7 +92,7 @@ public class DBConnection extends SQLiteOpenHelper {
         values.put(DBMaster.Costumes.COLUMN_NAME_SHOP,costume.getShop());
         values.put(DBMaster.Costumes.COLUMN_NAME_PHONE,costume.getPhone());
         values.put(DBMaster.Costumes.COLUMN_NAME_DESCRIPTION,costume.getDescription());
-        values.put("avatar",costume.getImage());
+        values.put(DBMaster.Costumes.COLUMN_NAME_IMAGE,costume.getImage());
         long newRowId= db.insert(DBMaster.Costumes.TABLE_NAME2,null,values);
         if (newRowId>=1)
             return true;
@@ -245,7 +246,7 @@ public class DBConnection extends SQLiteOpenHelper {
                 costume.setShop(cursor.getString(4));
                 costume.setPhone(cursor.getString(5));
                 costume.setDescription(cursor.getString(6));
-                costume.setImage(cursor.getBlob(9));
+                costume.setImage(cursor.getBlob(7));
 
                 costumes.add(costume);
             }while (cursor.moveToNext());
