@@ -34,7 +34,7 @@ public class DBConnection extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         //creating user table
         String SQL_CREATE_USER_ENTRIES =
-                "CREATE TABLE "+ TABLE_NAME1 + " (" +
+                "CREATE TABLE "+ DBMaster.Users.TABLE_NAME1 + " (" +
                         DBMaster.Users._ID + " INTEGER PRIMARY KEY," +
                         DBMaster.Users.COLUMN_NAME_NAME + " TEXT," +
                         DBMaster.Users.COLUMN_NAME_EMAIL + " TEXT," +
@@ -59,7 +59,7 @@ public class DBConnection extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        String DROP_TABLE_QUERY1 = "DROP TABLE IF EXISTS "+ TABLE_NAME1;
+        String DROP_TABLE_QUERY1 = "DROP TABLE IF EXISTS "+ DBMaster.Users.TABLE_NAME1;
         String DROP_TABLE_QUERY2 = "DROP TABLE IF EXISTS "+ DBMaster.Costumes.TABLE_NAME2;
 
         // Drop older table if existed
@@ -79,7 +79,7 @@ public class DBConnection extends SQLiteOpenHelper {
         values.put(DBMaster.Users.COLUMN_NAME_MOBILE,user.getMobile());
         values.put(DBMaster.Users.COLUMN_NAME_PASSWORD,user.getPassword());
 
-        long newRowId= db.insert(TABLE_NAME1,null,values);
+        long newRowId= db.insert(DBMaster.Users.TABLE_NAME1,null,values);
         if (newRowId>=1)
             return true;
         else
@@ -118,7 +118,7 @@ public class DBConnection extends SQLiteOpenHelper {
         //selection arugument
         String[] selectionArgs={email};
 
-        Cursor cursor=db.query(TABLE_NAME1,
+        Cursor cursor=db.query(DBMaster.Users.TABLE_NAME1,
                 columns,
                 selection,
                 selectionArgs,
@@ -149,7 +149,7 @@ public class DBConnection extends SQLiteOpenHelper {
         // selection arguments
         String[] selectionArgs = {email, password};
 
-        Cursor cursor = db.query(TABLE_NAME1, //Table to query
+        Cursor cursor = db.query(DBMaster.Users.TABLE_NAME1, //Table to query
                 columns,                    //columns to return
                 selection,                  //columns for the WHERE clause
                 selectionArgs,              //The values for the WHERE clause
@@ -173,7 +173,7 @@ public class DBConnection extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         String[] selectionArgs= {String.valueOf(email)};
         // delete user record by id
-        db.delete(TABLE_NAME1, DBMaster.Users.COLUMN_NAME_EMAIL + " LIKE ?", selectionArgs);
+        db.delete(DBMaster.Users.TABLE_NAME1, DBMaster.Users.COLUMN_NAME_EMAIL + " LIKE ?", selectionArgs);
         db.close();
     }
 
@@ -193,7 +193,7 @@ public class DBConnection extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(DBMaster.Users.COLUMN_NAME_PASSWORD,password);
 
-        long count=db.update(TABLE_NAME1,values,DBMaster.Users.COLUMN_NAME_EMAIL+" = ?",new String[]{ email });
+        long count=db.update(DBMaster.Users.TABLE_NAME1,values,DBMaster.Users.COLUMN_NAME_EMAIL+" = ?",new String[]{ email });
 
         if (count==-1)
             return false;
@@ -292,7 +292,7 @@ public class DBConnection extends SQLiteOpenHelper {
         values.put(DBMaster.Users.COLUMN_NAME_NAME,name);
         values.put(DBMaster.Users.COLUMN_NAME_MOBILE,mobile);
 
-        long count=db.update(TABLE_NAME1,values,DBMaster.Users.COLUMN_NAME_EMAIL+" = ?",new String[]{ email });
+        long count=db.update(DBMaster.Users.TABLE_NAME1,values,DBMaster.Users.COLUMN_NAME_EMAIL+" = ?",new String[]{ email });
 
         if (count==-1)
             return false;
