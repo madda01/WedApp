@@ -14,7 +14,7 @@ import com.example.dreamwedmadd.database.DBConnection;
 import com.example.dreamwedmadd.models.Costume;
 
 public class CostumeDelete extends AppCompatActivity {
-    private EditText price,description,size,title,shop,phone;
+    private EditText price,description,email,title,shop,phone;
     private Button btndel;
     private DBConnection dbHandler;
     private Context context;
@@ -28,7 +28,7 @@ public class CostumeDelete extends AppCompatActivity {
 
         title=findViewById(R.id.deletetitle);
         price = findViewById(R.id.deleteprice);
-        size=findViewById(R.id.deletesizes);
+        email=findViewById(R.id.deletesizes);
         shop=findViewById(R.id.deleteshop);
         phone=findViewById(R.id.deletemobile);
         description = findViewById(R.id.deletedesc);
@@ -47,14 +47,14 @@ public class CostumeDelete extends AppCompatActivity {
 
         title.setText(costume.getTitle());
         price.setText(String.valueOf(costume.getPrice()));
-        size.setText(costume.getSize());
+        email.setText(costume.getEmail());
         shop.setText(costume.getShop());
         phone.setText(costume.getPhone());
         description.setText(costume.getDescription());
 
         title.setKeyListener(null);
         price.setKeyListener(null);
-        size.setKeyListener(null);
+        email.setKeyListener(null);
         shop.setKeyListener(null);
         phone.setKeyListener(null);
         description.setKeyListener(null);
