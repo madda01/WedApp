@@ -14,7 +14,7 @@ import java.util.List;
 public class DBDecorator extends SQLiteOpenHelper {
 
 
-    private static final int VERSION=16;
+    private static final int VERSION=17;
 
 
     private static final String DB_NAME="dreamwed";
