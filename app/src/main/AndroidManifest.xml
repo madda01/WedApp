@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.dreamwedmadd">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -7,6 +8,10 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
 
     <application
         android:allowBackup="true"
@@ -15,9 +20,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DreamWedMADD">
-
-
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
         
+
+        <activity
+            android:name=".customer.customercart"
+            android:exported="true" />
+
         <activity
             android:name=".customer.CustomerVehicleView"
             android:exported="true" />
@@ -32,13 +41,10 @@
             android:exported="true" />
         <activity
             android:name=".VehicleAddmin.AddminVehicleList"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".VehicleAddmin.DeleteVehicle"
             android:exported="true" />
-
-
-
         <activity android:name=".photographyAdmin.deletePhotographer" />
         <activity android:name=".photographyAdmin.editPhotographer" />
         <activity android:name=".photographyAdmin.addPhotographer" />
@@ -70,7 +76,6 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-
 
 
         <activity
@@ -106,6 +111,15 @@
         <activity
             android:name=".customer.CostumeEach"
             android:exported="true" />
+        <activity
+            android:name=".customer.CustomerProfileUD"
+            android:exported="true" />
+
+        <activity
+            android:name=".customer.CustomerProfile"
+            android:exported="true"/>
+
+
     </application>
 
 </manifest>

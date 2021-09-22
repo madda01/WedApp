@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="headprofile">User Profile</string>
+    <string name="headname">Full Name</string>
+    <string name="heademail">Email Address</string>
+    <string name="headphone">Mobile Number</string>
+    <string name="btnupdateprofile">Update Details</string>
+    <string name="EditDetails">Edit Details</string>
+    <string name="Confirmupdates">Confirm Update</string>
+    <string name="btndeleteprofile">Delete Account</string>
+</resources>

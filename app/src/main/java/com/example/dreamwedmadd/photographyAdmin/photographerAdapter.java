@@ -39,7 +39,7 @@ public class photographerAdapter extends ArrayAdapter<Photographermodel> {
 
         TextView titletv = row.findViewById(R.id.tvtitle);
         TextView titledecrption = row.findViewById(R.id.tvdecription);
-        ImageView image = row.findViewById(R.id.imageview);
+        ImageView image = row.findViewById(R.id.DecoSingImg);
 
         Photographermodel phtolist = phto.get(position);
         titletv.setText(phtolist.getFnamee()+" "+phtolist.getLnamee());

@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dreamwedmadd.DecorationAdmin.AdminDecoView;
 import com.example.dreamwedmadd.VehicleAddmin.AddminVehicleList;
+import com.example.dreamwedmadd.models.User;
 import com.example.dreamwedmadd.photographyAdmin.photography_Mainlist;
 import com.example.dreamwedmadd.costumeAdmin.CostumeAdminHome;
 import com.example.dreamwedmadd.database.DBConnection;
@@ -21,6 +22,9 @@ public class LoginActivity extends AppCompatActivity {
     Button btnreg, btnlog;
     EditText etusername,etpassword;
     TextView etforget;
+    User newuser;
+    SessionManagement sessionManagement;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 
         DBConnection databaseHelper =new DBConnection(getApplicationContext());
 
+
         //event handling for going to home
         btnlog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,21 +51,31 @@ public class LoginActivity extends AppCompatActivity {
                 if (etpassword.getText().toString().isEmpty()) {
                     etpassword.setError("Password field can not be empty.");
                 }
+
+                //saving the email for session
+                newuser= new User(etusername.getText().toString());
+                sessionManagement= new SessionManagement(LoginActivity.this);
+                sessionManagement.saveSession(newuser);
+
                 if((etusername.getText().toString().equals("c"))&&(etpassword.getText().toString().equals("c"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Costume admin",Toast.LENGTH_LONG).show();
                     Intent start= new Intent(LoginActivity.this, CostumeAdminHome.class);
+
                     startActivity(start);
                 } else if((etusername.getText().toString().equals("d"))&&(etpassword.getText().toString().equals("d"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Decoration admin",Toast.LENGTH_LONG).show();
                     Intent start= new Intent(LoginActivity.this, AdminDecoView.class);
+
                     startActivity(start);
                 } else if((etusername.getText().toString().equals("v"))&&(etpassword.getText().toString().equals("v"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Vehicle admin",Toast.LENGTH_LONG).show();
                     Intent start= new Intent(LoginActivity.this, AddminVehicleList.class);
+
                     startActivity(start);
                 } else if((etusername.getText().toString().equals("p"))&&(etpassword.getText().toString().equals("p"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Photography admin",Toast.LENGTH_LONG).show();
                     Intent start= new Intent(LoginActivity.this, photography_Mainlist.class);
+
                     startActivity(start);
                 }
                 else if (databaseHelper.checkUser(etusername.getText().toString()
@@ -70,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                         i.putExtra("Message2", "Directing To Customer Home");
                         i.putExtra("email", etusername.getText().toString().trim());
                         i.putExtra("password", etpassword.getText().toString().trim());
+
                         startActivity(i);
 
                 } else {
@@ -79,6 +95,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     protected void onResume() {
