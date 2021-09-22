@@ -1,10 +1,8 @@
 package com.example.dreamwedmadd.photographyAdmin;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -60,7 +58,7 @@ public class photoAdapterfragment  extends  RecyclerView.Adapter<photoAdapterfra
 
             txt1=itemView.findViewById(R.id.tvtitle);
             txt2=itemView.findViewById(R.id.tvdecription);
-            imagel= itemView.findViewById(R.id.imageview);
+            imagel= itemView.findViewById(R.id.DecoSingImg);
         }
     }
 

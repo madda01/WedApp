@@ -17,7 +17,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvdecription"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageview"
+        app:layout_constraintStart_toEndOf="@+id/DecoSingImg"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 

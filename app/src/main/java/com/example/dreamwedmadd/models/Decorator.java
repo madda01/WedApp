@@ -1,10 +1,38 @@
 package com.example.dreamwedmadd.models;
 
+import java.sql.Blob;
+
 public class Decorator {
 
     int id;
     private String fName ,lName,Email,Mobile,cName,description,address;
     private double price;
+    private byte[] image;
+
+    public Decorator(int id, String fName, String lName, String email, String mobile, String cName, String description, String address, double price, byte[] image) {
+        this.id = id;
+        this.fName = fName;
+        this.lName = lName;
+        Email = email;
+        Mobile = mobile;
+        this.cName = cName;
+        this.description = description;
+        this.address = address;
+        this.price = price;
+        this.image = image;
+    }
+
+    public Decorator(String fName, String lName, String email, String mobile, String cName, String description, String address, double price, byte[] image) {
+        this.fName = fName;
+        this.lName = lName;
+        Email = email;
+        Mobile = mobile;
+        this.cName = cName;
+        this.description = description;
+        this.address = address;
+        this.price = price;
+        this.image = image;
+    }
 
     public Decorator(){
 
@@ -104,4 +132,12 @@ public class Decorator {
     public void setPrice(double price) {
         this.price = price;
     }
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
 }

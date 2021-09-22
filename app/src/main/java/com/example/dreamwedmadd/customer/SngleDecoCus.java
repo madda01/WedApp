@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -86,9 +87,13 @@ public class SngleDecoCus extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                SharedPreferences sharedPreferences = getSharedPreferences("customercart",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("namedeco",et1.getText().toString() +"" + et2.getText().toString() );
+                editor.putString("pricedeco",et7.getText().toString());
+                editor.commit();
 
-                startActivity(new Intent(context, MainActivity2.class));
-
+                startActivity(new Intent(context, customercart.class));
 
             }
         });

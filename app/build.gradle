@@ -43,8 +43,10 @@ dependencies {
     implementation 'com.basgeekball:awesome-validation:4.2'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
     //crop image
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     //loading image in image view
     implementation'com.squareup.picasso:picasso:2.5.2'
+
 }
