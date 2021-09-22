@@ -31,6 +31,7 @@
     <string name="vehiclename">Vehicale Name</string>
     <string name="tvdress">Costume Name</string>
     <string name="Removebtn">Remove</string>
+    <string name="btnnbook">Book</string>
 
 
 </resources>
