@@ -15,7 +15,7 @@ import java.util.List;
 
 public class photoDbHandler extends SQLiteOpenHelper {
 
-    private static final int VERSION = 6;
+    private static final int VERSION = 8;
     private static final String DB_NAME = "dreamwed" ;
     private static final String TABLE_NAME = "photographyadmin" ;
 
@@ -47,8 +47,8 @@ public class photoDbHandler extends SQLiteOpenHelper {
                     +COMPANYNAME+ " TEXT,"
                     +ADDRESS+ " TEXT,"
                     +PRICE+ " REAL,"
-                    +DESCRIPTION+ " TEXT" +
-                    ");";
+                    +DESCRIPTION+ " TEXT," +
+                    " avatar Blob);";
 
             db.execSQL(TABLE_CREATE_QUERY);
 
@@ -80,6 +80,7 @@ public class photoDbHandler extends SQLiteOpenHelper {
                 contentValues.put(ADDRESS,phto.getAddresse());
                 contentValues.put(PRICE,phto.getPricee());
                 contentValues.put(DESCRIPTION,phto.getDescriptione());
+                contentValues.put("avatar",phto.getImage());
 
                 //save to table
 
@@ -121,6 +122,7 @@ public class photoDbHandler extends SQLiteOpenHelper {
                 photodb.setAddresse(cursor.getString(6));
                 photodb.setPricee(cursor.getDouble(7));
                 photodb.setDescriptione(cursor.getString(8));
+                photodb.setImage(cursor.getBlob(9));
 
 
 

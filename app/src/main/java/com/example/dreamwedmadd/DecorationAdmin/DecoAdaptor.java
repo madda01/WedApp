@@ -51,7 +51,7 @@ public class DecoAdaptor extends ArrayAdapter<Decorator> {
 
         ImageView imageView=row.findViewById(R.id.DecoSingImg);
         byte[] data = decorator.getImage();
-        Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
+        Bitmap bmp = BitmapFactory.decodeByteArray(data, 0,data.length);
         imageView.setImageBitmap(bmp);
 
         name.setText(decorator.getfName()+" "+decorator.getlName());

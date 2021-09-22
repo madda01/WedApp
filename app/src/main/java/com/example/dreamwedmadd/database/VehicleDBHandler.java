@@ -16,7 +16,7 @@ import java.util.List;
 
 public class VehicleDBHandler extends SQLiteOpenHelper {
     //db details
-    private static final int VERSION = 6;
+    private static final int VERSION = 8;
     private static final String DB_NAME = "dreamwed" ;
     private static final String TABLE_NAME = "vehicle" ;
 
@@ -49,8 +49,8 @@ public class VehicleDBHandler extends SQLiteOpenHelper {
                 +DESCRIPTION+ " TEXT,"
                 +OWNER+ " TEXT,"
                 +PHONE+ " TEXT,"
-                +ADDRESS+ " TEXT" +
-                ");";
+                +ADDRESS+ " TEXT," +
+                "avatar Blob);";
 
         db.execSQL(TABLE_CREATE_QUERY);
     }
@@ -84,6 +84,7 @@ public class VehicleDBHandler extends SQLiteOpenHelper {
         contentValues.put(OWNER,vehicle.getOwner());
         contentValues.put(PHONE,vehicle.getPhone());
         contentValues.put(ADDRESS,vehicle.getAddress());
+        contentValues.put("avatar",vehicle.getImage());
 
         //add data into the table
         db.insert(TABLE_NAME,null,contentValues);
@@ -132,6 +133,7 @@ public class VehicleDBHandler extends SQLiteOpenHelper {
                 vehicle.setOwner(cursor.getString(6));
                 vehicle.setPhone(cursor.getString(7));
                 vehicle.setAddress(cursor.getString(8));
+                vehicle.setImage(cursor.getBlob(9));
 
                 vehicles.add(vehicle); //add vehicle objects to the ArrayList
             }while(cursor.moveToNext());

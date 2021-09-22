@@ -5,6 +5,32 @@ public class Vehicle {
     private int id;
     private String brand,model,year,description,owner,phone,address;
     private double price;
+    private byte[] image;
+
+    public Vehicle(String brand, String model, String year, String description, String owner, String phone, String address, double price, byte[] image) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.description = description;
+        this.owner = owner;
+        this.phone = phone;
+        this.address = address;
+        this.price = price;
+        this.image = image;
+    }
+
+    public Vehicle(int id, String brand, String model, String year, String description, String owner, String phone, String address, double price, byte[] image) {
+        this.id = id;
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.description = description;
+        this.owner = owner;
+        this.phone = phone;
+        this.address = address;
+        this.price = price;
+        this.image = image;
+    }
 
     public Vehicle(){}
 
@@ -30,6 +56,8 @@ public class Vehicle {
         this.address = address;
         this.price = price;
     }
+
+
 
     public void setId(int id) {
         this.id = id;
@@ -101,5 +129,12 @@ public class Vehicle {
 
     public double getPrice() {
         return price;
+    }
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }
