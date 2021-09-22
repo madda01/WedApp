@@ -30,7 +30,7 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import java.io.ByteArrayOutputStream;
 
 public class CostumeAdd extends AppCompatActivity {
-    private EditText title, price, sizes, shop, mobile, desc;
+    private EditText title, price, emails, shop, mobile, desc;
     private Button add;
     private DBConnection dbHandler;
     Context context;
@@ -49,7 +49,7 @@ public class CostumeAdd extends AppCompatActivity {
 
         title = findViewById(R.id.addtitle);
         price = findViewById(R.id.addprice);
-        sizes = findViewById(R.id.addsizes);
+        emails = findViewById(R.id.addsizes);
         shop = findViewById(R.id.addshop);
         mobile = findViewById(R.id.addmobile);
         desc = findViewById(R.id.adddesc);
@@ -84,7 +84,7 @@ public class CostumeAdd extends AppCompatActivity {
             public void onClick(View v) {
                 String Title = title.getText().toString();
                 String Price = price.getText().toString();
-                String Size = sizes.getText().toString();
+                String Email = emails.getText().toString();
                 String Shop= shop.getText().toString();
                 String Phone= mobile.getText().toString();
                 String Decs= desc.getText().toString();
@@ -96,13 +96,13 @@ public class CostumeAdd extends AppCompatActivity {
                     Toast.makeText(context, "Please enter valid price", Toast.LENGTH_SHORT).show();
                 }
 
-                if (Title.equals("")||Price.equals("")||Size.equals("")||Shop.equals("")||Phone.equals("")||Decs.equals("")){
+                if (Title.equals("")||Price.equals("")||Email.equals("")||Shop.equals("")||Phone.equals("")||Decs.equals("")){
 
                     Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
                 }
 
                 else {
-                    Costume newcostume = new Costume(Title, price, Size, Shop, Phone, Decs,imageViewToBy(imageView));
+                    Costume newcostume = new Costume(Title, price, Email, Shop, Phone, Decs,imageViewToBy(imageView));
                     Boolean checkcostumeadding = dbHandler.insertCostume(newcostume);
 
                     if (checkcostumeadding == true) {

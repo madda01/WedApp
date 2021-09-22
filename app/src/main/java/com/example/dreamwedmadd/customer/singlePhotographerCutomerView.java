@@ -82,6 +82,7 @@ public class singlePhotographerCutomerView extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("name",fnameeditrl.getText().toString() +"" + lnameeditrl.getText().toString() );
                 editor.putString("price",priceeditrl.getText().toString());
+                editor.putString("email",emaileditrl.getText().toString());
                 editor.commit();
 
                 startActivity(new Intent(context, customercart.class));

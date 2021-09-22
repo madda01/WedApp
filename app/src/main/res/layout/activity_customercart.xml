@@ -31,6 +31,7 @@
             android:id="@+id/tvl6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
             android:text="@string/tvl6n"
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/btnl3"
@@ -54,22 +55,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
-            android:layout_marginTop="47dp"
             android:text="@string/tvl4n"
             android:visibility="invisible"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/tvl3" />
+            app:layout_constraintBottom_toTopOf="@+id/btnl2"
+            app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
         <TextView
             android:id="@+id/tvl5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
-            android:layout_marginBottom="48dp"
+            android:layout_marginTop="25dp"
             android:text="@string/vehiclename"
             android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/tvl6"
-            app:layout_constraintStart_toStartOf="@+id/guideline2" />
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/btnl2" />
 
         <Button
             android:id="@+id/btnl1"
@@ -90,28 +90,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginTop="32dp"
             android:text="@string/decotv"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/etcart3"
-            app:layout_constraintStart_toStartOf="@+id/guideline2" />
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/btnl1" />
 
         <EditText
             android:id="@+id/etcart9"
-            android:layout_width="0dp"
+            android:layout_width="192dp"
             android:layout_height="48dp"
-            android:layout_marginStart="9dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="56dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/etcart8"
-            app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/etcart8" />
+            app:layout_constraintEnd_toStartOf="@+id/btnlbook"
+            app:layout_constraintStart_toStartOf="@+id/btnlbook" />
 
         <EditText
             android:id="@+id/etcart4"
@@ -131,33 +127,34 @@
             android:layout_width="57dp"
             android:layout_height="31dp"
             android:layout_marginStart="21dp"
-            android:layout_marginTop="19dp"
+            android:layout_marginTop="297dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="297dp"
             android:text="@string/Removebtn"
             android:textSize="8sp"
             android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/tvl5"
+            app:layout_constraintBottom_toBottomOf="@+id/btnl4"
             app:layout_constraintEnd_toEndOf="@+id/tvl4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvl4" />
+            app:layout_constraintTop_toTopOf="@+id/imagecart" />
 
         <TextView
             android:id="@+id/tvl12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
+            android:layout_marginBottom="1dp"
             android:text="@string/tvl2n"
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/btnl1"
-            app:layout_constraintStart_toStartOf="@+id/btnl1" />
+            app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
         <Button
             android:id="@+id/btnl4"
             android:layout_width="0dp"
             android:layout_height="31dp"
-            android:layout_marginTop="51dp"
-            android:layout_marginBottom="52dp"
+            android:layout_marginTop="52dp"
+            android:layout_marginBottom="53dp"
             android:text="@string/Removebtn"
             android:textSize="8sp"
             android:visibility="invisible"
@@ -209,7 +206,7 @@
             android:id="@+id/texvl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="45dp"
+            android:layout_marginBottom="67dp"
             android:text="@string/tvlnvalue"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -255,7 +252,7 @@
             android:layout_width="0dp"
             android:layout_height="31dp"
             android:layout_marginStart="1dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="101dp"
             android:layout_marginEnd="1dp"
             android:layout_marginBottom="101dp"
             android:text="@string/Removebtn"
@@ -295,10 +292,13 @@
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="145dp"
             android:layout_marginTop="9dp"
+            android:layout_marginEnd="90dp"
             android:text="My Bookings"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/tvl1"
+            app:layout_constraintEnd_toStartOf="@+id/imagecart"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -316,6 +316,31 @@
             android:orientation="vertical"
             android:visibility="invisible"
             app:layout_constraintGuide_begin="186dp" />
+
+        <Button
+            android:id="@+id/btnlbook"
+            android:layout_width="96dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="33dp"
+            android:text="@string/btnbook"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etcart9" />
+
+        <ImageView
+            android:id="@+id/imagecart"
+            android:layout_width="0dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="19dp"
+            app:layout_constraintBottom_toTopOf="@+id/etcart1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView16"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/home" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

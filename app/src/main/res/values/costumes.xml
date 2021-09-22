@@ -42,4 +42,5 @@
     <string name="headDeleteCostume">Delete Costume</string>
     <string name="btnCosView">View Costumes</string>
     <string name="btnbook">Book This</string>
+    <string name="et_email">Email Address</string>
 </resources>
