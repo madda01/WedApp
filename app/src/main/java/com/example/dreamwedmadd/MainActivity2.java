@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+import com.example.dreamwedmadd.customer.customercart;
 import com.example.dreamwedmadd.database.photoDbHandler;
 import com.example.dreamwedmadd.models.Photographermodel;
 import com.example.dreamwedmadd.photographyAdmin.photographerAdapter;
@@ -33,10 +33,18 @@ import java.util.List;
 public class MainActivity2 extends AppCompatActivity {
 
 
+    Button btn ;
+    Context context ;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        btn = findViewById(R.id.btncart);
+        context = this;
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavigation);
         NavController navController = Navigation.findNavController(this, R.id.myfrag);
@@ -58,6 +66,12 @@ public class MainActivity2 extends AppCompatActivity {
 
 
 
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context,customercart.class));
+            }
+        });
 
 
 
