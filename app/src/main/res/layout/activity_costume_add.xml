@@ -106,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/et_sizes"
+                android:text="@string/etemail"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.057"
                 app:layout_constraintStart_toStartOf="parent"
@@ -216,10 +216,10 @@
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintHorizontal_bias="0.931"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/adddesc"
-                app:layout_constraintVertical_bias="0.62" />
+                app:layout_constraintVertical_bias="0.869" />
 
             <ImageView
                 android:id="@+id/costumeimage"

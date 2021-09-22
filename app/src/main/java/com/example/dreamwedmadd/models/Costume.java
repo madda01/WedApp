@@ -4,7 +4,7 @@ public class Costume {
     private int id;
     private String title;
     private double price;
-    private String size;
+    private String email;
     private String shop;
     private String phone;
     private String description;
@@ -12,32 +12,32 @@ public class Costume {
 
     public Costume(){}
 
-    public Costume(int id,String title, double price, String size, String shop, String phone, String description, byte[] image) {
+    public Costume(int id,String title, double price, String email, String shop, String phone, String description, byte[] image) {
         this.id=id;
         this.title = title;
         this.price = price;
-        this.size = size;
+        this.email = email;
         this.shop = shop;
         this.phone = phone;
         this.description = description;
         this.image=image;
     }
 
-    public Costume(String title, double price, String size, String shop, String phone, String description, byte[] image) {
+    public Costume(String title, double price, String email, String shop, String phone, String description, byte[] image) {
         this.title = title;
         this.price = price;
-        this.size = size;
+        this.email = email;
         this.shop = shop;
         this.phone = phone;
         this.description = description;
         this.image=image;
     }
 
-    public Costume(int id, String title, double price, String size, String shop, String phone, String description) {
+    public Costume(int id, String title, double price, String email, String shop, String phone, String description) {
         this.id=id;
         this.title = title;
         this.price = price;
-        this.size = size;
+        this.email = email;
         this.shop = shop;
         this.phone = phone;
         this.description = description;
@@ -63,12 +63,12 @@ public class Costume {
         this.price = price;
     }
 
-    public String getSize() {
-        return size;
+    public String getEmail() {
+        return email;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getShop() {

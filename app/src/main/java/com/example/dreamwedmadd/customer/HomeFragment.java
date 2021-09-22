@@ -27,8 +27,6 @@ public class HomeFragment extends Fragment {
     ImageView deco,photo,cos,veh;
     ImageButton myProf;
 
-    Button probutton;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -90,7 +88,7 @@ public class HomeFragment extends Fragment {
         myProf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), MainActivity.class));
+                startActivity(new Intent(getContext(), CustomerProfile.class));
             }
         });
 

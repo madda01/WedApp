@@ -23,7 +23,6 @@ public class DBConnection extends SQLiteOpenHelper {
 
     private static final int VERSION = 16; //version
 
-
     private static final String DB_NAME = "dreamwed"; //database name
 
     public DBConnection(Context context) {
@@ -48,7 +47,7 @@ public class DBConnection extends SQLiteOpenHelper {
                         DBMaster.Costumes._ID + " INTEGER PRIMARY KEY," +
                         DBMaster.Costumes.COLUMN_NAME_TITLE + " TEXT," +
                         DBMaster.Costumes.COLUMN_NAME_PRICE + " REAL," +
-                        DBMaster.Costumes.COLUMN_NAME_SIZE + " TEXT," +
+                        DBMaster.Costumes.COLUMN_NAME_EMAIL + " TEXT," +
                         DBMaster.Costumes.COLUMN_NAME_SHOP + " TEXT," +
                         DBMaster.Costumes.COLUMN_NAME_PHONE + " TEXT," +
                         DBMaster.Costumes.COLUMN_NAME_DESCRIPTION + " TEXT," +
@@ -92,7 +91,7 @@ public class DBConnection extends SQLiteOpenHelper {
         ContentValues values= new ContentValues();
         values.put(DBMaster.Costumes.COLUMN_NAME_TITLE,costume.getTitle());
         values.put(DBMaster.Costumes.COLUMN_NAME_PRICE,costume.getPrice());
-        values.put(DBMaster.Costumes.COLUMN_NAME_SIZE,costume.getSize());
+        values.put(DBMaster.Costumes.COLUMN_NAME_EMAIL,costume.getEmail());
         values.put(DBMaster.Costumes.COLUMN_NAME_SHOP,costume.getShop());
         values.put(DBMaster.Costumes.COLUMN_NAME_PHONE,costume.getPhone());
         values.put(DBMaster.Costumes.COLUMN_NAME_DESCRIPTION,costume.getDescription());
@@ -208,7 +207,7 @@ public class DBConnection extends SQLiteOpenHelper {
 
         values.put(DBMaster.Costumes.COLUMN_NAME_TITLE,costume.getTitle());
         values.put(DBMaster.Costumes.COLUMN_NAME_PRICE,costume.getPrice());
-        values.put(DBMaster.Costumes.COLUMN_NAME_SIZE,costume.getSize());
+        values.put(DBMaster.Costumes.COLUMN_NAME_EMAIL,costume.getEmail());
         values.put(DBMaster.Costumes.COLUMN_NAME_SHOP,costume.getShop());
         values.put(DBMaster.Costumes.COLUMN_NAME_PHONE,costume.getPhone());
         values.put(DBMaster.Costumes.COLUMN_NAME_DESCRIPTION,costume.getDescription());
@@ -246,7 +245,7 @@ public class DBConnection extends SQLiteOpenHelper {
                 costume.setId(cursor.getInt(0));
                 costume.setTitle(cursor.getString(1));
                 costume.setPrice(cursor.getDouble(2));
-                costume.setSize(cursor.getString(3));
+                costume.setEmail(cursor.getString(3));
                 costume.setShop(cursor.getString(4));
                 costume.setPhone(cursor.getString(5));
                 costume.setDescription(cursor.getString(6));
@@ -264,7 +263,7 @@ public class DBConnection extends SQLiteOpenHelper {
         Costume costume;
         SQLiteDatabase db = getWritableDatabase();
 
-        Cursor cursor = db.query(DBMaster.Costumes.TABLE_NAME2,new String[]{DBMaster.Costumes._ID,DBMaster.Costumes.COLUMN_NAME_TITLE, DBMaster.Costumes.COLUMN_NAME_PRICE,DBMaster.Costumes.COLUMN_NAME_SIZE,DBMaster.Costumes.COLUMN_NAME_SHOP, DBMaster.Costumes.COLUMN_NAME_PHONE,DBMaster.Costumes.COLUMN_NAME_DESCRIPTION}, DBMaster.Costumes._ID + " =?",new String[]{String.valueOf(cosid)},null,null,null);
+        Cursor cursor = db.query(DBMaster.Costumes.TABLE_NAME2,new String[]{DBMaster.Costumes._ID,DBMaster.Costumes.COLUMN_NAME_TITLE, DBMaster.Costumes.COLUMN_NAME_PRICE,DBMaster.Costumes.COLUMN_NAME_EMAIL,DBMaster.Costumes.COLUMN_NAME_SHOP, DBMaster.Costumes.COLUMN_NAME_PHONE,DBMaster.Costumes.COLUMN_NAME_DESCRIPTION}, DBMaster.Costumes._ID + " =?",new String[]{String.valueOf(cosid)},null,null,null);
 
         if(cursor != null){
             cursor.moveToFirst();
