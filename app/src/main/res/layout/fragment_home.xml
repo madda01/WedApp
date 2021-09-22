@@ -1,9 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="5dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".customer.HomeFragment">
 
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/weddingapptitle"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="394dp"
+        android:layout_height="522dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <ImageView
+            android:id="@+id/imageDec"
+            android:layout_width="197dp"
+            android:layout_height="253dp"
+            android:src="@drawable/decoicon"
+            app:layout_constraintEnd_toStartOf="@+id/imagePho"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imagePho"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/potoicon"
+            app:layout_constraintBottom_toTopOf="@+id/imageVeh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageDec"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageCos"
+            android:layout_width="192dp"
+            android:layout_height="255dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/cosicon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageVeh"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageDec"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/imageVeh"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/vehicon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageCos"
+            app:layout_constraintTop_toBottomOf="@+id/imagePho"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textDec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Decorations"
+            app:layout_constraintBottom_toBottomOf="@+id/imageDec"
+            app:layout_constraintEnd_toEndOf="@+id/imageDec"
+            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintStart_toStartOf="@+id/imageDec"
+            app:layout_constraintTop_toTopOf="@+id/imageDec"
+            app:layout_constraintVertical_bias="0.897" />
+
+        <TextView
+            android:id="@+id/textPho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Photography"
+            app:layout_constraintBottom_toBottomOf="@+id/imagePho"
+            app:layout_constraintEnd_toEndOf="@+id/imagePho"
+            app:layout_constraintHorizontal_bias="0.467"
+            app:layout_constraintStart_toEndOf="@+id/imageDec"
+            app:layout_constraintTop_toTopOf="@+id/imagePho"
+            app:layout_constraintVertical_bias="0.897" />
+
+        <TextView
+            android:id="@+id/textCos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Costume"
+            app:layout_constraintBottom_toBottomOf="@+id/imageCos"
+            app:layout_constraintEnd_toEndOf="@+id/imageCos"
+            app:layout_constraintStart_toStartOf="@+id/imageCos"
+            app:layout_constraintTop_toTopOf="@+id/imageCos"
+            app:layout_constraintVertical_bias="0.885" />
+
+        <TextView
+            android:id="@+id/textVeh"
+            android:layout_width="63dp"
+            android:layout_height="21dp"
+            android:text="Vehicles"
+            app:layout_constraintBottom_toBottomOf="@+id/imageVeh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toEndOf="@+id/imageCos"
+            app:layout_constraintTop_toTopOf="@+id/imageVeh"
+            app:layout_constraintVertical_bias="0.883" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/imageBtnMyprof"
+        android:layout_width="39dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="76dp"
+        android:src="@android:drawable/ic_menu_today"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.663"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
