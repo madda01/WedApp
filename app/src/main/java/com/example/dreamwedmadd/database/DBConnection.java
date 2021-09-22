@@ -1,5 +1,7 @@
 package com.example.dreamwedmadd.database;
 
+import static com.example.dreamwedmadd.database.DBMaster.Users.TABLE_NAME1;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -9,6 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.example.dreamwedmadd.models.Costume;
+import com.example.dreamwedmadd.models.Photographermodel;
 import com.example.dreamwedmadd.models.User;
 
 import java.net.ConnectException;
@@ -295,4 +298,16 @@ public class DBConnection extends SQLiteOpenHelper {
         else
             return true;
     }
+
+
+
+
+
+
+
+
+
+
+
+
 }
