@@ -2,7 +2,7 @@
 
 SLIIT 2nd Year 2nd Semester Mobile Application Development (MADD) Mini Project
 
-"Dream Wedding" is a mobile application for wedding planning. Customers can book wedding necessities in below 4 categories.
+"Dream Wedding" :wedding: is a mobile application for wedding planning. Customers can book wedding necessities in below 4 categories.
   1. Costume Management :dress:
   2. Decoration Management :confetti_ball:
   3. Vehicle Management :car:
