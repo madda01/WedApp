@@ -29,6 +29,7 @@ import java.io.ByteArrayOutputStream;
 
 public class addPhotographer extends AppCompatActivity {
 
+    //view
     private  EditText fname,lname,email,mobilenum,companyname,address,price,description ;
     private  Button addbtn ;
     private photoDbHandler photoDbhandler ;
@@ -43,6 +44,7 @@ public class addPhotographer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_photographer);
 
+        //link views
         fname = findViewById(R.id.etfirstname);
         lname = findViewById(R.id.vehModel);
         email = findViewById(R.id.vehYear);
@@ -78,10 +80,11 @@ public class addPhotographer extends AppCompatActivity {
 
         photoDbhandler = new photoDbHandler(context);
 
-
+        //user add button
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //set user inputs to variable
                 String fnme = fname.getText().toString();
                 String lnme = lname.getText().toString();
                 String eml = email.getText().toString();
@@ -91,27 +94,45 @@ public class addPhotographer extends AppCompatActivity {
                 String pri = price.getText().toString();
                 String dcri = description.getText().toString();
 
-                double prise=0 ;
-                try{
-                    prise =Double.parseDouble(pri);
-                }catch (NumberFormatException e){
-                    Toast.makeText(context, "Please enter valid number", Toast.LENGTH_SHORT).show();
+
+                System.out.println(imageViewToBy(imageView));
+
+              //validate all details are entered
+                if (fnme.equals("") || lnme.equals("") || eml.equals("") || mobilen.equals("") || cpyname.equals("") || addr.equals("") || pri.equals("") || dcri.equals("")) {
+
+                    Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
+
+                } else if (mobilen.length() != 10) {
+                    //validate mobile number
+                    Toast.makeText(context, "Please enter valid phone number ", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    double prise = 0;
+
+                    //validate price
+                    try {
+                        prise = Double.parseDouble(pri);
+                    } catch (NumberFormatException e) {
+                        Toast.makeText(context, "Please enter valid number", Toast.LENGTH_SHORT).show();
+                    }
+                    //store data to photographer model
+                    Photographermodel phto = new Photographermodel(
+                            fnme,
+                            lnme,
+                            eml,
+                            mobilen,
+                            cpyname,
+                            addr,
+                            prise,
+                            dcri,
+                            imageViewToBy(imageView)
+
+                    );
+                    //date base method
+                    photoDbhandler.addPhotographer(phto);
+                    startActivity(new Intent(context, photography_Mainlist.class));
+
                 }
-                Photographermodel phto = new Photographermodel(
-                        fnme,
-                        lnme,
-                        eml,
-                        mobilen,
-                        cpyname,
-                        addr,
-                        prise,
-                        dcri,
-                        imageViewToBy(imageView)
-
-                );
-                photoDbhandler.addPhotographer(phto);
-                startActivity(new Intent(context,photography_Mainlist.class));
-
             }
         });
 

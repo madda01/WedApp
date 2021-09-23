@@ -21,7 +21,7 @@ import com.example.dreamwedmadd.R;
 public class HomeFragment extends Fragment {
 
 
-    ImageView deco,photo,cos,veh;
+    ImageView deco,photo,cos,veh,usercart;
     ImageButton myProf;
 
 
@@ -35,6 +35,7 @@ public class HomeFragment extends Fragment {
         photo = root.findViewById(R.id.imagePho);
         cos = root.findViewById(R.id.imageCos);
         veh = root.findViewById(R.id.imageVeh);
+        usercart = root.findViewById(R.id.imagecartview);
         myProf = root.findViewById(R.id.imageBtnMyprof);
 
         deco.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +87,15 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getContext(), CustomerProfile.class));
+            }
+        });
+
+
+
+        usercart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(),customercart.class));
             }
         });
 

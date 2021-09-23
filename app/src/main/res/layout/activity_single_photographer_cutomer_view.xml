@@ -113,33 +113,11 @@
                 android:textColorHint="#80B9B2"
                 android:textSize="14sp" />
 
-            <View
-                android:id="@+id/vieweditre"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="10dp"
-                android:background="#DCDBDB" />
-
-            <TextView
-                android:id="@+id/etuploadeditre"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:text="@string/etuploadvalue"
-                android:textColor="#80B9B2"
-                android:textColorHint="#80B9B2" />
-
-            <CheckBox
-                android:id="@+id/checkBoxre"
-                android:layout_width="139dp"
-                android:layout_height="21dp"
-                android:text="CheckBox"
-                android:textColor="#80B9B2" />
-
             <Button
                 android:id="@+id/btn5editre"
-                android:layout_width="90dp"
-                android:layout_height="40dp"
-                android:text="@string/btn2value"
+                android:layout_width="148dp"
+                android:layout_height="61dp"
+                android:text="@string/photographerbtn"
                 android:textSize="12sp" />
 
             <TextView
