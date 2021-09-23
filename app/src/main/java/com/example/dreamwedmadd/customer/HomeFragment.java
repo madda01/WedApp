@@ -1,11 +1,12 @@
 package com.example.dreamwedmadd.customer;
 
+
 import android.content.Intent;
+
 import android.os.Bundle;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -15,10 +16,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import android.widget.Button;
-
-
-import com.example.dreamwedmadd.MainActivity;
 import com.example.dreamwedmadd.R;
 
 public class HomeFragment extends Fragment {
@@ -94,12 +91,14 @@ public class HomeFragment extends Fragment {
         });
 
 
+
         usercart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getContext(),customercart.class));
             }
         });
+
 
         return root;
     }

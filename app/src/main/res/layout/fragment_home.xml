@@ -23,6 +23,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="8dp"
         android:text="@string/weddingapptitle"
+        android:textColor="@color/tea_green_our"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
@@ -35,6 +36,7 @@
         android:id="@+id/constraintLayout3"
         android:layout_width="394dp"
         android:layout_height="522dp"
+        android:background="@drawable/button_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,65 +87,80 @@
 
         <TextView
             android:id="@+id/textDec"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Decorations"
+            android:layout_width="114dp"
+            android:layout_height="53dp"
+            android:text="@string/HomeDECimg"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/imageDec"
             app:layout_constraintEnd_toEndOf="@+id/imageDec"
-            app:layout_constraintHorizontal_bias="0.482"
+            app:layout_constraintHorizontal_bias="0.542"
             app:layout_constraintStart_toStartOf="@+id/imageDec"
             app:layout_constraintTop_toTopOf="@+id/imageDec"
-            app:layout_constraintVertical_bias="0.897" />
+            app:layout_constraintVertical_bias="0.945" />
 
         <TextView
             android:id="@+id/textPho"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Photography"
+            android:layout_width="124dp"
+            android:layout_height="53dp"
+            android:text="@string/HomePHOimg"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/imagePho"
             app:layout_constraintEnd_toEndOf="@+id/imagePho"
-            app:layout_constraintHorizontal_bias="0.467"
+            app:layout_constraintHorizontal_bias="0.616"
             app:layout_constraintStart_toEndOf="@+id/imageDec"
             app:layout_constraintTop_toTopOf="@+id/imagePho"
-            app:layout_constraintVertical_bias="0.897" />
+            app:layout_constraintVertical_bias="0.94" />
 
         <TextView
             android:id="@+id/textCos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Costume"
+            android:layout_width="121dp"
+            android:layout_height="51dp"
+            android:text="@string/HomeCOSimg"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/imageCos"
             app:layout_constraintEnd_toEndOf="@+id/imageCos"
+            app:layout_constraintHorizontal_bias="0.633"
             app:layout_constraintStart_toStartOf="@+id/imageCos"
             app:layout_constraintTop_toTopOf="@+id/imageCos"
-            app:layout_constraintVertical_bias="0.885" />
+            app:layout_constraintVertical_bias="0.921" />
 
         <TextView
             android:id="@+id/textVeh"
-            android:layout_width="63dp"
-            android:layout_height="21dp"
-            android:text="Vehicles"
+            android:layout_width="86dp"
+            android:layout_height="52dp"
+            android:text="@string/HomeVEHimg"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/imageVeh"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintHorizontal_bias="0.517"
             app:layout_constraintStart_toEndOf="@+id/imageCos"
             app:layout_constraintTop_toTopOf="@+id/imageVeh"
+
             app:layout_constraintVertical_bias="0.883" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
         android:id="@+id/imageBtnMyprof"
-        android:layout_width="39dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="76dp"
-        android:src="@android:drawable/ic_menu_today"
+        android:layout_width="51dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="70dp"
+        android:src="@android:drawable/ic_menu_my_calendar"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.663"
+        app:layout_constraintHorizontal_bias="0.629"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imagecartview"

@@ -1,8 +1,10 @@
 package com.example.dreamwedmadd;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,8 +25,9 @@ public class LoginActivity extends AppCompatActivity {
     Button btnreg, btnlog;
     EditText etusername,etpassword;
     TextView etforget;
-    User newuser;
-    SessionManagement sessionManagement;
+
+    SharedPreferences sharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
         DBConnection databaseHelper =new DBConnection(getApplicationContext());
 
+        sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
 
         //event handling for going to home
         btnlog.setOnClickListener(new View.OnClickListener() {
@@ -53,41 +57,65 @@ public class LoginActivity extends AppCompatActivity {
                     etpassword.setError("Password field can not be empty.");
                 }
 
-                //saving the email for session
-                newuser= new User(etusername.getText().toString());
-                sessionManagement= new SessionManagement(LoginActivity.this);
-                sessionManagement.saveSession(newuser);
-
                 if((etusername.getText().toString().equals("c"))&&(etpassword.getText().toString().equals("c"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Costume admin",Toast.LENGTH_LONG).show();
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putString("Email", etusername.getText().toString());
+                    editor.commit();
+
                     Intent start= new Intent(LoginActivity.this, CostumeAdminHome.class);
-
                     startActivity(start);
-                } else if((etusername.getText().toString().equals("d"))&&(etpassword.getText().toString().equals("d"))){
+                }
+                else if((etusername.getText().toString().equals("d"))&&(etpassword.getText().toString().equals("d"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Decoration admin",Toast.LENGTH_LONG).show();
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putString("Email", etusername.getText().toString());
+                    editor.commit();
+
                     Intent start= new Intent(LoginActivity.this, AdminDecoView.class);
-
                     startActivity(start);
-                } else if((etusername.getText().toString().equals("v"))&&(etpassword.getText().toString().equals("v"))){
+                }
+                else if((etusername.getText().toString().equals("v"))&&(etpassword.getText().toString().equals("v"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Vehicle admin",Toast.LENGTH_LONG).show();
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putString("Email", etusername.getText().toString());
+                    editor.commit();
+
                     Intent start= new Intent(LoginActivity.this, AddminVehicleList.class);
-
                     startActivity(start);
-                } else if((etusername.getText().toString().equals("p"))&&(etpassword.getText().toString().equals("p"))){
+                }
+                else if((etusername.getText().toString().equals("p"))&&(etpassword.getText().toString().equals("p"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Photography admin",Toast.LENGTH_LONG).show();
-                    Intent start= new Intent(LoginActivity.this, photography_Mainlist.class);
 
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putString("Email", etusername.getText().toString());
+                    editor.commit();
+
+                    Intent start= new Intent(LoginActivity.this, photography_Mainlist.class);
                     startActivity(start);
                 }
                 else if (databaseHelper.checkUser(etusername.getText().toString()
                         , etpassword.getText().toString())) {
-                        //intent creation: Explicit
-                        Intent i = new Intent(LoginActivity.this, MainActivity2.class);
-                        i.putExtra("Message2", "Directing To Customer Home");
-                        i.putExtra("email", etusername.getText().toString().trim());
-                        i.putExtra("password", etpassword.getText().toString().trim());
 
-                        startActivity(i);
+                        //save the data to the session
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                    editor.putString("Email", etusername.getText().toString());
+                        editor.commit();
+
+                    //intent creation: Explicit
+                    Intent i = new Intent(LoginActivity.this, MainActivity2.class);
+                    i.putExtra("Message2", "Directing To Customer Home");
+                    i.putExtra("email", etusername.getText().toString().trim());
+                    i.putExtra("password", etpassword.getText().toString().trim());
+                    startActivity(i);
 
                 } else {
                     // toast to show success message that record is wrong
@@ -96,7 +124,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
 
     @Override
     protected void onResume() {
