@@ -19,7 +19,10 @@
     <string name="weddingapptitle">DREAM WEDDING</string>
 
     <string name="tvl3n" />
-
+    <string name="deleteDeco">Delete</string>
+    <string name="DeleteDecoHead">Delete Decorator</string>
+    <string name="BookDeco">Book</string>
+    <string name="decoTV">Decorators</string>
 
 
 </resources>

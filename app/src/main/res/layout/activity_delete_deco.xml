@@ -20,12 +20,15 @@
         android:id="@+id/linearLayout"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="150dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDecCount">
+        app:layout_constraintTop_toBottomOf="@+id/textView12">
 
       <EditText
 
@@ -105,7 +108,7 @@
       <EditText
           android:id="@+id/etDecoDesDE"
           android:layout_width="match_parent"
-          android:layout_height="67dp"
+          android:layout_height="wrap_content"
           android:layout_marginTop="10dp"
           android:ems="10"
           android:gravity="start|top"
@@ -114,50 +117,27 @@
           android:textColorHint="#80B9B2"
           android:textSize="14sp" />
 
-      <View
-          android:id="@+id/viewDE"
-          android:layout_width="match_parent"
-          android:layout_height="100dp"
-          android:layout_marginTop="10dp"
-          android:background="#DCDBDB" />
-
-      <TextView
-          android:id="@+id/textView5DE"
-          android:layout_width="match_parent"
-          android:layout_height="44dp"
-          android:text="@string/vhUpimg"
-          android:textColor="#80B9B2"
-          android:textColorHint="#80B9B2" />
-
-      <CheckBox
-          android:id="@+id/VehcheckBox"
-          android:layout_width="139dp"
-          android:layout_height="21dp"
-          android:text="CheckBox"
-          android:textColor="#80B9B2" />
-
       <Button
           android:id="@+id/btnDecoSubDE"
           android:layout_width="90dp"
           android:layout_height="40dp"
-          android:text="@string/btn_submit"
+          android:text="@string/btnDelete"
           android:textSize="12sp" />
-
-      <TextView
-          android:id="@+id/textView6DE"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tvDecCountDE"
+        android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/DeleteDecoHead"
         android:textColor="#80B9B2"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
