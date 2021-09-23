@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.dreamwedmadd.LoginActivity;
 import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.database.DBConnection;
 import com.example.dreamwedmadd.models.Costume;
@@ -22,7 +24,7 @@ import java.util.List;
 
 
 public class CostumeAdminHome extends AppCompatActivity {
-    private Button add;
+    private Button add,logout;
     private ListView coslistView;
     private TextView coscount;
     Context context;
@@ -37,6 +39,7 @@ public class CostumeAdminHome extends AppCompatActivity {
 
         db = new DBConnection(getApplicationContext());
         add = findViewById(R.id.add);
+        logout=findViewById(R.id.btnlogout);
         coslistView = findViewById(R.id.costumelist);
         coscount = findViewById(R.id.costumedesc);
         costumes = new ArrayList<>();
@@ -54,6 +57,17 @@ public class CostumeAdminHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CostumeAdminHome.this,CostumeAdd.class));
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedpreferences = getSharedPreferences(LoginActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.clear();
+                editor.commit();
+                startActivity(new Intent(CostumeAdminHome.this, LoginActivity.class));
             }
         });
 
