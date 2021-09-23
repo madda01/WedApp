@@ -23,6 +23,7 @@ import java.util.List;
 
 public class customercart extends AppCompatActivity {
 
+    //views
     EditText etext, etext2,etext3,etext4,etext5,etext6,etext7,etext8,etext9 ;
     TextView tview1,tview2,tview3,tview4,tview5,tview6,tview7,tview8,tview9;
     Button   btn1,btn2,btn3,btn4,btn5;
@@ -37,6 +38,7 @@ public class customercart extends AppCompatActivity {
 
         context = this;
 
+        //link views
         etext = findViewById(R.id.etcart1);
         etext2 = findViewById(R.id.etcart2);
         etext3 = findViewById(R.id.etcart3);
@@ -67,6 +69,7 @@ public class customercart extends AppCompatActivity {
         imagel = findViewById(R.id.imagecart);
 
 
+        //sharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("customercart", MODE_PRIVATE);
 
         //photography
@@ -90,6 +93,7 @@ public class customercart extends AppCompatActivity {
         String costmeshop = sharedPreferences.getString("costumeshop", "No Shop");
 
 
+        //String to Double for price
         double prise1 = 0, dprice = 0, vhlprice = 0,ctmprioce=0, totalprice = 0;
         prise1 = Double.parseDouble(pprice);
         dprice = Double.parseDouble(decoprice);
@@ -105,7 +109,7 @@ public class customercart extends AppCompatActivity {
         etext4.setText(String.valueOf(dprice));
 
 
-        //vehicale
+        //vehicle
         etext5.setText(vhname);
         etext6.setText(String.valueOf(vhlprice));
 
@@ -119,13 +123,23 @@ public class customercart extends AppCompatActivity {
         String toprice = totalprice + "";
         etext9.setText(toprice);
 
+        //set edit text not editable to user
+        etext.setKeyListener(null);
+        etext2.setKeyListener(null);
+        etext3.setKeyListener(null);
+        etext4.setKeyListener(null);
+        etext5.setKeyListener(null);
+        etext6.setKeyListener(null);
+        etext7.setKeyListener(null);
+        etext8.setKeyListener(null);
+
 
         //check total price is 0
         if (toprice.equals("0.0")) {
             tview9.setVisibility(View.INVISIBLE);
             etext9.setVisibility(View.INVISIBLE);
 
-            //etext9.setText(toprice);
+
         } else {
             tview9.setVisibility(View.VISIBLE);
             etext9.setVisibility(View.VISIBLE);
@@ -145,6 +159,7 @@ public class customercart extends AppCompatActivity {
         //photographer empty check
         if (pname.length() > 0) {
 
+            //set button visible
             etext.setVisibility(View.VISIBLE);
             etext2.setVisibility(View.VISIBLE);
             btn1.setVisibility(View.VISIBLE);
@@ -159,19 +174,22 @@ public class customercart extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
+                    //user remove item from cart
                     SharedPreferences sharedPreferences = getSharedPreferences("customercart", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
+                    //remove
                     editor.remove("name");
                     editor.remove("price");
                     editor.apply();
 
-
+                    //update total price
                     double prise1 = 0, dprice = 0, totalprice = 0;
                     prise1 = Double.parseDouble(pprice);
                     totalprice = 0 + dprice;
                     String toprice = totalprice + "";
 
+                    //navigation to home
                     startActivity(new Intent(context, MainActivity2.class));
 
                 }
@@ -189,6 +207,7 @@ public class customercart extends AppCompatActivity {
             tview3.setVisibility(View.VISIBLE);
             tview4.setVisibility(View.VISIBLE);
 
+            // if user not selected vehicle package
             if (deconame.equals("No Decorator")) {
                 btn2.setVisibility(View.INVISIBLE);
             } else {
@@ -196,13 +215,16 @@ public class customercart extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
+                        //user remove item from cart
                         SharedPreferences sharedPreferences = getSharedPreferences("customercart", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
 
+                        //remove
                         editor.remove("namedeco");
                         editor.remove("pricedeco");
                         editor.apply();
 
+                        //navigation to home
                         startActivity(new Intent(context, MainActivity2.class));
 
 
@@ -220,7 +242,7 @@ public class customercart extends AppCompatActivity {
             tview5.setVisibility(View.VISIBLE);
             tview6.setVisibility(View.VISIBLE);
 
-
+            //if user not selected vehicle package
             if (vhname.equals("No Vehicle")) {
                 btn3.setVisibility(View.INVISIBLE);
             } else {
@@ -228,13 +250,16 @@ public class customercart extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
+                        //user remove item from cart
                         SharedPreferences sharedPreferences = getSharedPreferences("customercart", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
 
+                        //remove
                         editor.remove("vename");
                         editor.remove("veprice");
                         editor.apply();
 
+                        //navigation to home
                         startActivity(new Intent(context, MainActivity2.class));
 
 
@@ -257,20 +282,24 @@ public class customercart extends AppCompatActivity {
             tview8.setVisibility(View.VISIBLE);
 
 
+            //if user not selected costume package
             if (costumename.equals("No Costume")) {
                 btn4.setVisibility(View.INVISIBLE);
             } else {
-                btn3.setOnClickListener(new View.OnClickListener() {
+                btn4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
+                        //user remove item from cart
                         SharedPreferences sharedPreferences = getSharedPreferences("customercart", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
 
+                        //remove
                         editor.remove("costumename");
                         editor.remove("costumeprice");
                         editor.apply();
 
+                        //navigation to home
                         startActivity(new Intent(context, MainActivity2.class));
 
 
@@ -282,18 +311,19 @@ public class customercart extends AppCompatActivity {
 
         }
 
-
+        //if total price is 0 book button invisible
         if (toprice.equals("0.0")) {
             btn5.setVisibility(View.INVISIBLE);
 
+        //send user selected package information to email
         }else{
 
-
+                //Intent for email activity
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 final Intent chooser;
                 intent.setData(Uri.parse("mailto:"));
-                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"gtxdimal@yahoo.com"});
-                intent.putExtra(Intent.EXTRA_SUBJECT, "Package Book");
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"poornaranasinghe55@gmail.com"});  //email
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Package Book"); //email subject
                 intent.putExtra
                         (Intent.EXTRA_TEXT,
                                 "---Package Information--" +
@@ -310,8 +340,9 @@ public class customercart extends AppCompatActivity {
 
 
                 intent.setType("message/rfc822");
-                chooser = Intent.createChooser(intent, "send booking details to package providers");
+                chooser = Intent.createChooser(intent, "send booking details to package provider");
 
+                //book button
                 btn5.setVisibility(View.VISIBLE);
                 btn5.setOnClickListener(new View.OnClickListener() {
                     @Override
