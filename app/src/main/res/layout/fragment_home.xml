@@ -133,16 +133,16 @@
 
     <ImageButton
         android:id="@+id/imageBtnMyprof"
-        android:layout_width="39dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="76dp"
-        android:src="@android:drawable/ic_menu_today"
+        android:layout_width="51dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/profile"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.663"
+        app:layout_constraintHorizontal_bias="0.629"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

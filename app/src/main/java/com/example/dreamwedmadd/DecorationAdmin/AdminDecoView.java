@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,8 +14,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.dreamwedmadd.LoginActivity;
 import com.example.dreamwedmadd.MainActivity;
 import com.example.dreamwedmadd.R;
+import com.example.dreamwedmadd.costumeAdmin.CostumeAdminHome;
 import com.example.dreamwedmadd.database.DBDecorator;
 import com.example.dreamwedmadd.models.Decorator;
 
@@ -22,7 +25,7 @@ import java.util.List;
 
 public class AdminDecoView extends AppCompatActivity {
 
-    Button btn;
+    Button btn,logout;
     TextView textView;
     Context context;
     DecoAdaptor decoAdaptor;
@@ -35,6 +38,7 @@ public class AdminDecoView extends AppCompatActivity {
         setContentView(R.layout.activity_admin_deco_view);
         btn=findViewById(R.id.btnDecoAdd);
         textView=findViewById(R.id.tvDecCount);
+        logout=findViewById(R.id.btnlogoutdeco);
         listView=findViewById(R.id.DecoAdminView);
         context=this;
         dbDecorator=new DBDecorator(context);
@@ -42,6 +46,11 @@ public class AdminDecoView extends AppCompatActivity {
         decoAdaptor=new DecoAdaptor(context,R.layout.decosingleraw,decorators);
         listView.setAdapter(decoAdaptor);
         textView.setText("Decorators "+dbDecorator.DecoCount());
+
+        //getting data
+        SharedPreferences sharedPreferences= getSharedPreferences("login",MODE_PRIVATE);
+        String adminemail= sharedPreferences.getString("Email","no email");
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -89,6 +98,17 @@ public class AdminDecoView extends AppCompatActivity {
 
 
                 startActivity(new Intent(context,AddDeco.class));
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedpreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.remove("Email");
+                editor.apply();
+                startActivity(new Intent(AdminDecoView.this, LoginActivity.class));
             }
         });
 

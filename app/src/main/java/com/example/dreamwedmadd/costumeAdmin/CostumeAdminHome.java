@@ -46,6 +46,11 @@ public class CostumeAdminHome extends AppCompatActivity {
 
         costumes = db.getAllCostumes();
 
+        //getting data
+        SharedPreferences sharedPreferences= getSharedPreferences("login",MODE_PRIVATE);
+        String adminemail= sharedPreferences.getString("Email","no email");
+
+
         CostumeAdapter adapter = new CostumeAdapter(context,R.layout.activity_costume_each,costumes);
 
         coslistView.setAdapter(adapter);
@@ -63,10 +68,10 @@ public class CostumeAdminHome extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences sharedpreferences = getSharedPreferences(LoginActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+                SharedPreferences sharedpreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
-                editor.clear();
-                editor.commit();
+                editor.remove("Email");
+                editor.apply();
                 startActivity(new Intent(CostumeAdminHome.this, LoginActivity.class));
             }
         });

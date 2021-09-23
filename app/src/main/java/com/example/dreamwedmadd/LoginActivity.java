@@ -27,9 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView etforget;
 
     SharedPreferences sharedPreferences;
-    public static final String MyPREFERENCES = "login" ;
-    public static final String Password = "password";
-    public static final String Email = "email";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
         DBConnection databaseHelper =new DBConnection(getApplicationContext());
 
-        sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
 
         //event handling for going to home
         btnlog.setOnClickListener(new View.OnClickListener() {
@@ -64,8 +62,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                    editor.putString(Email, etusername.getText().toString());
-                    editor.putString(Password, etpassword.getText().toString());
+                    editor.putString("Email", etusername.getText().toString());
                     editor.commit();
 
                     Intent start= new Intent(LoginActivity.this, CostumeAdminHome.class);
@@ -76,8 +73,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                    editor.putString(Email, etusername.getText().toString());
-                    editor.putString(Password, etpassword.getText().toString());
+                    editor.putString("Email", etusername.getText().toString());
                     editor.commit();
 
                     Intent start= new Intent(LoginActivity.this, AdminDecoView.class);
@@ -88,8 +84,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                    editor.putString(Email, etusername.getText().toString());
-                    editor.putString(Password, etpassword.getText().toString());
+                    editor.putString("Email", etusername.getText().toString());
                     editor.commit();
 
                     Intent start= new Intent(LoginActivity.this, AddminVehicleList.class);
@@ -100,8 +95,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                    editor.putString(Email, etusername.getText().toString());
-                    editor.putString(Password, etpassword.getText().toString());
+                    editor.putString("Email", etusername.getText().toString());
                     editor.commit();
 
                     Intent start= new Intent(LoginActivity.this, photography_Mainlist.class);
@@ -113,8 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                         //save the data to the session
                         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                        editor.putString(Email, etusername.getText().toString());
-                        editor.putString(Password, etpassword.getText().toString());
+                    editor.putString("Email", etusername.getText().toString());
                         editor.commit();
 
                     //intent creation: Explicit

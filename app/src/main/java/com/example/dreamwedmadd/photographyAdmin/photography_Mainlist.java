@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,7 +14,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.dreamwedmadd.LoginActivity;
 import com.example.dreamwedmadd.R;
+import com.example.dreamwedmadd.costumeAdmin.CostumeAdminHome;
 import com.example.dreamwedmadd.database.photoDbHandler;
 import com.example.dreamwedmadd.models.Photographermodel;
 
@@ -22,7 +25,7 @@ import java.util.List;
 
 public class photography_Mainlist extends AppCompatActivity {
 
-    private Button add ;
+    private Button add,logout ;
     private ListView listView;
     private TextView count;
     private Context context;
@@ -37,6 +40,7 @@ public class photography_Mainlist extends AppCompatActivity {
         add = findViewById(R.id.btn1);
         listView = findViewById(R.id.photolist);
         count = findViewById(R.id.tvtext3);
+        logout=findViewById(R.id.btnlogoutphoto);
         context = this;
         photoDbhandler = new photoDbHandler(context);
         photogra = new ArrayList<>();
@@ -44,6 +48,9 @@ public class photography_Mainlist extends AppCompatActivity {
         //get photographer details
         photogra = photoDbhandler.getAllPhotographers();
 
+        //getting data
+        SharedPreferences sharedPreferences= getSharedPreferences("login",MODE_PRIVATE);
+        String adminemail= sharedPreferences.getString("Email","no email");
 
         //set photographers list to view
         photographerAdapter adapter = new photographerAdapter(context,R.layout.photography_single_row,photogra);
@@ -58,6 +65,17 @@ public class photography_Mainlist extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(context,addPhotographer.class));
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedpreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.remove("Email");
+                editor.apply();
+                startActivity(new Intent(photography_Mainlist.this, LoginActivity.class));
             }
         });
 
