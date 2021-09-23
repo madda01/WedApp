@@ -20,11 +20,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DreamWedMADD">
-<<<<<<< HEAD
+
         <activity
             android:name=".customer.CustomerRate"
             android:exported="true" />
-=======
+
         <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
         
 
@@ -32,7 +32,7 @@
             android:name=".customer.customercart"
             android:exported="true" />
 
->>>>>>> 372b021671a37a929a627e8f6f44cde490fb3646
+
         <activity
             android:name=".customer.CustomerVehicleView"
             android:exported="true" />
@@ -84,11 +84,7 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 372b021671a37a929a627e8f6f44cde490fb3646
         <activity
             android:name=".LoginActivity"
             android:exported="true" />
