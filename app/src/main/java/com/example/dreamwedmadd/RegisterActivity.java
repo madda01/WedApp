@@ -23,8 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText etname,etemail,etmobile,etpassword;
     private User newuser;
     private DBConnection dbHandler;
-
-    //AwesomeValidation awesomeValidation;
+    Boolean valid= true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,41 +46,37 @@ public class RegisterActivity extends AppCompatActivity {
         String message1=receiveintent.getStringExtra("Message1");
         Toast.makeText(getApplicationContext(),message1,Toast.LENGTH_LONG).show();
 
-        //initialize validation style
-        //awesomeValidation= new AwesomeValidation(ValidationStyle.BASIC);
-
         //event handling for register new user
         btnreg.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                checkUserData();
+            }
+        });
 
-               /*
-                //name validation
-                awesomeValidation.addValidation(RegisterActivity.this,R.id.hintfname,
-                        RegexTemplate.NOT_EMPTY,R.string.invalid_name);
-
-                //email validation
-                awesomeValidation.addValidation(RegisterActivity.this,R.id.hintemail,
-                        Patterns.EMAIL_ADDRESS,R.string.invalid_email);
-
-                //mobile validation
-                awesomeValidation.addValidation(RegisterActivity.this,R.id.hintmobile,
-                        "[0-9]{10}$",R.string.invalid_mobile);
-
-                //password validation
-                awesomeValidation.addValidation(RegisterActivity.this,R.id.hintpass,
-                        ".{6,}",R.string.invalid_password);*/
-
-                if (etname.getText().toString().isEmpty()) {
-                    etname.setError("Username can not be empty.");
+    }
+            //registration form input validation
+            private void checkUserData() {
+                if (etname.getText().toString().isEmpty()|| etname.getText().toString().length()<3) {
+                    etname.setError("Username should be at least 3 characters");
                 }
-                if (etemail.getText().toString().isEmpty()) {
-                    etemail.setError("Email field can not be empty.");
+                else if (etemail.getText().toString().isEmpty()|| !android.util.Patterns.EMAIL_ADDRESS.matcher(etemail.getText().toString()).matches()) {
+                    etemail.setError("Enter a valid email");
                 }
-                if (etpassword.getText().toString().isEmpty()) {
-                    etpassword.setError("Password can not be empty.");
+                else if(etmobile.getText().toString().isEmpty()||!isPhoneNumberValid(etmobile.getText().toString())) {
+                    etmobile.setError("Enter a valid phone number");
+                    valid = false;
                 }
+                else if (etpassword.getText().toString().isEmpty()|| etpassword.getText().toString().length() < 4 || etpassword.getText().toString().length() > 10) {
+                    etpassword.setError("Password should be 4 and 10 alphanumeric characters");
+                }
+                else
+                    createUserAccount();
+            }
 
+            //if validation is successful this method will create an account
+            private void createUserAccount() {
+                //check of the user already exsists
                 if (!dbHandler.checkUser(etemail.getText().toString().trim())) {
 
                     newuser.setName(etname.getText().toString().trim());
@@ -91,20 +86,27 @@ public class RegisterActivity extends AppCompatActivity {
 
                     dbHandler.insertUser(newuser);
 
-                    //intent creation: Explicit
-                    /*Intent i = new Intent(RegisterActivity.this,MainActivity2.class);
-                    i.putExtra("MessageReg","Successfully created an account");
-                    startActivity(i);*/
-
                     // Snack Bar to show success message that record saved successfully
                     Toast.makeText(getApplicationContext(),"Successfully created an account",Toast.LENGTH_LONG).show();
                     startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
 
                 } else {
                     // Snack Bar to show error message that record already exists
-                    Toast.makeText(getApplicationContext(),"Registration was unsuccessfull..",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"You already have an account",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
                 }
             }
-        });
-    }
+
+            //method to validate the 10 digit phone number
+            public boolean isPhoneNumberValid(String phoneNumber) {
+
+                boolean valid = true;
+                String regex = "^[0-9]{10}$";
+
+                if (!phoneNumber.matches(regex)) {
+                    valid = false;
+                }
+                return valid;
+            }
+
 }

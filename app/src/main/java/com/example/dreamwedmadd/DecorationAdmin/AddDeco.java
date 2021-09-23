@@ -33,11 +33,12 @@ import java.io.ByteArrayOutputStream;
 
 public class AddDeco extends AppCompatActivity {
 
-    Button btn;
+    Button btn,btnE;
     EditText et1,et2,et3,et4,et5,et6,et7,et8;
     Context context;
     DBDecorator dbDecorator;
     ImageView imageView;
+
 
     public  static final int CAMERA_REQUEST=100;
     public  static final int STORAGE_REQUEST=101;
@@ -58,6 +59,7 @@ public class AddDeco extends AppCompatActivity {
         et6=findViewById(R.id.etDecoAddress);
         et7=findViewById(R.id.etDecoPRice);
         et8=findViewById(R.id.etDecoDes);
+        btnE=findViewById(R.id.DecoEmail);
         context =this;
         dbDecorator=new DBDecorator(context);
         imageView=(ImageView) findViewById(R.id.DecoImageUp);
@@ -88,7 +90,7 @@ public class AddDeco extends AppCompatActivity {
 
                String fName=et1.getText().toString();
                String lName=et2.getText().toString();
-               String Email=et3.getText().toString();
+               String  Email=et3.getText().toString();
                String Mobile=et4.getText().toString();
                String cName=et5.getText().toString();
                String address=et6.getText().toString();
@@ -106,7 +108,7 @@ public class AddDeco extends AppCompatActivity {
                    Toast.makeText(context, "Please enter valid price", Toast.LENGTH_SHORT).show();
 
                }
-              
+
 
 
                if (fName.equals("")||lName.equals("")||Email.equals("")||Mobile.equals("")||cName.equals("")||address.equals("")||description.equals("")||Price.equals("")){
@@ -114,7 +116,6 @@ public class AddDeco extends AppCompatActivity {
                    Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
                }
                 else {
-
                    Decorator decorator=new Decorator(fName,lName,Email,Mobile,cName,description,address,price,imageViewToBy(imageView));
                    dbDecorator.addDeco(decorator);
                    startActivity(new Intent(context,AdminDecoView.class));
@@ -127,6 +128,21 @@ public class AddDeco extends AppCompatActivity {
 
         });
 
+        btnE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                Intent chooser;
+                intent.setData(Uri.parse("mailto:"));
+                intent.putExtra(Intent.EXTRA_EMAIL,new String[]{et3.getText().toString()});
+                intent.putExtra(Intent.EXTRA_SUBJECT,"You are added to the Dream Wedding App");
+                intent.putExtra(Intent.EXTRA_TEXT,"Congratulations we have now added you to our app.");
+                intent.setType("text/plain");
+                chooser=Intent.createChooser(intent,"Send Email test App");
+                startActivity(chooser);
+
+            }
+        });
 
 
 
@@ -224,7 +240,8 @@ public class AddDeco extends AppCompatActivity {
 
             if (resultCode==RESULT_OK){
                 Uri resultUri=result.getUri();
-                Picasso.with(AddDeco.this).load(resultUri).into(imageView);            }
+                Picasso.with(AddDeco.this).load(resultUri).into(imageView);
+            }
         }
 
     }

@@ -13,12 +13,9 @@ import java.util.List;
 
 public class DBDecorator extends SQLiteOpenHelper {
 
-<<<<<<< HEAD
-    private static final int VERSION=4;
-=======
-    private static final int VERSION=6;
 
->>>>>>> 372b021671a37a929a627e8f6f44cde490fb3646
+    private static final int VERSION=18;
+
     private static final String DB_NAME="dreamwed";
     private static final String TABLE_NAME="decorator";
     private static final String ID="id";
@@ -46,7 +43,7 @@ public class DBDecorator extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         String sql="CREATE TABLE "+TABLE_NAME+" "+"("+ID+" INTEGER PRIMARY KEY AUTOINCREMENT,"+FNAME+
-                " TEXT,"+LNAME+" TEXT,"+EMAIL+" TEXT,"+MOBILE+" TEXT,"+CNAME+" TEXT,"+ADDRESS+" TEXT,"+DESCRIPTION+" TEXT,"+PRICE+" REAL,"+" avatar blob);";
+                " TEXT,"+LNAME+" TEXT,"+EMAIL+" TEXT,"+MOBILE+" TEXT,"+CNAME+" TEXT,"+ADDRESS+" TEXT,"+DESCRIPTION+" TEXT,"+PRICE+" REAL,"+"avatar blob);";
 
             db.execSQL(sql);
     }

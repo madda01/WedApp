@@ -14,7 +14,7 @@ import com.example.dreamwedmadd.database.DBConnection;
 import com.example.dreamwedmadd.models.Costume;
 
 public class CostumeUpdate extends AppCompatActivity {
-    private EditText price,description,size,title,shop,phone;
+    private EditText price,description,email,title,shop,phone;
     private Button btnedit;
     private DBConnection dbHandler;
     private Context context;
@@ -29,7 +29,7 @@ public class CostumeUpdate extends AppCompatActivity {
 
         price = findViewById(R.id.addprice);
         description = findViewById(R.id.adddesc);
-        size=findViewById(R.id.addsizes);
+        email=findViewById(R.id.addsizes);
         title=findViewById(R.id.addtitle);
         shop=findViewById(R.id.addshop);
         phone=findViewById(R.id.addmobile);
@@ -40,7 +40,7 @@ public class CostumeUpdate extends AppCompatActivity {
 
         price.setText(String.valueOf(costume.getPrice()));
         description.setText(costume.getDescription());
-        size.setText(costume.getSize());
+        email.setText(costume.getEmail());
         title.setText(costume.getTitle());
         shop.setText(costume.getShop());
         phone.setText(costume.getPhone());
@@ -50,7 +50,7 @@ public class CostumeUpdate extends AppCompatActivity {
             public void onClick(View v) {
                 double titleprice =Double.parseDouble(price.getText().toString()) ;
                 String decText = description.getText().toString();
-                String Size = size.getText().toString();
+                String Size = email.getText().toString();
                 String Title= title.getText().toString();
                 String Shop= shop.getText().toString();
                 String Phone=phone.getText().toString();
