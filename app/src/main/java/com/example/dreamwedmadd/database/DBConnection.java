@@ -21,7 +21,7 @@ import java.util.List;
 public class DBConnection extends SQLiteOpenHelper {
 
 
-    private static final int VERSION = 18; //version
+    private static final int VERSION = 19; //version
 
 
     private static final String DB_NAME = "dreamwed"; //database name
@@ -301,14 +301,22 @@ public class DBConnection extends SQLiteOpenHelper {
     }
 
 
+    public User getSingleUser(String i) {
+        User user;
+        SQLiteDatabase db = getWritableDatabase();
 
+        Cursor cursor = db.query(TABLE_NAME1,new String[]{DBMaster.Users.COLUMN_NAME_NAME,DBMaster.Users.COLUMN_NAME_EMAIL,DBMaster.Users.COLUMN_NAME_MOBILE}, DBMaster.Users.COLUMN_NAME_EMAIL + " =?",new String[]{String.valueOf(i)},null,null,null);
 
+        if(cursor != null){
+            cursor.moveToFirst();
+            user = new User(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getString(2)
+            );
+            return user;
 
-
-
-
-
-
-
-
+        }
+        return null;
+    }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -55,10 +56,21 @@ public class CostumeUpdate extends AppCompatActivity {
                 String Shop= shop.getText().toString();
                 String Phone=phone.getText().toString();
 
-                Costume costume1 = new Costume(Integer.parseInt(id),Title,titleprice,Size,Shop,Phone,decText);
-                int state = dbHandler.updateSingleCostume(costume1);
-                System.out.println(state);
-                startActivity(new Intent(context, CostumeAdminHome.class));
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                if (Title.equals("")||Size.equals("")||Shop.equals("")||Phone.equals("")||decText.equals("")){
+
+                    Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
+                }
+                else if(!Size.trim().matches(emailPattern)) {
+                    Toast.makeText(getApplicationContext(),"invalid email address",Toast.LENGTH_SHORT).show();
+                }
+
+                else{
+                    Costume costume1 = new Costume(Integer.parseInt(id),Title,titleprice,Size,Shop,Phone,decText);
+                    int state = dbHandler.updateSingleCostume(costume1);
+                    System.out.println(state);
+                    startActivity(new Intent(context, CostumeAdminHome.class));
+                }
             }
         });
     }
