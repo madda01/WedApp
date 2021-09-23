@@ -24,11 +24,19 @@
         <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/fragment_vehicle.xml" value="0.38697916666666665" />
         <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/photography_single_row.xml" value="0.21822916666666667" />
         <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/vehicle_single_row.xml" value="0.264" />
+        <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_add_vehicle.xml" value="0.37135416666666665" />
+        <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_addmin_vehicle_list.xml" value="0.37135416666666665" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_costume_update.xml" value="0.27447916666666666" />
+        <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_customer_rate.xml" value="0.25" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_customer_vehicle_list.xml" value="0.27447916666666666" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_customer_vehicle_view.xml" value="0.27447916666666666" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_main2.xml" value="0.22314814814814815" />
+        <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/fragment_costume.xml" value="0.37135416666666665" />
+        <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/fragment_decoration.xml" value="0.37135416666666665" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/fragment_home.xml" value="0.27447916666666666" />
+        <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/fragment_photography.xml" value="0.37135416666666665" />
+        <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/fragment_vehicle.xml" value="0.37135416666666665" />
+        <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/vehicle_single_row.xml" value="0.37135416666666665" />
       </map>
     </option>
   </component>

@@ -15,9 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DreamWedMADD">
-
-
-        
+        <activity
+            android:name=".customer.CustomerRate"
+            android:exported="true" />
         <activity
             android:name=".customer.CustomerVehicleView"
             android:exported="true" />
@@ -32,13 +32,10 @@
             android:exported="true" />
         <activity
             android:name=".VehicleAddmin.AddminVehicleList"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".VehicleAddmin.DeleteVehicle"
             android:exported="true" />
-
-
-
         <activity android:name=".photographyAdmin.deletePhotographer" />
         <activity android:name=".photographyAdmin.editPhotographer" />
         <activity android:name=".photographyAdmin.addPhotographer" />
@@ -65,14 +62,12 @@
         <activity android:name=".customer.SngleDecoCus" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"><intent-filter>
+            android:exported="true" ><intent-filter>
             <action android:name="android.intent.action.MAIN" />
+
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-
-
-
         <activity
             android:name=".LoginActivity"
             android:exported="true" />
@@ -87,7 +82,8 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity2"
-            android:exported="true" />
+            android:exported="true"/>
+
         <activity
             android:name=".costumeAdmin.CostumeAdminHome"
             android:exported="true" />
