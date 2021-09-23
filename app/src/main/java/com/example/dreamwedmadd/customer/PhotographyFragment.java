@@ -26,6 +26,7 @@ import java.util.List;
 
 public class PhotographyFragment extends Fragment {
 
+    //view
     Button btnvalue;
 
 

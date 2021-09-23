@@ -33,8 +33,7 @@ import java.util.List;
 public class MainActivity2 extends AppCompatActivity {
 
 
-    Button btn ;
-    Context context ;
+
 
 
     @Override
@@ -42,8 +41,8 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        btn = findViewById(R.id.btncart);
-        context = this;
+
+
 
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavigation);
@@ -66,12 +65,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(context,customercart.class));
-            }
-        });
+
 
 
 
