@@ -97,9 +97,13 @@ public class CostumeAdd extends AppCompatActivity {
                     Toast.makeText(context, "Please enter valid price", Toast.LENGTH_SHORT).show();
                 }
 
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
                 if (Title.equals("")||Price.equals("")||Email.equals("")||Shop.equals("")||Phone.equals("")||Decs.equals("")){
 
                     Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
+                }
+                else if(!Email.trim().matches(emailPattern)) {
+                    Toast.makeText(getApplicationContext(),"invalid email address",Toast.LENGTH_SHORT).show();
                 }
 
                 else {
