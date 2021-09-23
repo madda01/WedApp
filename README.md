@@ -15,5 +15,3 @@ Devaloped by Team KDY-WD-13
 | Lanuage - JAVA | Database - SQLite | IDE - Android Studio | Integrate Technology Service - Github
 
 
-![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](url)
