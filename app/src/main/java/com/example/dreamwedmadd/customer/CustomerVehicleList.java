@@ -9,7 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.VehicleAddmin.DeleteVehicle;
@@ -28,6 +30,7 @@ public class CustomerVehicleList extends AppCompatActivity {
     Context context;
     private VehicleDBHandler vehicleDBHandler;
     private List<Vehicle> vehicles;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
