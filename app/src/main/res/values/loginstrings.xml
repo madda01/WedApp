@@ -16,4 +16,5 @@
     <string name="btnresetpass">Reset Password</string>
     <string name="resetpass2">Re-enter your new password</string>
     <string name="resetpass1">Enter your new password</string>
+    <string name="btnlogout">Log Out</string>
 </resources>
