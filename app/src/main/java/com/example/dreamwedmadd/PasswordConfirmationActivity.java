@@ -56,7 +56,7 @@ public class PasswordConfirmationActivity extends AppCompatActivity {
                         ".{6,}",R.string.invalid_password);*/
 
                 if(password.isEmpty() || repassword.isEmpty()){
-                    Toast.makeText(PasswordConfirmationActivity.this,"fill add fields",Toast.LENGTH_LONG).show();
+                    Toast.makeText(PasswordConfirmationActivity.this,"fill all fields",Toast.LENGTH_LONG).show();
                     return;
                 }
 

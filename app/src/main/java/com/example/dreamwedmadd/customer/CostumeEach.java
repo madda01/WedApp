@@ -48,7 +48,7 @@ public class CostumeEach extends AppCompatActivity {
 
         textView.setText(costume.getTitle());
         title.setText(costume.getTitle());
-        price.setText(costume.getPrice());
+        price.setText(String.valueOf(costume.getPrice()));
         size.setText(costume.getSize());
         shop.setText(costume.getShop());
         phone.setText(costume.getPhone());

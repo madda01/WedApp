@@ -19,6 +19,18 @@
     <string name="deletetvn">Delete Photographer</string>
     <string name="photocusbtnv1">View Photographers</string>
     <string name="photographerview">Photographer</string>
+    <string name="tv1n">Photographer Name</string>
+    <string name="tvl2n">Package Price</string>
+    <string name="tvl4n">Package Price</string>
+    <string name="tvl6n">Package Price</string>
+    <string name="tvl8n">Package Price</string>
+    <string name="tvln">Total price</string>
+    <string name="tvlnvalue">Total Price</string>
+    <string name="tvlevalue">Decarator name</string>
+    <string name="decotv">Decorator Name</string>
+    <string name="vehiclename">Vehicale Name</string>
+    <string name="tvdress">Costume Name</string>
+    <string name="Removebtn">Remove</string>
 
 
 </resources>

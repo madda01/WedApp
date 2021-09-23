@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
 import com.example.dreamwedmadd.models.Decorator;
 
 import java.util.ArrayList;
@@ -15,7 +13,12 @@ import java.util.List;
 
 public class DBDecorator extends SQLiteOpenHelper {
 
+<<<<<<< HEAD
     private static final int VERSION=4;
+=======
+    private static final int VERSION=6;
+
+>>>>>>> 372b021671a37a929a627e8f6f44cde490fb3646
     private static final String DB_NAME="dreamwed";
     private static final String TABLE_NAME="decorator";
     private static final String ID="id";
@@ -32,6 +35,8 @@ public class DBDecorator extends SQLiteOpenHelper {
 
 
 
+
+
     public DBDecorator(Context context) {
         super(context,DB_NAME, null, VERSION);
 
@@ -41,7 +46,7 @@ public class DBDecorator extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         String sql="CREATE TABLE "+TABLE_NAME+" "+"("+ID+" INTEGER PRIMARY KEY AUTOINCREMENT,"+FNAME+
-                " TEXT,"+LNAME+" TEXT,"+EMAIL+" TEXT,"+MOBILE+" TEXT,"+CNAME+" TEXT,"+ADDRESS+" TEXT,"+DESCRIPTION+" TEXT,"+PRICE+" REAL"+");";
+                " TEXT,"+LNAME+" TEXT,"+EMAIL+" TEXT,"+MOBILE+" TEXT,"+CNAME+" TEXT,"+ADDRESS+" TEXT,"+DESCRIPTION+" TEXT,"+PRICE+" REAL,"+" avatar blob);";
 
             db.execSQL(sql);
     }
@@ -69,6 +74,7 @@ public class DBDecorator extends SQLiteOpenHelper {
         contentValues.put(ADDRESS,decorator.getAddress());
         contentValues.put(PRICE,decorator.getPrice());
         contentValues.put(DESCRIPTION,decorator.getDescription());
+        contentValues.put("avatar",decorator.getImage());
 
         db.insert(TABLE_NAME,null,contentValues);
         db.close();
@@ -95,6 +101,7 @@ public class DBDecorator extends SQLiteOpenHelper {
                 decorator.setAddress(cursor.getString(6));
                 decorator.setDescription(cursor.getString(7));
                 decorator.setPrice(cursor.getDouble(8));
+                decorator.setImage(cursor.getBlob(9));
 
                 decorators.add(decorator);
 

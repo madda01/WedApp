@@ -11,20 +11,29 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import android.widget.Button;
+
 
 import com.example.dreamwedmadd.MainActivity;
 import com.example.dreamwedmadd.R;
 
 public class HomeFragment extends Fragment {
 
+
     ImageView deco,photo,cos,veh;
     ImageButton myProf;
+
+    Button probutton;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         deco = root.findViewById(R.id.imageDec);

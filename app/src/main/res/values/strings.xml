@@ -15,11 +15,15 @@
 
     <string name="btnDecoView">View Decorators</string>
     <string name="ViewVehTitle">VEHICLE DETAILS</string>
+
     <string name="weddingapptitle">DREAM WEDDING</string>
     <string name="HomeDECimg">Wedding Decorations</string>
     <string name="HomePHOimg">Wedding Photography</string>
     <string name="HomeCOSimg">Wedding Costumes</string>
     <string name="HomeVEHimg">Wedding Cars</string>
+
+    <string name="tvl3n" />
+
 
 
 </resources>

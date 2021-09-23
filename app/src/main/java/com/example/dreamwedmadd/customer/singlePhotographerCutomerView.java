@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -70,10 +71,20 @@ public class singlePhotographerCutomerView extends AppCompatActivity {
         descriptioneditrl.setKeyListener(null);
 
 
+
         addbtneditrl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(context, MainActivity2.class));
+
+
+
+                SharedPreferences sharedPreferences = getSharedPreferences("customercart",MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("name",fnameeditrl.getText().toString() +"" + lnameeditrl.getText().toString() );
+                editor.putString("price",priceeditrl.getText().toString());
+                editor.commit();
+
+                startActivity(new Intent(context, customercart.class));
             }
         });
 

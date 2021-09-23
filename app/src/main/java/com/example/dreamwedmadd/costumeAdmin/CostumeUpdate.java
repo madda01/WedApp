@@ -38,7 +38,7 @@ public class CostumeUpdate extends AppCompatActivity {
         final String id = getIntent().getStringExtra("id");
         Costume costume = dbHandler.getSingleCostume(Integer.parseInt(id));
 
-        price.setText(costume.getPrice());
+        price.setText(String.valueOf(costume.getPrice()));
         description.setText(costume.getDescription());
         size.setText(costume.getSize());
         title.setText(costume.getTitle());
@@ -48,7 +48,7 @@ public class CostumeUpdate extends AppCompatActivity {
         btnedit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String titleprice = price.getText().toString();
+                double titleprice =Double.parseDouble(price.getText().toString()) ;
                 String decText = description.getText().toString();
                 String Size = size.getText().toString();
                 String Title= title.getText().toString();
