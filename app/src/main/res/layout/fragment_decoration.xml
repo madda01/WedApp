@@ -16,4 +16,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RatingBar
+        android:id="@+id/cusDecoRateBar"
+        android:layout_width="243dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/custDecoRateSum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDecocusView" />
+
+    <TextView
+        android:id="@+id/custDecoRateSum"
+        android:layout_width="70dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="220dp"
+        android:text="@string/ratingReciver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cusDecoRateBar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

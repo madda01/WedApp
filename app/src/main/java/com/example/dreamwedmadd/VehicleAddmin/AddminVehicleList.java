@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,7 +14,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.dreamwedmadd.LoginActivity;
 import com.example.dreamwedmadd.R;
+import com.example.dreamwedmadd.costumeAdmin.CostumeAdminHome;
 import com.example.dreamwedmadd.database.VehicleDBHandler;
 import com.example.dreamwedmadd.models.Vehicle;
 
@@ -23,7 +26,7 @@ import java.util.List;
 public class AddminVehicleList extends AppCompatActivity {
 
     //define variables
-    private Button add;
+    private Button add,logout;
     private ListView listView;
     private TextView count;
     Context context;
@@ -38,8 +41,13 @@ public class AddminVehicleList extends AppCompatActivity {
         //adding ID
         add = findViewById(R.id.addVehicleBtn);
         listView = findViewById(R.id.adminVehicleList);
+        logout=findViewById(R.id.btnlogoutvehicle);
         count = findViewById(R.id.vehicleCount);
         context = this;
+
+        //getting data
+        SharedPreferences sharedPreferences= getSharedPreferences("login",MODE_PRIVATE);
+        String adminemail= sharedPreferences.getString("Email","no email");
 
         //Initializing
         vehicleDBHandler = new VehicleDBHandler(context);
@@ -62,6 +70,17 @@ public class AddminVehicleList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(context,AddVehicle.class));
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedpreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.remove("Email");
+                editor.apply();
+                startActivity(new Intent(AddminVehicleList.this, LoginActivity.class));
             }
         });
 

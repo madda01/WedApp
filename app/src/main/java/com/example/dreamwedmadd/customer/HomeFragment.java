@@ -1,11 +1,12 @@
 package com.example.dreamwedmadd.customer;
 
+
 import android.content.Intent;
+
 import android.os.Bundle;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -15,16 +16,12 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import android.widget.Button;
-
-
-import com.example.dreamwedmadd.MainActivity;
 import com.example.dreamwedmadd.R;
 
 public class HomeFragment extends Fragment {
 
 
-    ImageView deco,photo,cos,veh;
+    ImageView deco,photo,cos,veh,usercart;
     ImageButton myProf;
 
 
@@ -38,6 +35,7 @@ public class HomeFragment extends Fragment {
         photo = root.findViewById(R.id.imagePho);
         cos = root.findViewById(R.id.imageCos);
         veh = root.findViewById(R.id.imageVeh);
+        usercart = root.findViewById(R.id.imagecartview);
         myProf = root.findViewById(R.id.imageBtnMyprof);
 
         deco.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +89,16 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(getContext(), CustomerProfile.class));
             }
         });
+
+
+
+        usercart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(),customercart.class));
+            }
+        });
+
 
         return root;
     }

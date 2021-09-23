@@ -2,7 +2,9 @@ package com.example.dreamwedmadd.customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +14,16 @@ import android.widget.Toast;
 import com.example.dreamwedmadd.LoginActivity;
 import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.database.DBConnection;
+import com.example.dreamwedmadd.models.Costume;
+import com.example.dreamwedmadd.models.User;
 
 public class CustomerProfile extends AppCompatActivity {
 
-    Button button,btndel;
+    Button button,btndel,btnlogout;
     EditText etname,etemail,etmobile;
     DBConnection db;
+    Context context;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +36,26 @@ public class CustomerProfile extends AppCompatActivity {
         etname=findViewById(R.id.userprofname);
         etemail=findViewById(R.id.userprofemail);
         etmobile=findViewById(R.id.userprofphone);
+        btnlogout=findViewById(R.id.btnlogoutcus);
 
-        db=new DBConnection(getApplicationContext());
+        //getting data
+        SharedPreferences sharedPreferences= getSharedPreferences("login",MODE_PRIVATE);
+        String customeremail= sharedPreferences.getString("Email","no email");
+
+        context = this;
+        db = new DBConnection(context);
+        user = new User();
+
+        user=db.getSingleUser(customeremail);
+
+        etname.setText(user.getName());
+        etemail.setText(user.getEmail());
+        etmobile.setText(user.getMobile());
+
+        etname.setKeyListener(null);
+        etemail.setKeyListener(null);
+        etmobile.setKeyListener(null);
+
 
         //event handling for going to profile update
         button.setOnClickListener(new View.OnClickListener() {
@@ -62,6 +86,19 @@ public class CustomerProfile extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        btnlogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedpreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                editor.remove("Email");
+                editor.apply();
+                startActivity(new Intent(CustomerProfile.this, LoginActivity.class));
+            }
+        });
+
+
 
     }
 }

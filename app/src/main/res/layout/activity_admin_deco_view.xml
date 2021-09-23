@@ -13,6 +13,7 @@
         android:layout_marginTop="40dp"
         app:layout_constraintBottom_toTopOf="@+id/btnDecoAdd"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -26,6 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+
     <TextView
         android:id="@+id/tvDecCount"
         android:layout_width="wrap_content"
@@ -34,6 +36,17 @@
         android:text="TextView"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/btnDecoAdd"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
+        android:id="@+id/btnlogoutdeco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnlogout"
+        app:layout_constraintBottom_toTopOf="@+id/DecoAdminView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

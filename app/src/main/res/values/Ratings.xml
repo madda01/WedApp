@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="decoRate">For Decoration</string>
+    <string name="photoRate">For Photography</string>
+    <string name="cosRate">For Costume</string>
+    <string name="vehRate">For Wedding Cars</string>
+    <string name="RateTitle">RATE OUR SERVICES</string>
+    <string name="ratingReciver">Rating</string>
+</resources>
