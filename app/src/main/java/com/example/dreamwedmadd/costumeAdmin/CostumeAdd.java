@@ -113,18 +113,22 @@ public class CostumeAdd extends AppCompatActivity {
 
                 try{
                     price=Double.parseDouble(Price);
-                    Cprice= getNewPrice(price,rate);
+                    Cprice= TestCostumeMethods.getNewPrice(price,rate);
                 }catch(NumberFormatException e){
                     Toast.makeText(context, "Please enter valid price", Toast.LENGTH_SHORT).show();
                 }
 
-                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                //String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                
                 if (Title.equals("")||Price.equals("")||Email.equals("")||Shop.equals("")||Phone.equals("")||Decs.equals("")){
 
                     Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
                 }
-                else if(!Email.trim().matches(emailPattern)) {
+                else if(!TestCostumeMethods.validateEmail(Email)) {
                     Toast.makeText(getApplicationContext(),"invalid email address",Toast.LENGTH_SHORT).show();
+                }
+                else if(!TestCostumeMethods.validateMobile(Phone)){
+                    Toast.makeText(context, "Please enter valid phone number", Toast.LENGTH_SHORT).show();
                 }
 
                 else {
@@ -142,13 +146,6 @@ public class CostumeAdd extends AppCompatActivity {
             }
 
         });
-    }
-
-    //method to get service charges
-    public double getNewPrice(double price, double rate) {
-        double finalamount=0;
-        finalamount = ((price*rate)+price); //adding our service charge of 10%
-        return finalamount;
     }
 
     private boolean checkCameraPermission() {

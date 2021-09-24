@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                     etpassword.setError("Password field can not be empty.");
                 }
 
-                if((etusername.getText().toString().equals("c"))&&(etpassword.getText().toString().equals("c"))){
+                if((etusername.getText().toString().equals("costume@gmail.com"))&&(etpassword.getText().toString().equals("costume"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Costume admin",Toast.LENGTH_LONG).show();
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent start= new Intent(LoginActivity.this, CostumeAdminHome.class);
                     startActivity(start);
                 }
-                else if((etusername.getText().toString().equals("d"))&&(etpassword.getText().toString().equals("d"))){
+                else if((etusername.getText().toString().equals("decoration@gmail.com"))&&(etpassword.getText().toString().equals("decoration"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Decoration admin",Toast.LENGTH_LONG).show();
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent start= new Intent(LoginActivity.this, AdminDecoView.class);
                     startActivity(start);
                 }
-                else if((etusername.getText().toString().equals("v"))&&(etpassword.getText().toString().equals("v"))){
+                else if((etusername.getText().toString().equals("vehicle@gmail.com"))&&(etpassword.getText().toString().equals("vehicle"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Vehicle admin",Toast.LENGTH_LONG).show();
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent start= new Intent(LoginActivity.this, AddminVehicleList.class);
                     startActivity(start);
                 }
-                else if((etusername.getText().toString().equals("p"))&&(etpassword.getText().toString().equals("p"))){
+                else if((etusername.getText().toString().equals("photography@gmail.com"))&&(etpassword.getText().toString().equals("photography"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Photography admin",Toast.LENGTH_LONG).show();
 
                     SharedPreferences.Editor editor = sharedPreferences.edit();

@@ -1,19 +1,15 @@
 package com.example.dreamwedmadd;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.basgeekball.awesomevalidation.AwesomeValidation;
-import com.basgeekball.awesomevalidation.ValidationStyle;
-import com.basgeekball.awesomevalidation.utility.RegexTemplate;
+import com.example.dreamwedmadd.customer.TestCustomerMethods;
 import com.example.dreamwedmadd.database.DBConnection;
 import com.example.dreamwedmadd.models.User;
 
@@ -25,11 +21,6 @@ public class RegisterActivity extends AppCompatActivity {
     EditText etname,etemail,etmobile,etpassword;
     private User newuser;
     private DBConnection dbHandler;
-    Boolean valid= true;
-
-    private Pattern emailPattern = Pattern.compile(
-            "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$",
-            Pattern.CASE_INSENSITIVE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,18 +54,17 @@ public class RegisterActivity extends AppCompatActivity {
     }
             //registration form input validation
             private void checkUserData() {
-                if (etname.getText().toString().isEmpty()|| etname.getText().toString().length()<3) {
+                if (etname.getText().toString().isEmpty()|| !TestCustomerMethods.validateName(etname.getText().toString())) {
                     etname.setError("Username should be at least 3 characters");
                 }
-                else if (etemail.getText().toString().isEmpty()|| etemail.getText().toString().matches(String.valueOf(emailPattern))) {
+                else if (etemail.getText().toString().isEmpty()|| !TestCustomerMethods.validateEmail(etemail.getText().toString())) {
                     etemail.setError("Enter a valid email");
                 }
-                else if(etmobile.getText().toString().isEmpty()||!isPhoneNumberValid(etmobile.getText().toString())) {
+                else if(etmobile.getText().toString().isEmpty()||!TestCustomerMethods.validateMobile(etmobile.getText().toString())) {
                     etmobile.setError("Enter a valid phone number");
-                    valid = false;
                 }
-                else if (etpassword.getText().toString().isEmpty()|| etpassword.getText().toString().length() < 3) {
-                    etpassword.setError("Password should be 4 and 10 alphanumeric characters");
+                else if (etpassword.getText().toString().isEmpty()|| !TestCustomerMethods.validatePassword(etpassword.getText().toString())) {
+                    etpassword.setError("Password should be grater than 4 alphanumeric characters");
                 }
                 else
                     createUserAccount();
@@ -101,18 +91,6 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"You already have an account",Toast.LENGTH_LONG).show();
                     startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
                 }
-            }
-
-            //method to validate the 10 digit phone number
-            public boolean isPhoneNumberValid(String phoneNumber) {
-
-                boolean valid = true;
-                String regex = "^[0-9]{10}$";
-
-                if (!phoneNumber.matches(regex)) {
-                    valid = false;
-                }
-                return valid;
             }
 
 }

@@ -12,23 +12,22 @@ import static org.junit.Assert.*;
 import android.content.Context;
 
 import com.example.dreamwedmadd.costumeAdmin.CostumeAdd;
+import com.example.dreamwedmadd.costumeAdmin.TestCostumeMethods;
+import com.example.dreamwedmadd.customer.TestCustomerMethods;
 import com.example.dreamwedmadd.database.DBConnection;
 import com.example.dreamwedmadd.models.User;
 
 public class IT20232368{
 
-    private User user;
-    private DBConnection db;
-    private CostumeAdd costumeAdd;
-    private LoginActivity loginActivity;
+    private TestCostumeMethods costumeAdd;
+    private TestCustomerMethods userAdd;
     double price;
-    Context context;
-
-    //db= new DBConnection(context);
+    boolean istrue;
 
     @BeforeClass
     public void createObjects(){
-        costumeAdd= new CostumeAdd();
+        costumeAdd= new TestCostumeMethods();
+        userAdd= new TestCustomerMethods();
     }
 
     @Before
@@ -44,24 +43,51 @@ public class IT20232368{
         assertEquals(21000.0,price,0.00);
     }
 
+    @Test
+    public void checkEmail(){
+        istrue= costumeAdd.validateEmail("supplier@gmail.com"); //email pattern
+        assertEquals(String.valueOf(true),istrue);
+    }
+
+    @Test
+    public void checkUserEmail(){
+        istrue= userAdd.validateEmail("user@gmail.com");
+        assertEquals(String.valueOf(true),istrue);
+    }
+
+    @Test
+    public void isPhoneCorrect(){
+        istrue=costumeAdd.validateMobile("0812345678");
+        assertTrue(String.valueOf(true),istrue);
+    }
+
+    @Test
+    public void isUserPhoneCorrect(){
+        istrue=userAdd.validateMobile("0119876543");
+        assertTrue(String.valueOf(true),istrue);
+    }
+
+    @Test
+    public void isUserNameCorrect(){
+        istrue=userAdd.validateName("James Charles");
+        assertTrue(String.valueOf(true),istrue);
+    }
+
+    @Test
+    public void isUserPasswordCorrect(){
+        istrue=userAdd.validatePassword("dreamwed");
+        assertTrue(String.valueOf(true),istrue);
+    }
+
     @After
     public void clearPrice(){
         price=0.0f;
     }
 
-    @Test
-    public void registerNewUser(){
-        //arrange
-        user= new User("Madhumini","madumini@gmail.com","0767780098","madda");
-        //act
-        boolean check = db.insertUser(user);
-        //assert
-
-    }
-
     @AfterClass
     public void clearObjects(){
         costumeAdd=null;
+        userAdd=null;
     }
 
 }
