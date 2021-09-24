@@ -18,7 +18,7 @@ public class VehicleDBHandler extends SQLiteOpenHelper {
     //db details
 
 
-    private static final int VERSION = 19;
+    private static final int VERSION = 20;
 
 
 
