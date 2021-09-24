@@ -23,6 +23,7 @@ public class DBConnection extends SQLiteOpenHelper {
 
     private static final int VERSION = 21; //version
 
+
     private static final String DB_NAME = "dreamwed"; //database name
 
     public DBConnection(Context context) {

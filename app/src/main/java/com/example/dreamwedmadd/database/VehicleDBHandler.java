@@ -16,7 +16,9 @@ import java.util.List;
 
 public class VehicleDBHandler extends SQLiteOpenHelper {
 
+
     //db details
+
 
 
     private static final int VERSION = 21;
