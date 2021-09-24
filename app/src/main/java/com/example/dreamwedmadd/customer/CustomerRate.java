@@ -3,6 +3,7 @@ package com.example.dreamwedmadd.customer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.RatingBar;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.dreamwedmadd.MainActivity2;
 import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.database.RatingDBHandler;
 import com.example.dreamwedmadd.models.Rating;
@@ -51,9 +53,8 @@ public class CustomerRate extends AppCompatActivity {
               Rating rating = new Rating(dr,pr,cr,vr);
               ratingDBHandler.addRating(rating);
 
-
-
-
+              startActivity(new Intent(context, MainActivity2.class));
+               Toast.makeText(getApplicationContext(),"Thank You!",Toast.LENGTH_LONG).show();
 
            }
        });

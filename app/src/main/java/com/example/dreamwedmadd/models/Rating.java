@@ -1,5 +1,7 @@
 package com.example.dreamwedmadd.models;
 
+import java.text.DecimalFormat;
+
 public class Rating {
 
     private int id;
@@ -7,7 +9,9 @@ public class Rating {
     private float photoRating;
     private float cosRating;
     private float vehRating;
-    private float totalRating;
+    private float totalRate;
+    private float rateCount;
+    private float rateSum;
 
     public Rating(){}
 
@@ -48,10 +52,6 @@ public class Rating {
         this.vehRating = vehRating;
     }
 
-    public void setTotalRating(float totalRating) {
-        this.totalRating = totalRating;
-    }
-
     public int getId() {
         return id;
     }
@@ -72,7 +72,15 @@ public class Rating {
         return vehRating;
     }
 
-    public float getTotalRating() {
-        return totalRating;
+    public float CalculateRate(float rateCount, float rateSum){
+
+        totalRate = (rateSum/(rateCount*5))*5f;
+
+        //float value into 2 decimal points
+        DecimalFormat fd = new DecimalFormat("#.##");
+        float f =Float.valueOf(fd.format(totalRate));
+
+        return f;
+
     }
 }

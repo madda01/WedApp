@@ -19,7 +19,7 @@ import com.example.dreamwedmadd.models.User;
 
 public class CustomerProfile extends AppCompatActivity {
 
-    Button button,btndel,btnlogout;
+    Button button,btndel,btnlogout,rate;
     EditText etname,etemail,etmobile;
     DBConnection db;
     Context context;
@@ -37,6 +37,7 @@ public class CustomerProfile extends AppCompatActivity {
         etemail=findViewById(R.id.userprofemail);
         etmobile=findViewById(R.id.userprofphone);
         btnlogout=findViewById(R.id.btnlogoutcus);
+        rate=findViewById(R.id.cusHomeRateBtn);
 
         //getting data
         SharedPreferences sharedPreferences= getSharedPreferences("login",MODE_PRIVATE);
@@ -95,6 +96,14 @@ public class CustomerProfile extends AppCompatActivity {
                 editor.remove("Email");
                 editor.apply();
                 startActivity(new Intent(CustomerProfile.this, LoginActivity.class));
+            }
+        });
+
+        //rate button handling
+        rate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context,CustomerRate.class));
             }
         });
 

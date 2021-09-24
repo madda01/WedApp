@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.database.RatingDBHandler;
+import com.example.dreamwedmadd.models.Rating;
 
 import java.text.DecimalFormat;
 
@@ -31,6 +32,7 @@ public class VehicleFragment extends Fragment {
     float rateSum=0;
     float totalRate;
     DecimalFormat fd;
+    Rating rating;
 
 
     @Override
@@ -43,21 +45,18 @@ public class VehicleFragment extends Fragment {
         ratingBar=root.findViewById(R.id.cusVehRateBar);
         textView =root.findViewById(R.id.custVehRateSum);
         ratingDBHandler = new RatingDBHandler(context);
+        rating = new Rating();
 
         //geting ratings from database
         rateSum= ratingDBHandler.getVehRatings();
         rateCount=ratingDBHandler.getRatingCount();
 
         //totalRating calculation
-        totalRate = (rateSum/(rateCount*5))*5f;
-
-        //float value into 2 decimal points
-        fd = new DecimalFormat("#.##");
-        float f =Float.valueOf(fd.format(totalRate));
+        totalRate=rating.CalculateRate(rateCount,rateSum);
 
         //setValues into Views
         ratingBar.setRating(totalRate);
-        textView.setText(String.valueOf(f)+"/5");
+        textView.setText(String.valueOf(totalRate)+"/5");
 
 
         btn.setOnClickListener(new View.OnClickListener() {

@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".DecorationAdmin.AdminDecoView">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DecorationAdmin.AdminDecoView">
 
     <ListView
         android:id="@+id/DecoAdminView"
-        android:layout_width="385dp"
-        android:layout_height="572dp"
-        android:layout_marginTop="76dp"
+        android:layout_width="368dp"
+        android:layout_height="494dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnDecoAdd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52" />
 
     <Button
         android:id="@+id/btnDecoAdd"
@@ -26,15 +27,17 @@ tools:context=".DecorationAdmin.AdminDecoView">
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-<TextView
-    android:id="@+id/tvDecCount"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="111dp"
-    android:text="TextView"
-    android:textSize="20sp"
-    app:layout_constraintBaseline_toBaselineOf="@+id/btnDecoAdd"
-    app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDecCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="111dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnDecoAdd"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
     <Button
         android:id="@+id/btnlogoutdeco"
@@ -45,4 +48,5 @@ tools:context=".DecorationAdmin.AdminDecoView">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

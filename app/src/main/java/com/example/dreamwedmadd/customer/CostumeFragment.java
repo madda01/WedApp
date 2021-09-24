@@ -27,6 +27,7 @@ import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.database.DBDecorator;
 import com.example.dreamwedmadd.database.RatingDBHandler;
 import com.example.dreamwedmadd.models.Decorator;
+import com.example.dreamwedmadd.models.Rating;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.text.DecimalFormat;
@@ -45,6 +46,7 @@ public class CostumeFragment extends Fragment {
     float rateSum=0;
     float totalRate;
     DecimalFormat fd;
+    Rating rating;
 
     //..........................................................
 
@@ -63,21 +65,18 @@ public class CostumeFragment extends Fragment {
         ratingBar=root.findViewById(R.id.cusCosRateBar);
         textView =root.findViewById(R.id.custCosRateSum);
         ratingDBHandler = new RatingDBHandler(context);
+        rating = new Rating();
 
         //geting ratings from database
         rateSum= ratingDBHandler.getCosRatings();
         rateCount=ratingDBHandler.getRatingCount();
 
         //totalRating calculation
-        totalRate = (rateSum/(rateCount*5))*5f;
-
-        //float value into 2 decimal points
-        fd = new DecimalFormat("#.##");
-        float f =Float.valueOf(fd.format(totalRate));
+        totalRate=rating.CalculateRate(rateCount,rateSum);
 
         //setValues into Views
         ratingBar.setRating(totalRate);
-        textView.setText(String.valueOf(f)+"/5");
+        textView.setText(String.valueOf(totalRate)+"/5");
 
         //........................................................
 

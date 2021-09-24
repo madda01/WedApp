@@ -13,8 +13,9 @@ import java.util.List;
 
 public class DBDecorator extends SQLiteOpenHelper {
 
+    //data base version
+    private static final int VERSION=21;
 
-    private static final int VERSION=20;
 
     private static final String DB_NAME="dreamwed";
     private static final String TABLE_NAME="decorator";
@@ -33,12 +34,12 @@ public class DBDecorator extends SQLiteOpenHelper {
 
 
 
-
+    //constructor of dbDecorator
     public DBDecorator(Context context) {
         super(context,DB_NAME, null, VERSION);
 
     }
-
+    //onCreate method and table create
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -47,7 +48,7 @@ public class DBDecorator extends SQLiteOpenHelper {
 
             db.execSQL(sql);
     }
-
+    //on upgrade method
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
 
@@ -58,9 +59,9 @@ public class DBDecorator extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-
+    //add deco method
     public void addDeco(Decorator decorator){
-
+        //get readable data base
         SQLiteDatabase db=getWritableDatabase();
         ContentValues contentValues=new ContentValues();
         contentValues.put(FNAME,decorator.getfName());
@@ -77,7 +78,7 @@ public class DBDecorator extends SQLiteOpenHelper {
         db.close();
 
     }
-
+    //get all decorators method
     public List<Decorator> getAllDeco(){
 
         List<Decorator> decorators=new ArrayList();
@@ -110,6 +111,7 @@ public class DBDecorator extends SQLiteOpenHelper {
         return decorators;
     }
 
+    //get decorator count method
     public int DecoCount(){
         SQLiteDatabase db=getReadableDatabase();
         String sql="SELECT * FROM "+TABLE_NAME;
@@ -118,12 +120,12 @@ public class DBDecorator extends SQLiteOpenHelper {
 
         return cursor.getCount();
     }
-
+    //delete decorator method
     public void deleteDeco(int id){
         SQLiteDatabase db=getWritableDatabase();
         db.delete(TABLE_NAME,ID+" =?",new String[]{String.valueOf(id)});
         db.close();
-    }
+    }//get single decorator method
     public Decorator getSingleDeco(int id){
         Decorator decorator;
         SQLiteDatabase db=getReadableDatabase();
@@ -141,7 +143,7 @@ public class DBDecorator extends SQLiteOpenHelper {
         return null;
 
     }
-
+    //update decorator method
     public int UpdateDeco(Decorator decorator){
         SQLiteDatabase db=getWritableDatabase();
 
@@ -166,26 +168,6 @@ public class DBDecorator extends SQLiteOpenHelper {
 
 
 }
-
-
-
-//    public int UpdateSngleToDo(ToDo toDo){
-//        SQLiteDatabase db=getWritableDatabase();
-//
-//        ContentValues contentValues=new ContentValues();
-//
-//
-//        contentValues.put(TITLE,toDo.getTitle());
-//        contentValues.put(DESCRIPTION,toDo.getDescription());
-//        contentValues.put(STARED,toDo.getStarted());
-//        contentValues.put(FINISHED,toDo.getFinished());
-//
-//        int status=db.update(TABLE_NAME,contentValues,ID+ "=?",new String[]{String.valueOf(toDo.getId())});
-//
-//        db.close();
-//
-//        return status;
-//    }
 
 
 

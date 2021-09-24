@@ -131,28 +131,6 @@
                 android:textColorHint="@color/tea_green_our"
                 android:textSize="14sp" />
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="10dp"
-                android:background="#DCDBDB" />
-
-            <TextView
-                android:id="@+id/deleteVehUpload"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:text="@string/vehUpload"
-                android:textColor="#80B9B2"
-                android:textColorHint="#80B9B2" />
-
-            <CheckBox
-                android:id="@+id/deleteVehcheckBox"
-                android:layout_width="139dp"
-                android:layout_height="21dp"
-                android:text="CheckBox"
-                android:textColor="#80B9B2" />
-
             <Button
                 android:id="@+id/vehdeleteBtn"
                 android:layout_width="90dp"

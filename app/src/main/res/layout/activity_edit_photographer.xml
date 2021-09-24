@@ -115,28 +115,6 @@
             android:textColorHint="#80B9B2"
             android:textSize="14sp" />
 
-        <View
-            android:id="@+id/viewedit"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="10dp"
-            android:background="#DCDBDB" />
-
-        <TextView
-            android:id="@+id/etuploadedit"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:text="@string/etuploadvalue"
-            android:textColor="#80B9B2"
-            android:textColorHint="#80B9B2" />
-
-        <CheckBox
-            android:id="@+id/VehcheckBox"
-            android:layout_width="139dp"
-            android:layout_height="21dp"
-            android:text="CheckBox"
-            android:textColor="#80B9B2" />
-
         <Button
             android:id="@+id/btn5edit"
             android:layout_width="90dp"
