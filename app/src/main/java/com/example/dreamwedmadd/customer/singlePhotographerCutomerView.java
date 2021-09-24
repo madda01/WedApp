@@ -19,6 +19,7 @@ import com.example.dreamwedmadd.photographyAdmin.photography_Mainlist;
 
 public class singlePhotographerCutomerView extends AppCompatActivity {
 
+    //views
     private EditText fnameeditrl,lnameeditrl,emaileditrl,mobilenumeditrl,companynameeditrl,addresseditrl,priceeditrl,descriptioneditrl ;
     private TextView photographername;
     private Button addbtneditrl ;
@@ -31,6 +32,7 @@ public class singlePhotographerCutomerView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_photographer_cutomer_view);
 
+        //link views
         context=this;
         photoDbhandler = new photoDbHandler(context);
         photographername = findViewById(R.id.tvaddphotoeditre);
@@ -47,10 +49,12 @@ public class singlePhotographerCutomerView extends AppCompatActivity {
 
         final String id = getIntent().getStringExtra("id");
 
-        System.out.println(id);
 
+
+        //create object from photographer model class and call database for get photographer information
         Photographermodel photol = photoDbhandler.getSinglePhotographer(Integer.parseInt(id));
 
+        //set photographer information to views
         photographername.setText(photol.getFnamee()+" "+photol.getLnamee());
         fnameeditrl.setText(photol.getFnamee());
         lnameeditrl.setText(photol.getLnamee());
@@ -61,6 +65,7 @@ public class singlePhotographerCutomerView extends AppCompatActivity {
         priceeditrl.setText(String.valueOf(photol.getPricee()));
         descriptioneditrl.setText(photol.getDescriptione());
 
+        //set edit text values to not editable
         fnameeditrl.setKeyListener(null);
         lnameeditrl.setKeyListener(null);
         emaileditrl.setKeyListener(null);
@@ -76,7 +81,7 @@ public class singlePhotographerCutomerView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
+                //set photographer values to sharedPreference
 
                 SharedPreferences sharedPreferences = getSharedPreferences("customercart",MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();

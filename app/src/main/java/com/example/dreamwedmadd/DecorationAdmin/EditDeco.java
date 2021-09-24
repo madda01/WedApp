@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.database.DBDecorator;
@@ -20,6 +21,7 @@ public class EditDeco extends AppCompatActivity {
     Context context;
     DBDecorator dbDecorator;
     Decorator decorator;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,22 +60,43 @@ public class EditDeco extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String fName ,lName,Email,Mobile,cName,description,address;
-                double price;
+                String  Price;
                fName= et1.getText().toString();
                lName= et2.getText().toString();
                Email=et3.getText().toString();
                Mobile=et4.getText().toString();
                cName=et5.getText().toString();
                 address=et6.getText().toString();
-                price=Double.parseDouble(et7.getText().toString());
+                Price=et7.getText().toString();
                description=et8.getText().toString();
 
-               decorator=new Decorator(i,fName,lName,Email,Mobile,cName,description,address,price);
+
+                double price=0;
+                try {
+                    price=Double.parseDouble(Price);
+                }catch (NumberFormatException e){
+                    Toast.makeText(context, "Please enter valid price", Toast.LENGTH_SHORT).show();
+
+                }
+
+
+
+                if (fName.equals("")||lName.equals("")||Email.equals("")||Mobile.equals("")||cName.equals("")||address.equals("")||description.equals("")||Price.equals("")){
+
+                    Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
+                }else if (Mobile.length() != 10) {
+                    Toast.makeText(context, "Please enter valid mobile number", Toast.LENGTH_SHORT).show();
+                }else if(!Email.trim().matches(emailPattern)) {
+                    Toast.makeText(getApplicationContext(),"invalid email address",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                     decorator=new Decorator(i,fName,lName,Email,Mobile,cName,description,address,price);
 
                 dbDecorator.UpdateDeco(decorator);
 
                 startActivity(new Intent(context,AdminDecoView.class));
 
+                }
 
             }
         });

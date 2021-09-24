@@ -22,6 +22,8 @@
     <string name="btn_submit">Submit</string>
     <string name="Add">Add</string>
     <string name="Update_Decorator">Update Decorator</string>
+    <string name="DecoUpdatebtn">Update</string>
+    <string name="DecoSendEmail">Send Email</string>
 
 
 </resources>
