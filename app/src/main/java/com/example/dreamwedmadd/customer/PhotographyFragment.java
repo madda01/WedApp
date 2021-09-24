@@ -21,6 +21,7 @@ import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.database.RatingDBHandler;
 import com.example.dreamwedmadd.database.photoDbHandler;
 import com.example.dreamwedmadd.models.Photographermodel;
+import com.example.dreamwedmadd.models.Rating;
 import com.example.dreamwedmadd.photographyAdmin.photoAdapterfragment;
 import com.example.dreamwedmadd.photographyAdmin.photographerAdapter;
 
@@ -42,6 +43,7 @@ public class PhotographyFragment extends Fragment {
     float rateSum=0;
     float totalRate;
     DecimalFormat fd;
+    Rating rating;
 
 
 
@@ -63,21 +65,19 @@ public class PhotographyFragment extends Fragment {
         ratingBar=root.findViewById(R.id.cusPhotoRateBar);
         textView =root.findViewById(R.id.custPhotoRateSum);
         ratingDBHandler = new RatingDBHandler(context);
+        rating = new Rating();
 
         //geting ratings from database
         rateSum= ratingDBHandler.getPhotoRatings();
         rateCount=ratingDBHandler.getRatingCount();
 
         //totalRating calculation
-        totalRate = (rateSum/(rateCount*5))*5f;
+        totalRate=rating.CalculateRate(rateCount,rateSum);
 
-        //float value into 2 decimal points
-        fd = new DecimalFormat("#.##");
-        float f =Float.valueOf(fd.format(totalRate));
 
         //setValues into Views
         ratingBar.setRating(totalRate);
-        textView.setText(String.valueOf(f)+"/5");
+        textView.setText(String.valueOf(totalRate)+"/5");
 
         //........................................................
 
