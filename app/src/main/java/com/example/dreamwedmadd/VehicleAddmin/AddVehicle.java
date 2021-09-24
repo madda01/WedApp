@@ -98,7 +98,6 @@ public class AddVehicle extends AppCompatActivity {
                 String vehicleAddress = address.getText().toString();
 
 
-
                 //string price convert to double
                 double doublePrice=0 ;
                 try{
@@ -106,14 +105,21 @@ public class AddVehicle extends AppCompatActivity {
                 }catch (NumberFormatException e){
                     Toast.makeText(context, "Please enter valid number", Toast.LENGTH_SHORT).show();
                 }
+                //Validation
 
-                //adding vehicle data into database
-                Vehicle vehicle = new Vehicle(vehicleBrand,vehicleModel,vehicleYear,vehicleDescription,vehicleOwner,vehiclePhone,vehicleAddress,doublePrice,imageViewToBy(imageView));
-                vehicleDBHandler.addVehicle(vehicle);
+                if (vehicleBrand.equals("")||vehicleModel.equals("")||vehicleYear.equals("")||vehiclePrice.equals("")||vehicleDescription.equals("")||vehicleOwner.equals("")||vehiclePhone.equals("")||vehicleAddress.equals("")){
 
-                //after  insertion redirect to Vehicle List
-                startActivity(new Intent(context,AddminVehicleList.class));
+                    Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
 
+                }else {
+
+                    //adding vehicle data into database
+                    Vehicle vehicle = new Vehicle(vehicleBrand, vehicleModel, vehicleYear, vehicleDescription, vehicleOwner, vehiclePhone, vehicleAddress, doublePrice, imageViewToBy(imageView));
+                    vehicleDBHandler.addVehicle(vehicle);
+
+                    //after  insertion redirect to Vehicle List
+                    startActivity(new Intent(context, AddminVehicleList.class));
+                }
             }
         });
 

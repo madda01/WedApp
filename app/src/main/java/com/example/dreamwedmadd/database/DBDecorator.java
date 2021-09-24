@@ -15,7 +15,7 @@ public class DBDecorator extends SQLiteOpenHelper {
 
     //data base version
     private static final int VERSION=21;
-    //database name table name and column names
+
     private static final String DB_NAME="dreamwed";
     private static final String TABLE_NAME="decorator";
     private static final String ID="id";
