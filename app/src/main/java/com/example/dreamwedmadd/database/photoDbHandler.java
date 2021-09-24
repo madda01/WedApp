@@ -16,7 +16,7 @@ import java.util.List;
 public class photoDbHandler extends SQLiteOpenHelper {
 
 
-    private static final int VERSION = 19;
+    private static final int VERSION = 21;
 
 
     private static final String DB_NAME = "dreamwed" ;

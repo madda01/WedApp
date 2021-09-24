@@ -102,6 +102,17 @@
                 android:textSize="14sp" />
 
             <EditText
+                android:id="@+id/eTserviceCharge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/etServiceCharge"
+                android:inputType="numberDecimal"
+                android:textColorHint="#80B9B2"
+                android:textColorLink="@color/tea_green_our"
+                android:textSize="14sp" />
+
+            <EditText
                 android:id="@+id/etDecoDes"
                 android:layout_width="match_parent"
                 android:layout_height="67dp"
