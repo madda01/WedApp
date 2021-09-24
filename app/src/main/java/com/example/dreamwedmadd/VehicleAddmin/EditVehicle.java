@@ -55,6 +55,8 @@ public class EditVehicle extends AppCompatActivity {
         phone.setText(vehicle.getPhone());
         address.setText(vehicle.getAddress());
 
+        System.out.println(phone);
+
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,9 +69,17 @@ public class EditVehicle extends AppCompatActivity {
                 String editPhone = phone.getText().toString();
                 String editAddress = address.getText().toString();
 
-                Vehicle vehicle = new Vehicle(Integer.parseInt(id),editBrand,editModel,editYear,Double.parseDouble(editPrice),editDescription,editOwner,editPhone,editAddress);
-                int state = vehicleDBHandler.updateVehicle(vehicle);
-                startActivity(new Intent(context,AddminVehicleList.class));
+                //Validation
+
+                if (editBrand.equals("")||editModel.equals("")||editYear.equals("")||editPrice.equals("")||editDescription.equals("")||editAddress.equals("")||editOwner.equals("")||editPhone.equals("")){
+
+                    Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
+
+                }else {
+                    Vehicle vehicle = new Vehicle(Integer.parseInt(id), editBrand, editModel, editYear, Double.parseDouble(editPrice), editDescription, editOwner, editPhone, editAddress);
+                    int state = vehicleDBHandler.updateVehicle(vehicle);
+                    startActivity(new Intent(context, AddminVehicleList.class));
+                }
             }
         });
 

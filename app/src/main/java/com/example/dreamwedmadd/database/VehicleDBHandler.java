@@ -15,14 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VehicleDBHandler extends SQLiteOpenHelper {
+
+
     //db details
-
-
     private static final int VERSION = 20;
-
-
-
-
     private static final String DB_NAME = "dreamwed" ;
     private static final String TABLE_NAME = "vehicle" ;
 
@@ -159,7 +155,7 @@ public class VehicleDBHandler extends SQLiteOpenHelper {
     public Vehicle getSingleVehicle(int id){
 
         SQLiteDatabase db = getReadableDatabase();
-       Cursor cursor = db.query(TABLE_NAME,new String[]{ID,BRAND,MODEL,YEAR,PRICE,DESCRIPTION,OWNER,PRICE,ADDRESS},ID+"= ?",new String[]{String.valueOf(id)},null,null,null);
+       Cursor cursor = db.query(TABLE_NAME,new String[]{ID,BRAND,MODEL,YEAR,PRICE,DESCRIPTION,OWNER,PHONE,ADDRESS},ID+"= ?",new String[]{String.valueOf(id)},null,null,null);
 
         Vehicle vehicle;
         if(cursor!=null){

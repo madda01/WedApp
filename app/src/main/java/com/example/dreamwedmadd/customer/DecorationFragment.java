@@ -26,6 +26,7 @@ import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.database.DBDecorator;
 import com.example.dreamwedmadd.database.RatingDBHandler;
 import com.example.dreamwedmadd.models.Decorator;
+import com.example.dreamwedmadd.models.Rating;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -45,6 +46,7 @@ public class DecorationFragment extends Fragment {
     float rateSum=0;
     float totalRate;
     DecimalFormat fd;
+    Rating rating;
 
     //..........................................................
 
@@ -63,21 +65,19 @@ public class DecorationFragment extends Fragment {
         ratingBar=root.findViewById(R.id.cusDecoRateBar);
         textView =root.findViewById(R.id.custDecoRateSum);
         ratingDBHandler = new RatingDBHandler(context);
+       rating = new Rating();
+
 
         //geting ratings from database
         rateSum= ratingDBHandler.getDecoRatings();
         rateCount=ratingDBHandler.getRatingCount();
 
         //totalRating calculation
-        totalRate = (rateSum/(rateCount*5))*5f;
-
-        //float value into 2 decimal points
-        fd = new DecimalFormat("#.##");
-        float f =Float.valueOf(fd.format(totalRate));
+        totalRate=rating.CalculateRate(rateCount,rateSum);
 
         //setValues into Views
         ratingBar.setRating(totalRate);
-        textView.setText(String.valueOf(f)+"/5");
+        textView.setText(String.valueOf(totalRate)+"/5");
 
         //........................................................
 
