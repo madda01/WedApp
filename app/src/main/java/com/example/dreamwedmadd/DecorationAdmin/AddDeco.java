@@ -132,16 +132,20 @@ public class AddDeco extends AppCompatActivity {
 
                }
                 //check null values
-               if (fName.equals("")||lName.equals("")||Email.equals("")||Mobile.equals("")||cName.equals("")||address.equals("")||description.equals("")||Price.equals("")||serviceCharge.equals("")){
+
+               if (!testDecoMethods.nullDetails(fName,lName,Email,Mobile,cName,address,description,Price,serviceCharge)){
 
                    Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
                    //validate mobile number
-               }else if (Mobile.length() != 10) {
+               }else if (!testDecoMethods.validatePhone(Mobile)) {
                    Toast.makeText(context, "Please enter valid mobile number", Toast.LENGTH_SHORT).show();
                    //validate email
-               }else if(!Email.trim().matches(emailPattern)) {
+               }else if(!testDecoMethods.validateEmail(Email)) {
                     Toast.makeText(getApplicationContext(),"invalid email address",Toast.LENGTH_SHORT).show();
-                }//call the inset method in db
+                }else if(!testDecoMethods.vlidateName(fName,lName)){
+                   Toast.makeText(getApplicationContext(),"Name should be at least 4 characters",Toast.LENGTH_SHORT).show();
+               }
+               //call the inset method in db
                 else {
                    Decorator decorator=new Decorator(fName,lName,Email,Mobile,cName,description,address,testDecoMethods.getLastPrice(price,Charge),imageViewToBy(imageView));
                    dbDecorator.addDeco(decorator);
