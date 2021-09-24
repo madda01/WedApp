@@ -36,6 +36,7 @@ public class CostumeAdd extends AppCompatActivity {
     private DBConnection dbHandler;
     Context context;
     ImageView imageView;
+    public static double rate=0.1;
 
     public  static final int CAMERA_REQUEST=100;
     public  static final int STORAGE_REQUEST=101;
@@ -108,7 +109,6 @@ public class CostumeAdd extends AppCompatActivity {
                 String Decs= desc.getText().toString();
 
                 double price=0;
-                double rate=0.1f;
                 double Cprice=0;
 
                 try{
