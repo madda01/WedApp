@@ -35,6 +35,7 @@ public class AddVehicle extends AppCompatActivity {
     Context context;
     VehicleDBHandler vehicleDBHandler;
     ImageView imageView;
+    ValidateInputs validateInputs;
 
     public  static final int CAMERA_REQUEST=100;
     public  static final int STORAGE_REQUEST=101;
@@ -80,6 +81,7 @@ public class AddVehicle extends AppCompatActivity {
         //initializing objects
         context = this;
         vehicleDBHandler = new VehicleDBHandler(context);
+        validateInputs = new ValidateInputs();
 
         //handle add button
         add.setOnClickListener(new View.OnClickListener() {
@@ -105,13 +107,33 @@ public class AddVehicle extends AppCompatActivity {
                 }catch (NumberFormatException e){
                     Toast.makeText(context, "Please enter valid number", Toast.LENGTH_SHORT).show();
                 }
-                //Validation
 
-                if (vehicleBrand.equals("")||vehicleModel.equals("")||vehicleYear.equals("")||vehiclePrice.equals("")||vehicleDescription.equals("")||vehicleOwner.equals("")||vehiclePhone.equals("")||vehicleAddress.equals("")){
+
+                //Validations using Validate input class
+
+                boolean invalid = validateInputs.ValidateData(vehicleBrand,vehicleModel,vehicleYear,vehiclePrice,vehicleDescription,vehicleOwner,vehiclePhone,vehicleAddress);
+                boolean invalidPhone = validateInputs.ValidatePhone(vehiclePhone);
+                boolean invalidPrice = validateInputs.ValidatePrice(doublePrice);
+                boolean invalidDate = validateInputs.ValidateDate(vehicleYear);
+
+                if (invalid){
 
                     Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
 
-                }else {
+                }
+                else if(invalidPrice){
+
+                    Toast.makeText(context, "Please enter price", Toast.LENGTH_SHORT).show();
+                }
+                else if(invalidPhone){
+
+                    Toast.makeText(context, "Please enter a valid phone number", Toast.LENGTH_SHORT).show();
+                }
+                else if(invalidDate){
+
+                    Toast.makeText(context, "Please enter a valid model year", Toast.LENGTH_SHORT).show();
+                }
+                else {
 
                     //adding vehicle data into database
                     Vehicle vehicle = new Vehicle(vehicleBrand, vehicleModel, vehicleYear, vehicleDescription, vehicleOwner, vehiclePhone, vehicleAddress, doublePrice, imageViewToBy(imageView));

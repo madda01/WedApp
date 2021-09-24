@@ -21,6 +21,7 @@ public class EditVehicle extends AppCompatActivity {
     private Button edit;
     private VehicleDBHandler vehicleDBHandler;
     private Context context;
+    ValidateInputs validateInputs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class EditVehicle extends AppCompatActivity {
         final String id = getIntent().getStringExtra("id");
         Vehicle vehicle = vehicleDBHandler.getSingleVehicle(Integer.parseInt(id));
 
-
+        validateInputs = new ValidateInputs();
 
         brand.setText(vehicle.getBrand());
         model.setText(vehicle.getModel());
@@ -69,14 +70,40 @@ public class EditVehicle extends AppCompatActivity {
                 String editPhone = phone.getText().toString();
                 String editAddress = address.getText().toString();
 
-                //Validation
+                //string price convert to double
+                double doublePrice=0 ;
+                try{
+                    doublePrice =Double.parseDouble(editPrice);
+                }catch (NumberFormatException e){
+                    Toast.makeText(context, "Please enter valid number", Toast.LENGTH_SHORT).show();
+                }
 
-                if (editBrand.equals("")||editModel.equals("")||editYear.equals("")||editPrice.equals("")||editDescription.equals("")||editAddress.equals("")||editOwner.equals("")||editPhone.equals("")){
+
+                //Validations using Validate input class
+
+                boolean invalid = validateInputs.ValidateData(editBrand,editModel,editYear,editPrice,editDescription,editOwner,editPhone,editAddress);
+                boolean invalidPhone = validateInputs.ValidatePhone(editPhone);
+                boolean invalidPrice = validateInputs.ValidatePrice(doublePrice);
+                boolean invalidDate = validateInputs.ValidateDate(editYear);
+
+                if (invalid){
 
                     Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
 
+                }
+                else if(invalidPrice){
+
+                    Toast.makeText(context, "Please enter price", Toast.LENGTH_SHORT).show();
+                }
+                else if(invalidPhone){
+
+                    Toast.makeText(context, "Please enter a valid phone number", Toast.LENGTH_SHORT).show();
+                }
+                else if(invalidDate){
+
+                    Toast.makeText(context, "Please enter a valid model year", Toast.LENGTH_SHORT).show();
                 }else {
-                    Vehicle vehicle = new Vehicle(Integer.parseInt(id), editBrand, editModel, editYear, Double.parseDouble(editPrice), editDescription, editOwner, editPhone, editAddress);
+                    Vehicle vehicle = new Vehicle(Integer.parseInt(id), editBrand, editModel, editYear, doublePrice, editDescription, editOwner, editPhone, editAddress);
                     int state = vehicleDBHandler.updateVehicle(vehicle);
                     startActivity(new Intent(context, AddminVehicleList.class));
                 }
