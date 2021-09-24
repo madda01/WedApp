@@ -32,7 +32,7 @@ import java.io.ByteArrayOutputStream;
 
 public class CostumeAdd extends AppCompatActivity {
     private EditText title, price, emails, shop, mobile, desc;
-    private Button add;
+    private Button add,emailsend;
     private DBConnection dbHandler;
     Context context;
     ImageView imageView;
@@ -55,6 +55,7 @@ public class CostumeAdd extends AppCompatActivity {
         mobile = findViewById(R.id.addmobile);
         desc = findViewById(R.id.adddesc);
         add = findViewById(R.id.btnaddcostume);
+        emailsend = findViewById(R.id.btnemailsend);
 
         context =this;
         dbHandler=new DBConnection(context);
@@ -80,6 +81,22 @@ public class CostumeAdd extends AppCompatActivity {
             }
         });
 
+        //method to send emails
+        emailsend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                Intent chooser;
+                intent.setData(Uri.parse("mailto:"));
+                intent.putExtra(Intent.EXTRA_EMAIL,new String[]{emails.getText().toString()});
+                intent.putExtra(Intent.EXTRA_SUBJECT,"Your costume is added to the Dream Wedding App");
+                intent.putExtra(Intent.EXTRA_TEXT,"Congratulations we have now added you to our app.");
+                intent.setType("text/plain");
+                chooser=Intent.createChooser(intent,"Send Email test App");
+                startActivity(chooser);
+            }
+        });
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,8 +108,12 @@ public class CostumeAdd extends AppCompatActivity {
                 String Decs= desc.getText().toString();
 
                 double price=0;
+                double rate=0.1f;
+                double Cprice=0;
+
                 try{
                     price=Double.parseDouble(Price);
+                    Cprice= getNewPrice(price,rate);
                 }catch(NumberFormatException e){
                     Toast.makeText(context, "Please enter valid price", Toast.LENGTH_SHORT).show();
                 }
@@ -107,7 +128,7 @@ public class CostumeAdd extends AppCompatActivity {
                 }
 
                 else {
-                    Costume newcostume = new Costume(Title, price, Email, Shop, Phone, Decs,imageViewToBy(imageView));
+                    Costume newcostume = new Costume(Title, Cprice, Email, Shop, Phone, Decs,imageViewToBy(imageView));
                     Boolean checkcostumeadding = dbHandler.insertCostume(newcostume);
 
                     if (checkcostumeadding == true) {
@@ -119,7 +140,15 @@ public class CostumeAdd extends AppCompatActivity {
                     }
                 }
             }
+
         });
+    }
+
+    //method to get service charges
+    public double getNewPrice(double price, double rate) {
+        double finalamount=0;
+        finalamount = ((price*rate)+price); //adding our service charge of 10%
+        return finalamount;
     }
 
     private boolean checkCameraPermission() {
