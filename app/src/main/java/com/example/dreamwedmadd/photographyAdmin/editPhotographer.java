@@ -21,7 +21,7 @@ public class editPhotographer extends AppCompatActivity {
     private Button addbtnedit ;
     private photoDbHandler photoDbhandler;
     private Context context;
-    private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,9 +80,6 @@ public class editPhotographer extends AppCompatActivity {
                    //validate mobile number
                    Toast.makeText(context, "Please enter valid phone number ", Toast.LENGTH_SHORT).show();
 
-               }else if(emli.trim().matches(emailPattern)){
-                   //validate email
-                   Toast.makeText(getApplicationContext(),"invalid email address",Toast.LENGTH_SHORT).show();
 
                }else {
                    //store data
