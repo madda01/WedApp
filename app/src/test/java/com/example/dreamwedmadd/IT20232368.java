@@ -40,7 +40,7 @@ public class IT20232368{
         //arrange
         price=costumeAdd.getNewPrice(20000.0,5.0);
         //act
-        assertEquals(21000.0,price,0.00);
+        assertEquals(21000.0,price,0.00); //after adding the service charge
     }
 
     @Test
@@ -52,31 +52,31 @@ public class IT20232368{
     @Test
     public void checkUserEmail(){
         istrue= userAdd.validateEmail("user@gmail.com");
-        assertEquals(String.valueOf(true),istrue);
+        assertEquals(String.valueOf(true),istrue); //check user email
     }
 
     @Test
     public void isPhoneCorrect(){
         istrue=costumeAdd.validateMobile("0812345678");
-        assertTrue(String.valueOf(true),istrue);
+        assertTrue(String.valueOf(true),istrue); //validate mobile number
     }
 
     @Test
     public void isUserPhoneCorrect(){
         istrue=userAdd.validateMobile("0119876543");
-        assertTrue(String.valueOf(true),istrue);
+        assertTrue(String.valueOf(true),istrue); //validate mobile number
     }
 
     @Test
     public void isUserNameCorrect(){
         istrue=userAdd.validateName("James Charles");
-        assertTrue(String.valueOf(true),istrue);
+        assertTrue(String.valueOf(true),istrue); //validate name
     }
 
     @Test
     public void isUserPasswordCorrect(){
         istrue=userAdd.validatePassword("dreamwed");
-        assertTrue(String.valueOf(true),istrue);
+        assertTrue(String.valueOf(true),istrue); //validate password
     }
 
     @After
