@@ -16,9 +16,12 @@ import java.util.List;
 
 public class VehicleDBHandler extends SQLiteOpenHelper {
 
-
     //db details
-    private static final int VERSION = 20;
+
+
+    private static final int VERSION = 21;
+
+
     private static final String DB_NAME = "dreamwed" ;
     private static final String TABLE_NAME = "vehicle" ;
 

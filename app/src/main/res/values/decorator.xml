@@ -24,6 +24,7 @@
     <string name="Update_Decorator">Update Decorator</string>
     <string name="DecoUpdatebtn">Update</string>
     <string name="DecoSendEmail">Send Email</string>
+    <string name="etServiceCharge">service charge</string>
 
 
 </resources>

@@ -24,6 +24,8 @@ import java.util.List;
 
 public class AdminDecoView extends AppCompatActivity {
 
+    //variables
+
     Button btn,logout;
     TextView textView;
     Context context;
@@ -31,18 +33,25 @@ public class AdminDecoView extends AppCompatActivity {
     List<Decorator> decorators;
     DBDecorator dbDecorator;
     ListView listView;
+    //onCreate method
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_deco_view);
+        //bind variables with views
         btn=findViewById(R.id.btnDecoAdd);
         textView=findViewById(R.id.tvDecCount);
         logout=findViewById(R.id.btnlogoutdeco);
         listView=findViewById(R.id.DecoAdminView);
         context=this;
+        //create db connections
         dbDecorator=new DBDecorator(context);
+        //get all decorators
         decorators=dbDecorator.getAllDeco();
+        //create adaptor object
         decoAdaptor=new DecoAdaptor(context,R.layout.decosingleraw,decorators);
+        //set adaptor
         listView.setAdapter(decoAdaptor);
         textView.setText("Decorators "+dbDecorator.DecoCount());
 
@@ -50,7 +59,7 @@ public class AdminDecoView extends AppCompatActivity {
         SharedPreferences sharedPreferences= getSharedPreferences("login",MODE_PRIVATE);
         String adminemail= sharedPreferences.getString("Email","no email");
 
-
+        //set onclick listener for list view
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -99,7 +108,7 @@ public class AdminDecoView extends AppCompatActivity {
                 startActivity(new Intent(context,AddDeco.class));
             }
         });
-
+        //logout button
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,44 +126,3 @@ public class AdminDecoView extends AppCompatActivity {
 
 
 
-
-//
-// listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//@Override
-//public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//        ToDo selectTodo=toDos.get(i);
-//        String title=selectTodo.getTitle();
-//        String description=selectTodo.getDescription();
-//
-//        AlertDialog.Builder builder=new AlertDialog.Builder(context);
-//        builder.setTitle(title);
-//        builder.setMessage(description);
-//        builder.setPositiveButton("Finished", new DialogInterface.OnClickListener() {
-//@Override
-//public void onClick(DialogInterface dialogInterface, int i) {
-//        selectTodo.setFinished(System.currentTimeMillis());
-//        dBhandler.UpdateSngleToDo(selectTodo);
-//        startActivity(new Intent(context,MainActivity.class));
-//        }
-//        });
-//
-//        builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
-//@Override
-//public void onClick(DialogInterface dialogInterface, int i) {
-//        dBhandler.deleteToDo(selectTodo.getId());
-//        startActivity(new Intent(context,MainActivity.class));
-//        }
-//        });
-//        builder.setNeutralButton("Update", new DialogInterface.OnClickListener() {
-//@Override
-//public void onClick(DialogInterface dialogInterface, int i) {
-//        Intent intent=new Intent(context,EditTODO.class);
-//        intent.putExtra("id",String.valueOf(selectTodo.getId()));
-//        startActivity(intent);
-//        }
-//        });
-//        builder.show();
-//
-//        }
-//        });

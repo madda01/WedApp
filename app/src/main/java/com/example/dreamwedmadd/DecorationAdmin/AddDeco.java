@@ -34,11 +34,12 @@ import java.io.ByteArrayOutputStream;
 public class AddDeco extends AppCompatActivity {
 
     Button btn,btnE;
-    EditText et1,et2,et3,et4,et5,et6,et7,et8;
+    EditText et1,et2,et3,et4,et5,et6,et7,et8,et9;
     Context context;
     DBDecorator dbDecorator;
     ImageView imageView;
     String emailPattern;
+    TestDecoMethods testDecoMethods;
 
 
 
@@ -48,10 +49,13 @@ public class AddDeco extends AppCompatActivity {
     String cameraPermission[];
     String storagePermission[];
 
+    //oncreate method
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_deco);
+
+        //bind variables with views
         btn=findViewById(R.id.btnDecoSub);
         et1=findViewById(R.id.etDecoFname);
         et2=findViewById(R.id.etDecoLname);
@@ -61,14 +65,19 @@ public class AddDeco extends AppCompatActivity {
         et6=findViewById(R.id.etDecoAddress);
         et7=findViewById(R.id.etDecoPRice);
         et8=findViewById(R.id.etDecoDes);
+        et9=findViewById(R.id.eTserviceCharge);
         btnE=findViewById(R.id.DecoEmail);
+
         context =this;
+        //create db object
         dbDecorator=new DBDecorator(context);
+
         emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         imageView=(ImageView) findViewById(R.id.DecoImageUp);
+        testDecoMethods=new TestDecoMethods();
 
 
-
+        //set onclick listener for image view to get image from the phone
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,11 +97,12 @@ public class AddDeco extends AppCompatActivity {
                 }
             }
         });
-
+        //set onclick listener for submit button
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                //get values from edit texts
                String fName=et1.getText().toString();
                String lName=et2.getText().toString();
                 String   Email=et3.getText().toString();
@@ -101,11 +111,19 @@ public class AddDeco extends AppCompatActivity {
                String address=et6.getText().toString();
                String description=et8.getText().toString();
                String Price=et7.getText().toString();
+               String serviceCharge=et9.getText().toString();
 
+                // serviceCharge convert in to double
 
+                double Charge=0;
+                try {
+                    Charge=Double.parseDouble(serviceCharge);
+                }catch (NumberFormatException e){
+                    Toast.makeText(context, "Please enter valid service Charge", Toast.LENGTH_SHORT).show();
 
+                }
 
-
+                // price convert in to double
                 double price=0;
                try {
                    price=Double.parseDouble(Price);
@@ -113,17 +131,19 @@ public class AddDeco extends AppCompatActivity {
                    Toast.makeText(context, "Please enter valid price", Toast.LENGTH_SHORT).show();
 
                }
-
-               if (fName.equals("")||lName.equals("")||Email.equals("")||Mobile.equals("")||cName.equals("")||address.equals("")||description.equals("")||Price.equals("")){
+                //check null values
+               if (fName.equals("")||lName.equals("")||Email.equals("")||Mobile.equals("")||cName.equals("")||address.equals("")||description.equals("")||Price.equals("")||serviceCharge.equals("")){
 
                    Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
+                   //validate mobile number
                }else if (Mobile.length() != 10) {
                    Toast.makeText(context, "Please enter valid mobile number", Toast.LENGTH_SHORT).show();
+                   //validate email
                }else if(!Email.trim().matches(emailPattern)) {
                     Toast.makeText(getApplicationContext(),"invalid email address",Toast.LENGTH_SHORT).show();
-                }
+                }//call the inset method in db
                 else {
-                   Decorator decorator=new Decorator(fName,lName,Email,Mobile,cName,description,address,price,imageViewToBy(imageView));
+                   Decorator decorator=new Decorator(fName,lName,Email,Mobile,cName,description,address,testDecoMethods.getLastPrice(price,Charge),imageViewToBy(imageView));
                    dbDecorator.addDeco(decorator);
                    startActivity(new Intent(context,AdminDecoView.class));
 
@@ -136,7 +156,7 @@ public class AddDeco extends AppCompatActivity {
         });
 
 
-
+        //set onclick listener for send email button
         btnE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -163,6 +183,10 @@ public class AddDeco extends AppCompatActivity {
 
 
     }
+
+
+    //methods to get image from the phone
+    //---------------------------------->
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -236,6 +260,7 @@ public class AddDeco extends AppCompatActivity {
 
     }
 
+    //convert image into byte array
     public static byte[] imageViewToBy(ImageView imageView) {
 
 
@@ -245,7 +270,7 @@ public class AddDeco extends AppCompatActivity {
         byte[] imageInByte = baos.toByteArray();
         return imageInByte;
     }
-
+    //load image into imageview
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

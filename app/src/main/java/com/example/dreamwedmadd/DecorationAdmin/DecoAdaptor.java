@@ -27,7 +27,7 @@ public class DecoAdaptor extends ArrayAdapter<Decorator> {
     Context context;
     int resource;
     List<Decorator> decorators;
-
+    //decorator adaptor constructor
     public DecoAdaptor(Context context,int resource,List<Decorator> decorators){
         super(context,resource,decorators);
         this.context=context;
@@ -36,6 +36,7 @@ public class DecoAdaptor extends ArrayAdapter<Decorator> {
 
     }
 
+    //get view method
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
