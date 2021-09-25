@@ -29,12 +29,15 @@ import java.io.ByteArrayOutputStream;
 
 public class addPhotographer extends AppCompatActivity {
 
+
     //view
     private  EditText fname,lname,email,mobilenum,companyname,address,price,description ;
     private  Button addbtn ;
     private photoDbHandler photoDbhandler ;
     private Context context;
     private ImageView imageView;
+    private PhotoUnitTests photoUnitTests;
+    private String emailPattern;
 
     public  static final int CAMERA_REQUEST=100;
     public  static final int STORAGE_REQUEST=101;
@@ -54,6 +57,8 @@ public class addPhotographer extends AppCompatActivity {
         price = findViewById(R.id.vehPrice);
         description = findViewById(R.id.vehDescription);
         imageView=findViewById(R.id.PhoImgAdd);
+        photoUnitTests=new PhotoUnitTests();
+        emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,15 +103,20 @@ public class addPhotographer extends AppCompatActivity {
                 System.out.println(imageViewToBy(imageView));
 
               //validate all details are entered
-                if (fnme.equals("") || lnme.equals("") || eml.equals("") || mobilen.equals("") || cpyname.equals("") || addr.equals("") || pri.equals("") || dcri.equals("")) {
+
+                if (photoUnitTests.checkNull(fnme,lnme,eml,mobilen,cpyname,addr,pri,dcri)) {
 
                     Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
 
-                } else if (mobilen.length() != 10) {
+                } else if (!photoUnitTests.MnumberValidate(mobilen)) {
                     //validate mobile number
                     Toast.makeText(context, "Please enter valid phone number ", Toast.LENGTH_SHORT).show();
 
-                } else {
+                }else if (!photoUnitTests.EmailValid(eml)){
+                    //validate email
+                    Toast.makeText(context, "Please enter valid email ", Toast.LENGTH_SHORT).show();
+                }
+                else {
                     double prise = 0;
 
                     //validate price
@@ -115,22 +125,28 @@ public class addPhotographer extends AppCompatActivity {
                     } catch (NumberFormatException e) {
                         Toast.makeText(context, "Please enter valid number", Toast.LENGTH_SHORT).show();
                     }
-                    //store data to photographer model
-                    Photographermodel phto = new Photographermodel(
-                            fnme,
-                            lnme,
-                            eml,
-                            mobilen,
-                            cpyname,
-                            addr,
-                            prise,
-                            dcri,
-                            imageViewToBy(imageView)
+                    if (photoUnitTests.priceValid(prise)){
+                        Toast.makeText(context, "Please enter valid price", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        //store data to photographer model
+                        Photographermodel phto = new Photographermodel(
+                                fnme,
+                                lnme,
+                                eml,
+                                mobilen,
+                                cpyname,
+                                addr,
+                                prise,
+                                dcri,
+                                imageViewToBy(imageView)
 
-                    );
-                    //date base method
-                    photoDbhandler.addPhotographer(phto);
-                    startActivity(new Intent(context, photography_Mainlist.class));
+                        );
+                        //date base method
+                        photoDbhandler.addPhotographer(phto);
+                        startActivity(new Intent(context, photography_Mainlist.class));
+                    }
+
 
                 }
             }

@@ -16,6 +16,7 @@ public class IT20231514 {
     private static boolean isValidate;
     private static boolean isNull;
     private static boolean nameValidate;
+    private static boolean isPriceValid;
 
     @BeforeClass
     public static void objCreate(){
@@ -29,6 +30,7 @@ public class IT20231514 {
         isValidate=false;
         isNull=false;
         nameValidate=false;
+        isPriceValid=false;
     }
     @Test
     public void checkEmail(){
@@ -63,18 +65,25 @@ public class IT20231514 {
         assertFalse(String.valueOf(false),isNull);
 
     }
+    @Test
+    public void CheckPrice(){
+        isPriceValid=testDecoMethods.priceValid(80.0);
+        assertFalse(String.valueOf(false),isPriceValid);
+    }
 
     @After
     public  void clear(){
         lPrice=0.0;
-    }
-    @AfterClass
-    public static void clearAll(){
-        testDecoMethods=null;
         istrue= Boolean.parseBoolean(null);
         isValidate= Boolean.parseBoolean(null);
         isNull= Boolean.parseBoolean(null);
         nameValidate= Boolean.parseBoolean(null);
+        isPriceValid= Boolean.parseBoolean(null);
+    }
+    @AfterClass
+    public static void clearAll(){
+        testDecoMethods=null;
+
     }
 
 

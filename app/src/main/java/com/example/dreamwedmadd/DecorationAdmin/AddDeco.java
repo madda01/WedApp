@@ -132,8 +132,10 @@ public class AddDeco extends AppCompatActivity {
 
                }
                 //check null values
-
-               if (!testDecoMethods.nullDetails(fName,lName,Email,Mobile,cName,address,description,Price,serviceCharge)){
+               if (testDecoMethods.priceValid(price)){
+                   Toast.makeText(context, "Please enter valid price", Toast.LENGTH_SHORT).show();
+               }
+               else if (!testDecoMethods.nullDetails(fName,lName,Email,Mobile,cName,address,description,Price,serviceCharge)){
 
                    Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
                    //validate mobile number

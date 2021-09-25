@@ -45,5 +45,13 @@ public class TestDecoMethods {
 
         return true;
     }
+    public boolean priceValid(double price){
+
+        if (price<=0){
+            return true;
+
+        }
+        return false;
+    }
 
 }
