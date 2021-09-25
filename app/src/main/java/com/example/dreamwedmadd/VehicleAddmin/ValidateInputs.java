@@ -34,7 +34,7 @@ public class ValidateInputs {
 
           public boolean ValidatePrice(double price){
 
-              if(price==0)
+              if(price<=0)
                   return true;
               else
                   return false;
