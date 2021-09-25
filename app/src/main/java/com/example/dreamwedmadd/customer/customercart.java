@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.dreamwedmadd.MainActivity2;
 import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.models.User;
+import com.example.dreamwedmadd.photographyAdmin.PhotoUnitTests;
 
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class customercart extends AppCompatActivity {
     Button   btn1,btn2,btn3,btn4,btn5;
     ImageView imagel;
     Context context ;
+    PhotoUnitTests photoUnitTests;
 
 
     @Override
@@ -37,6 +39,7 @@ public class customercart extends AppCompatActivity {
         setContentView(R.layout.activity_customercart);
 
         context = this;
+        photoUnitTests=new PhotoUnitTests();
 
         //link views
         etext = findViewById(R.id.etcart1);
@@ -119,7 +122,9 @@ public class customercart extends AppCompatActivity {
 
 
         //totalprice
-        totalprice = prise1 + dprice + vhlprice + ctmprioce ;
+
+//        totalprice = prise1 + dprice + vhlprice + ctmprioce ;
+        totalprice= photoUnitTests.TotalPrice(prise1 , dprice , vhlprice , ctmprioce);
         String toprice = totalprice + "";
         etext9.setText(toprice);
 
