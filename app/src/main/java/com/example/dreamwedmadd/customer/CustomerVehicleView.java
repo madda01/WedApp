@@ -73,7 +73,7 @@ public class CustomerVehicleView extends AppCompatActivity {
 
                 SharedPreferences sharedPreferences = getSharedPreferences("customercart",MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("vename",brand.getText().toString() +"" + model.getText().toString() );
+                editor.putString("vename",brand.getText().toString() +" " + model.getText().toString() );
                 editor.putString("veprice",price.getText().toString());
                 editor.putString("vowner",owner.getText().toString());
                 editor.commit();

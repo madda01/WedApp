@@ -85,7 +85,7 @@ public class singlePhotographerCutomerView extends AppCompatActivity {
 
                 SharedPreferences sharedPreferences = getSharedPreferences("customercart",MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("name",fnameeditrl.getText().toString() +"" + lnameeditrl.getText().toString() );
+                editor.putString("name",fnameeditrl.getText().toString() +" " + lnameeditrl.getText().toString() );
                 editor.putString("price",priceeditrl.getText().toString());
                 editor.putString("email",emaileditrl.getText().toString());
                 editor.commit();
