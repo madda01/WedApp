@@ -14,4 +14,5 @@ Devaloped by Team KDY-WD-13
 
 | Lanuage - JAVA | Database - SQLite | IDE - Android Studio | Integrate Technology Service - Github
 
-
+Promotional video	:point_right:
+https://www.facebook.com/100004387780733/videos/649982665970484/
