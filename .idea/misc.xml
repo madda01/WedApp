@@ -18,16 +18,17 @@
         <entry key="..\:/MAD/Dream Wedding/WedApp/app/src/main/res/layout/vehicle_single_row.xml" value="0.264" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_add_vehicle.xml" value="0.27447916666666666" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_addmin_vehicle_list.xml" value="0.27447916666666666" />
+        <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_costume_cusview.xml" value="0.2" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_costume_update.xml" value="0.27447916666666666" />
-
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_customer_profile.xml" value="0.264" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_customer_rate.xml" value="0.25" />
-
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_customer_vehicle_list.xml" value="0.27447916666666666" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_customer_vehicle_view.xml" value="0.27447916666666666" />
+        <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_deco_cus_view.xml" value="0.2" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_delete_vehicle.xml" value="0.19895833333333332" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_edit_vehicle.xml" value="0.27447916666666666" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_main2.xml" value="0.22314814814814815" />
+        <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/activity_photography_mainlist.xml" value="0.176" />
         <entry key="..\:/MADmini/Wedding App/WedApp/app/src/main/res/layout/fragment_home.xml" value="0.27447916666666666" />
         <entry key="..\:/MaadFinal/WedApp/app/src/main/res/layout/activity_add_deco.xml" value="0.25052083333333336" />
         <entry key="..\:/MaadFinal/WedApp/app/src/main/res/layout/activity_add_photographer.xml" value="0.25052083333333336" />
@@ -51,11 +52,8 @@
         <entry key="..\:/Semester 2/Maad/WedApp/app/src/main/res/layout/fragment_decoration.xml" value="0.25052083333333336" />
         <entry key="..\:/Semester 2/Maad/WedApp/app/src/main/res/layout/photography_single_row.xml" value="0.1" />
         <entry key="..\:/Semester 2/Maad/WedApp/app/src/main/res/layout/vehicle_single_row.xml" value="0.1" />
-
         <entry key="..\:/Semester 2/Maad/WedApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25052083333333336" />
-
         <entry key="..\:/Users/Madhumini/Desktop/WedApp/app/src/main/res/layout/activity_add_deco.xml" value="0.25416666666666665" />
-
         <entry key="..\:/Users/Madhumini/Desktop/WedApp/app/src/main/res/layout/activity_add_photographer.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/Madhumini/Desktop/WedApp/app/src/main/res/layout/activity_addmin_vehicle_list.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/Madhumini/Desktop/WedApp/app/src/main/res/layout/activity_admin_deco_view.xml" value="0.20104166666666667" />

@@ -72,7 +72,7 @@ public class AddminVehicleList extends AppCompatActivity {
                 startActivity(new Intent(context,AddVehicle.class));
             }
         });
-
+        //logout button
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,7 +83,7 @@ public class AddminVehicleList extends AppCompatActivity {
                 startActivity(new Intent(AddminVehicleList.this, LoginActivity.class));
             }
         });
-
+        //listView
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override

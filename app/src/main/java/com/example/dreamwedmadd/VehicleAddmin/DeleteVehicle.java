@@ -28,7 +28,7 @@ public class DeleteVehicle extends AppCompatActivity {
 
         context=this;
         vehicleDBHandler=new VehicleDBHandler(context);
-
+        //references
         brand = findViewById(R.id.deleteVehBrand);
         model = findViewById(R.id.deleteVehModel);
         year = findViewById(R.id.deleteVehYear);
@@ -54,6 +54,7 @@ public class DeleteVehicle extends AppCompatActivity {
         phone.setText(vehicle.getPhone());
         address.setText(vehicle.getAddress());
 
+        //disable accessing
         brand.setKeyListener(null);
         model.setKeyListener(null);
         year.setKeyListener(null);
@@ -63,6 +64,7 @@ public class DeleteVehicle extends AppCompatActivity {
         phone.setKeyListener(null);
         address.setKeyListener(null);
 
+        //edit button handle
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
