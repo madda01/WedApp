@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.dreamwedmadd.LoginActivity;
+import com.example.dreamwedmadd.MainActivity;
 import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.costumeAdmin.CostumeAdminHome;
 import com.example.dreamwedmadd.database.photoDbHandler;
@@ -75,7 +76,7 @@ public class photography_Mainlist extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.remove("Email");
                 editor.apply();
-                startActivity(new Intent(photography_Mainlist.this, LoginActivity.class));
+                startActivity(new Intent(photography_Mainlist.this, MainActivity.class));
             }
         });
 
@@ -111,4 +112,9 @@ public class photography_Mainlist extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        this.moveTaskToBack(true);
+    }
+
 }
