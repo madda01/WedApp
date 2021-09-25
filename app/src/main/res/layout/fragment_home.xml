@@ -75,8 +75,8 @@
 
         <ImageView
             android:id="@+id/imageVeh"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="191dp"
+            android:layout_height="255dp"
             android:layout_marginTop="15dp"
             android:src="@drawable/vehicon"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -128,7 +128,7 @@
             app:layout_constraintHorizontal_bias="0.633"
             app:layout_constraintStart_toStartOf="@+id/imageCos"
             app:layout_constraintTop_toTopOf="@+id/imageCos"
-            app:layout_constraintVertical_bias="0.921" />
+            app:layout_constraintVertical_bias="0.877" />
 
         <TextView
             android:id="@+id/textVeh"
