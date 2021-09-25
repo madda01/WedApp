@@ -16,11 +16,11 @@ import java.util.List;
 public class photoDbHandler extends SQLiteOpenHelper {
 
 
-
+    //database version
     private static final int VERSION = 21;
 
 
-
+    //database name
     private static final String DB_NAME = "dreamwed" ;
     private static final String TABLE_NAME = "photographyadmin" ;
 
@@ -31,10 +31,11 @@ public class photoDbHandler extends SQLiteOpenHelper {
      private static final String EMAIL = "email";
      private static final String MOBILENUMBER = "mobilenumber";
      private static final String COMPANYNAME = "companyname";
-    private static final  String ADDRESS = "address";
+     private static final  String ADDRESS = "address";
      private static final String PRICE = "price";
      private static final String DESCRIPTION = "description";
 
+     //photoDbHandler constructor
     public photoDbHandler(@Nullable Context context) {
         super(context, DB_NAME, null, VERSION);
     }
@@ -42,6 +43,7 @@ public class photoDbHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        //create table
             String TABLE_CREATE_QUERY = "CREATE TABLE "+TABLE_NAME+" "+
                     "("
                     +ID+" INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -71,6 +73,7 @@ public class photoDbHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    //photographer add method
     public void addPhotographer(Photographermodel phto){
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase() ;
@@ -95,6 +98,7 @@ public class photoDbHandler extends SQLiteOpenHelper {
 
     }
 
+    //get photographer count from db
     public int countPhotographer(){
         SQLiteDatabase db = getReadableDatabase();
 
@@ -138,6 +142,7 @@ public class photoDbHandler extends SQLiteOpenHelper {
         return  photogra;
     }
 
+    //get single photographer details method
     public Photographermodel getSinglePhotographer(int id){
 
         SQLiteDatabase db =getWritableDatabase();
@@ -164,6 +169,7 @@ public class photoDbHandler extends SQLiteOpenHelper {
 
     }
 
+    //update photographer details
     public int updatePhotographer(Photographermodel photogrp){
 
         SQLiteDatabase db = getWritableDatabase();
@@ -187,6 +193,7 @@ public class photoDbHandler extends SQLiteOpenHelper {
 
     }
 
+    //delete photographer
     public void deletePhotographer(int id){
 
         SQLiteDatabase db = getWritableDatabase();
