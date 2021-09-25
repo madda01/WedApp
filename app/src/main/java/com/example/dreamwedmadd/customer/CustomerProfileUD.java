@@ -15,7 +15,7 @@ import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.database.DBConnection;
 
 public class CustomerProfileUD extends AppCompatActivity {
-
+    //variable declaration
     Button button;
     TextView etemail;
     EditText etmobile,etname;

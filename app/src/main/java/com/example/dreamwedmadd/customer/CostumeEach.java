@@ -17,6 +17,7 @@ import com.example.dreamwedmadd.database.DBConnection;
 import com.example.dreamwedmadd.models.Costume;
 
 public class CostumeEach extends AppCompatActivity {
+    //variable declaration
     Button btn;
     Context context;
     EditText price,description,email,title,shop,phone;
@@ -29,6 +30,7 @@ public class CostumeEach extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singlecus_costume);
 
+        //mapping the elements
         textView=findViewById(R.id.CostumeHeadName);
         btn = findViewById(R.id.btnCostumeBook);
         title=findViewById(R.id.viewtitle);
@@ -40,12 +42,12 @@ public class CostumeEach extends AppCompatActivity {
 
 
         context = this;
-        db = new DBConnection(context);
+        db = new DBConnection(context); //creating db connection
         costume = new Costume();
         Intent intent = getIntent();
         int i = intent.getIntExtra("id", 0);
 
-        costume=db.getSingleCostume(i);
+        costume=db.getSingleCostume(i); //getting single costume
 
         textView.setText(costume.getTitle());
         title.setText(costume.getTitle());
@@ -55,6 +57,7 @@ public class CostumeEach extends AppCompatActivity {
         phone.setText(costume.getPhone());
         description.setText(costume.getDescription());
 
+        //showing costume data to the user
         textView.setKeyListener(null);
         title.setKeyListener(null);
         price.setKeyListener(null);
@@ -66,7 +69,7 @@ public class CostumeEach extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //taking data to the cart
                 SharedPreferences sharedPreferences = getSharedPreferences("customercart",MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("costumename",title.getText().toString());

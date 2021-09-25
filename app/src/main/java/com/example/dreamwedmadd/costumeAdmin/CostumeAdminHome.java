@@ -25,11 +25,12 @@ import java.util.List;
 
 
 public class CostumeAdminHome extends AppCompatActivity {
+    //declaring variables
     private Button add,logout;
     private ListView coslistView;
     private TextView coscount;
     Context context;
-    private DBConnection db;
+    private DBConnection db; //db connection object
     private List<Costume> costumes;
 
     @Override
@@ -38,6 +39,7 @@ public class CostumeAdminHome extends AppCompatActivity {
         setContentView(R.layout.activity_costume_admin_home);
         context = this;
 
+        //mapping elements
         db = new DBConnection(getApplicationContext());
         add = findViewById(R.id.add);
         logout=findViewById(R.id.btnlogout);
@@ -45,7 +47,7 @@ public class CostumeAdminHome extends AppCompatActivity {
         coscount = findViewById(R.id.costumedesc);
         costumes = new ArrayList<>();
 
-        costumes = db.getAllCostumes();
+        costumes = db.getAllCostumes(); //getting all the costume lists
 
         //getting data
         SharedPreferences sharedPreferences= getSharedPreferences("login",MODE_PRIVATE);
@@ -56,19 +58,19 @@ public class CostumeAdminHome extends AppCompatActivity {
 
         coslistView.setAdapter(adapter);
 
-        int countcostumes = db.countCostumes();
+        int countcostumes = db.countCostumes(); //displaying the costume count in the list
         coscount.setText("You have "+countcostumes+" costumes");
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //button to add new costumes
                 startActivity(new Intent(CostumeAdminHome.this,CostumeAdd.class));
             }
         });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //button logout
                 SharedPreferences sharedpreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.remove("Email");
@@ -80,7 +82,7 @@ public class CostumeAdminHome extends AppCompatActivity {
         coslistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                //alert box to chose delete or update option
                 final Costume costume = costumes.get(position);
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle(costume.getTitle());
@@ -92,8 +94,7 @@ public class CostumeAdminHome extends AppCompatActivity {
                         Intent intent = new Intent(context,CostumeDelete.class);
                         intent.putExtra("idDel",String.valueOf(costume.getId()));
                         startActivity(intent);
-                        //db.deleteCostume(costume.getId());
-                        //startActivity(new Intent(context,CostumeAdminHome.class));
+                        //this will redirect to deleteing the costume
                     }
                 });
                 builder.setNeutralButton("Update Costume", new DialogInterface.OnClickListener() {
@@ -102,6 +103,7 @@ public class CostumeAdminHome extends AppCompatActivity {
                         Intent intent = new Intent(context,CostumeUpdate.class);
                         intent.putExtra("id",String.valueOf(costume.getId()));
                         startActivity(intent);
+                        //this will redirect to updating the costume
                     }
                 });
                 builder.show();

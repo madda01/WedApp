@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.airbnb.lottie.LottieAnimationView;
 
 public class MainActivity extends AppCompatActivity {
+    //variable declaration
     Button btnenter;
     ImageView logo,splashImg;
     TextView header;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         logo=findViewById(R.id.logo);
         splashImg=findViewById(R.id.backimg);
         header=findViewById(R.id.idapp);
-        lottieAnimationView=findViewById(R.id.lottie);
+        lottieAnimationView=findViewById(R.id.lottie);//small clip
     }
 
     @Override

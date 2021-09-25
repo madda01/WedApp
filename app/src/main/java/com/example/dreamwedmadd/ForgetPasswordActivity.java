@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.dreamwedmadd.database.DBConnection;
 
 public class ForgetPasswordActivity extends AppCompatActivity {
-
+    //variable declaration
     Button btnreset;
     EditText username;
     DBConnection db;

@@ -19,7 +19,7 @@ import com.example.dreamwedmadd.models.Costume;
 import com.example.dreamwedmadd.models.User;
 
 public class CustomerProfile extends AppCompatActivity {
-
+    //variable declaration
     Button button,btndel,btnlogout,rate;
     EditText etname,etemail,etmobile;
     DBConnection db;
@@ -31,7 +31,7 @@ public class CustomerProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_profile);
 
-        //mapping
+        //mapping the elements
         button=findViewById(R.id.userprofubtn);
         btndel=findViewById(R.id.userdeleteubtn);
         etname=findViewById(R.id.userprofname);
@@ -40,7 +40,7 @@ public class CustomerProfile extends AppCompatActivity {
         btnlogout=findViewById(R.id.btnlogoutcus);
         rate=findViewById(R.id.cusHomeRateBtn);
 
-        //getting data
+        //getting data from the session
         SharedPreferences sharedPreferences= getSharedPreferences("login",MODE_PRIVATE);
         String customeremail= sharedPreferences.getString("Email","no email");
 
@@ -50,6 +50,7 @@ public class CustomerProfile extends AppCompatActivity {
 
         user=db.getSingleUser(customeremail);
 
+        //getting user profile data
         etname.setText(user.getName());
         etemail.setText(user.getEmail());
         etmobile.setText(user.getMobile());
@@ -77,6 +78,7 @@ public class CustomerProfile extends AppCompatActivity {
             }
         });
 
+        //deleting the user account
         btndel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,6 +91,7 @@ public class CustomerProfile extends AppCompatActivity {
             }
         });
 
+        //logout button
         btnlogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
