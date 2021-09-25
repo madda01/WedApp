@@ -15,6 +15,7 @@ public class ValidateInputs {
 
           public ValidateInputs(){}
 
+          //checking all data inserted or noy
           public boolean ValidateData(String vehicleBrand,String vehicleModel,String vehicleYear,String vehiclePrice,String vehicleDescription, String vehicleOwner, String vehiclePhone, String vehicleAddress){
 
             if (vehicleBrand.equals("")||vehicleModel.equals("")||vehicleYear.equals("")||vehiclePrice.equals("")||vehicleDescription.equals("")||vehicleOwner.equals("")||vehiclePhone.equals("")||vehicleAddress.equals("")){
@@ -23,6 +24,7 @@ public class ValidateInputs {
             return false;
           }
 
+          //validate phone
           public boolean ValidatePhone(String phone){
 
               if(phone.length() != 10)
@@ -31,7 +33,7 @@ public class ValidateInputs {
                   return false;
 
           }
-
+        //validate price
           public boolean ValidatePrice(double price){
 
               if(price<=0)
@@ -41,6 +43,7 @@ public class ValidateInputs {
 
           }
 
+          //validate date
           public boolean ValidateDate(String date){
 
               if(date.length() != 4)

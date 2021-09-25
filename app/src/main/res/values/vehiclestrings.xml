@@ -18,4 +18,5 @@
     <string name="vehDeletebtn">Delete</string>
     <string name="cusViewVehListBtn">View Wedding Cars</string>
     <string name="vehBooktbtn">BOOK THIS</string>
+    <string name="cusWedCars">Wedding Cars</string>
 </resources>

@@ -31,6 +31,7 @@ public class EditVehicle extends AppCompatActivity {
         context=this;
         vehicleDBHandler=new VehicleDBHandler(context);
 
+        //references
         brand = findViewById(R.id.editVehBrand);
         model = findViewById(R.id.editVehModel);
         year = findViewById(R.id.editVehYear);
@@ -47,6 +48,7 @@ public class EditVehicle extends AppCompatActivity {
 
         validateInputs = new ValidateInputs();
 
+        //adding data to object
         brand.setText(vehicle.getBrand());
         model.setText(vehicle.getModel());
         year.setText(vehicle.getYear());
@@ -58,6 +60,7 @@ public class EditVehicle extends AppCompatActivity {
 
         System.out.println(phone);
 
+        //handling button
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
