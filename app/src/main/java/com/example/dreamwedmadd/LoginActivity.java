@@ -21,7 +21,7 @@ import com.example.dreamwedmadd.costumeAdmin.CostumeAdminHome;
 import com.example.dreamwedmadd.database.DBConnection;
 
 public class LoginActivity extends AppCompatActivity {
-
+    //variable declaration
     Button btnreg, btnlog;
     EditText etusername,etpassword;
     TextView etforget;
@@ -57,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                     etpassword.setError("Password field can not be empty.");
                 }
 
+                //admin logins
                 if((etusername.getText().toString().equals("costume@gmail.com"))&&(etpassword.getText().toString().equals("costume"))){
                     Toast.makeText(getApplicationContext(),"Redirecting to Costume admin",Toast.LENGTH_LONG).show();
 
@@ -102,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(start);
                 }
                 else if (databaseHelper.checkUser(etusername.getText().toString()
-                        , etpassword.getText().toString())) {
+                        , etpassword.getText().toString())) { //other users login
 
                         //save the data to the session
                         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -112,6 +113,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     //intent creation: Explicit
                     Intent i = new Intent(LoginActivity.this, MainActivity2.class);
+                    Toast.makeText(getApplicationContext(),"Welcome!",Toast.LENGTH_LONG).show();
                     i.putExtra("Message2", "Directing To Customer Home");
                     i.putExtra("email", etusername.getText().toString().trim());
                     i.putExtra("password", etpassword.getText().toString().trim());

@@ -14,6 +14,7 @@ import com.example.dreamwedmadd.database.DBConnection;
 import com.example.dreamwedmadd.models.Costume;
 
 public class CostumeDelete extends AppCompatActivity {
+    //variable declaration
     private EditText price,description,email,title,shop,phone;
     private Button btndel;
     private DBConnection dbHandler;
@@ -26,6 +27,7 @@ public class CostumeDelete extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_costume_delete);
 
+        //mapping the elements
         title=findViewById(R.id.deletetitle);
         price = findViewById(R.id.deleteprice);
         email=findViewById(R.id.deletesizes);
@@ -43,6 +45,7 @@ public class CostumeDelete extends AppCompatActivity {
 
         final String id= getIntent().getStringExtra("idDel");
 
+        //getting costumes to relevant costume id
         costume=dbHandler.getSingleCostume(Integer.parseInt(id));
 
         title.setText(costume.getTitle());
@@ -52,6 +55,7 @@ public class CostumeDelete extends AppCompatActivity {
         phone.setText(costume.getPhone());
         description.setText(costume.getDescription());
 
+        //disable editing while deleting
         title.setKeyListener(null);
         price.setKeyListener(null);
         email.setKeyListener(null);
@@ -62,7 +66,7 @@ public class CostumeDelete extends AppCompatActivity {
         btndel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //button delete
                 dbHandler.deleteCostume(costume.getId());
                 startActivity(new Intent(context, CostumeAdminHome.class));
 

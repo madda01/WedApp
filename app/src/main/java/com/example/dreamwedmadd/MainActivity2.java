@@ -32,18 +32,10 @@ import java.util.List;
 
 public class MainActivity2 extends AppCompatActivity {
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
-
-
-
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavigation);
         NavController navController = Navigation.findNavController(this, R.id.myfrag);
@@ -63,14 +55,5 @@ public class MainActivity2 extends AppCompatActivity {
         String messagerestpass = recieveintent2.getStringExtra("MessageReset");
         Toast.makeText(getApplicationContext(), messagerestpass, Toast.LENGTH_LONG).show();
 
-
-
-
-
     }
-
-
-
-
-
 }

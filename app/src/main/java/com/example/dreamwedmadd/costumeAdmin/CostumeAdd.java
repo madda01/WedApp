@@ -31,6 +31,7 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import java.io.ByteArrayOutputStream;
 
 public class CostumeAdd extends AppCompatActivity {
+    //variable declaration
     private EditText title, price, emails, shop, mobile, desc;
     private Button add,emailsend;
     private DBConnection dbHandler;
@@ -38,6 +39,7 @@ public class CostumeAdd extends AppCompatActivity {
     ImageView imageView;
     public static double rate=0.1;
 
+    //permission to get camera and storage permission
     public  static final int CAMERA_REQUEST=100;
     public  static final int STORAGE_REQUEST=101;
 
@@ -49,6 +51,7 @@ public class CostumeAdd extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_costume_add);
 
+        //mapping the elements
         title = findViewById(R.id.addtitle);
         price = findViewById(R.id.addprice);
         emails = findViewById(R.id.addsizes);
@@ -57,11 +60,14 @@ public class CostumeAdd extends AppCompatActivity {
         desc = findViewById(R.id.adddesc);
         add = findViewById(R.id.btnaddcostume);
         emailsend = findViewById(R.id.btnemailsend);
-
-        context =this;
-        dbHandler=new DBConnection(context);
         imageView=findViewById(R.id.costumeimage);
 
+        //getting the db connection
+        context =this;
+        dbHandler=new DBConnection(context);
+
+
+        //method to choose the image
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,6 +104,7 @@ public class CostumeAdd extends AppCompatActivity {
             }
         });
 
+        //method to add costumes
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,8 +119,8 @@ public class CostumeAdd extends AppCompatActivity {
                 double Cprice=0;
 
                 try{
-                    price=Double.parseDouble(Price);
-                    Cprice= TestCostumeMethods.getNewPrice(price,rate);
+                    price=Double.parseDouble(Price);//converting double and string
+                    Cprice= TestCostumeMethods.getNewPrice(price,rate); //method to test the total price after adding taxes
                 }catch(NumberFormatException e){
                     Toast.makeText(context, "Please enter valid price", Toast.LENGTH_SHORT).show();
                 }
@@ -121,17 +128,19 @@ public class CostumeAdd extends AppCompatActivity {
                 //String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
                 
                 if (Title.equals("")||Price.equals("")||Email.equals("")||Shop.equals("")||Phone.equals("")||Decs.equals("")){
-
+                    //error if all fields are empty
                     Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
                 }
                 else if(!TestCostumeMethods.validateEmail(Email)) {
+                    //validating email
                     Toast.makeText(getApplicationContext(),"invalid email address",Toast.LENGTH_SHORT).show();
                 }
                 else if(!TestCostumeMethods.validateMobile(Phone)){
+                    //validate phone
                     Toast.makeText(context, "Please enter valid phone number", Toast.LENGTH_SHORT).show();
                 }
 
-                else {
+                else { //insert a new row
                     Costume newcostume = new Costume(Title, Cprice, Email, Shop, Phone, Decs,imageViewToBy(imageView));
                     Boolean checkcostumeadding = dbHandler.insertCostume(newcostume);
 
@@ -148,6 +157,7 @@ public class CostumeAdd extends AppCompatActivity {
         });
     }
 
+    //check camera permission
     private boolean checkCameraPermission() {
         boolean result= ContextCompat.checkSelfPermission(CostumeAdd.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)==(PackageManager.PERMISSION_GRANTED);
         boolean result1=ContextCompat.checkSelfPermission(CostumeAdd.this,Manifest.permission.CAMERA)==(PackageManager.PERMISSION_GRANTED);
@@ -155,6 +165,8 @@ public class CostumeAdd extends AppCompatActivity {
         return result && result1;
     }
 
+    //methods to get image from the phone
+    //---------------------------------->
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -190,24 +202,29 @@ public class CostumeAdd extends AppCompatActivity {
 
     }
 
+    //request permission for the storage
     private void requestStrogePermission() {
         ActivityCompat.requestPermissions(CostumeAdd.this, new String[] { Manifest.permission.WRITE_EXTERNAL_STORAGE }, STORAGE_REQUEST);
     }
 
+    //check if permissions are given
     private boolean checkStrogepermission() {
         boolean result= ContextCompat.checkSelfPermission(CostumeAdd.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)==(PackageManager.PERMISSION_GRANTED);
         return result;
     }
 
+    //method to pick images from the gallery
     private void pickFromGallery() {
         CropImage.activity().start(this);
     }
 
 
+    //request camera permission
     private void requestCameraPermission() {
         ActivityCompat.requestPermissions(CostumeAdd.this,new String[] { Manifest.permission.CAMERA }, CAMERA_REQUEST);
     }
 
+    //convert image into byte array
     public static byte[] imageViewToBy(ImageView imageView) {
         Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -216,6 +233,7 @@ public class CostumeAdd extends AppCompatActivity {
         return imageInByte;
     }
 
+    //load image into imageview
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

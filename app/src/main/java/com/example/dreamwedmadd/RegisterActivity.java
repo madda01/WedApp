@@ -16,7 +16,7 @@ import com.example.dreamwedmadd.models.User;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
-
+    //variable declaration
     Button btnreg;
     EditText etname,etemail,etmobile,etpassword;
     private User newuser;
@@ -67,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
                     etpassword.setError("Password should be grater than 4 alphanumeric characters");
                 }
                 else
-                    createUserAccount();
+                    createUserAccount(); //method to create user
             }
 
             //if validation is successful this method will create an account

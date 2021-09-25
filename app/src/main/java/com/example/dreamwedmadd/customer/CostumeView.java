@@ -30,6 +30,7 @@ public class CostumeView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_costume_cusview);
 
+        //getting the costume list
         listView=findViewById(R.id.CostumeCusView);
         context=this;
         dbConnection= new DBConnection(context);
@@ -39,6 +40,7 @@ public class CostumeView extends AppCompatActivity {
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
+            //alert box to view the costume
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Costume costume= costumes.get(i);
                 String title= costume.getTitle();

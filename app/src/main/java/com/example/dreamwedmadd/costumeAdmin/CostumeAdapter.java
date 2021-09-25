@@ -25,6 +25,7 @@ public class CostumeAdapter extends ArrayAdapter<Costume> {
     private int resource;
     List<Costume> costumes;
 
+    //costume adapter constructor
     public CostumeAdapter(Context context, int resource, List<Costume> costumes){
         super(context,resource,costumes);
         this.context = context;
@@ -32,6 +33,7 @@ public class CostumeAdapter extends ArrayAdapter<Costume> {
         this.costumes = costumes;
     }
 
+    //get view method
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -51,7 +53,6 @@ public class CostumeAdapter extends ArrayAdapter<Costume> {
 
         title.setText(costume.getTitle());
         description.setText(costume.getDescription());
-        //imageView.setVisibility(row.VISIBLE);
 
         return row;
     }

@@ -15,6 +15,7 @@ import com.example.dreamwedmadd.database.DBConnection;
 import com.example.dreamwedmadd.models.Costume;
 
 public class CostumeUpdate extends AppCompatActivity {
+    //variable declaration
     private EditText price,description,email,title,shop,phone;
     private Button btnedit;
     private DBConnection dbHandler;
@@ -28,6 +29,7 @@ public class CostumeUpdate extends AppCompatActivity {
         context = this;
         dbHandler = new DBConnection(context);
 
+        //mapping the elements
         price = findViewById(R.id.addprice);
         description = findViewById(R.id.adddesc);
         email=findViewById(R.id.addsizes);
@@ -36,9 +38,11 @@ public class CostumeUpdate extends AppCompatActivity {
         phone=findViewById(R.id.addmobile);
         btnedit = findViewById(R.id.btnupdate);
 
+        //get a single costume for the relevant costume id
         final String id = getIntent().getStringExtra("id");
         Costume costume = dbHandler.getSingleCostume(Integer.parseInt(id));
 
+        //getting user updated data
         price.setText(String.valueOf(costume.getPrice()));
         description.setText(costume.getDescription());
         email.setText(costume.getEmail());
@@ -49,6 +53,7 @@ public class CostumeUpdate extends AppCompatActivity {
         btnedit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //passing the newly edited data with the button
                 double titleprice =Double.parseDouble(price.getText().toString()) ;
                 String decText = description.getText().toString();
                 String Size = email.getText().toString();
@@ -56,7 +61,7 @@ public class CostumeUpdate extends AppCompatActivity {
                 String Shop= shop.getText().toString();
                 String Phone=phone.getText().toString();
 
-                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"; //required email pattern
                 if (Title.equals("")||Size.equals("")||Shop.equals("")||Phone.equals("")||decText.equals("")){
 
                     Toast.makeText(context, "Please enter all details", Toast.LENGTH_SHORT).show();
@@ -66,6 +71,7 @@ public class CostumeUpdate extends AppCompatActivity {
                 }
 
                 else{
+                    //update the costume details
                     Costume costume1 = new Costume(Integer.parseInt(id),Title,titleprice,Size,Shop,Phone,decText);
                     int state = dbHandler.updateSingleCostume(costume1);
                     System.out.println(state);
