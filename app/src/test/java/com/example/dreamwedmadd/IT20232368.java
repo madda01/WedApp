@@ -19,13 +19,13 @@ import com.example.dreamwedmadd.models.User;
 
 public class IT20232368{
 
-    private TestCostumeMethods costumeAdd;
-    private TestCustomerMethods userAdd;
-    double price;
-    boolean istrue;
+    private static TestCostumeMethods costumeAdd;
+    private static TestCustomerMethods userAdd;
+    static double price;
+    static boolean istrue;
 
     @BeforeClass
-    public void createObjects(){
+    public static void createObjects(){
         costumeAdd= new TestCostumeMethods();
         userAdd= new TestCustomerMethods();
     }
@@ -38,21 +38,21 @@ public class IT20232368{
     @Test
     public void checkNewPrice(){
         //arrange
-        price=costumeAdd.getNewPrice(20000.0,5.0);
+        price=costumeAdd.getNewPrice(20000.0,0.1);
         //act
-        assertEquals(21000.0,price,0.00); //after adding the service charge
+        assertEquals(22000.0,price,0.00); //after adding the service charge
     }
 
     @Test
     public void checkEmail(){
         istrue= costumeAdd.validateEmail("supplier@gmail.com"); //email pattern
-        assertEquals(String.valueOf(true),istrue);
+        assertTrue(String.valueOf(true),istrue);
     }
 
     @Test
     public void checkUserEmail(){
         istrue= userAdd.validateEmail("user@gmail.com");
-        assertEquals(String.valueOf(true),istrue); //check user email
+        assertTrue(String.valueOf(true),istrue); //check user email
     }
 
     @Test
@@ -85,7 +85,7 @@ public class IT20232368{
     }
 
     @AfterClass
-    public void clearObjects(){
+    public static void clearObjects(){
         costumeAdd=null;
         userAdd=null;
     }
