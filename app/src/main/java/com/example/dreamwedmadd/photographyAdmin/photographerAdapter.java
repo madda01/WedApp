@@ -29,14 +29,17 @@ public class photographerAdapter extends ArrayAdapter<Photographermodel> {
     public photographerAdapter(Context context, int resoursee, List<Photographermodel> phto){
         super(context,resoursee,phto);
         this.context=context;
-        this.resoursee=resoursee;
-        this.phto=phto;
+        this.resoursee=resoursee; //photographer single row
+        this.phto=phto; //photographer model data
     }
 
+
+    //method to create single photographer row
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
+        //inflater for convert xml to java side
         LayoutInflater inflater = LayoutInflater.from(context);
         View row = inflater.inflate(resoursee,parent,false);
 
@@ -46,7 +49,7 @@ public class photographerAdapter extends ArrayAdapter<Photographermodel> {
         ImageView image = row.findViewById(R.id.DecoSingImg);
 
 
-
+        //get position of single view and getting photographer data
         Photographermodel phtolist = phto.get(position);
 
         byte[] data = phtolist.getImage();

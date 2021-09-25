@@ -36,6 +36,7 @@ public class PhotographyFragment extends Fragment {
 
     //.......................Rating..............................
 
+    //link views
     RatingBar ratingBar;
     TextView textView;
     RatingDBHandler ratingDBHandler;
@@ -60,6 +61,8 @@ public class PhotographyFragment extends Fragment {
 
         btnvalue = root.findViewById(R.id.photocusbtn1);
 
+
+
         //.....................Ratings...........................
 
         context=getContext();
@@ -83,7 +86,7 @@ public class PhotographyFragment extends Fragment {
         //........................................................
 
 
-
+        //button for navigate to photographer page
         btnvalue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,4 +96,5 @@ public class PhotographyFragment extends Fragment {
 
         return  root;
     }
+
 }
