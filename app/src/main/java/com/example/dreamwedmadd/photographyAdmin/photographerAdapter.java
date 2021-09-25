@@ -26,6 +26,7 @@ public class photographerAdapter extends ArrayAdapter<Photographermodel> {
     List<Photographermodel> phto;
 
 
+    //photographer adapter constructor
     public photographerAdapter(Context context, int resoursee, List<Photographermodel> phto){
         super(context,resoursee,phto);
         this.context=context;

@@ -20,7 +20,7 @@ import com.example.dreamwedmadd.R;
 
 public class HomeFragment extends Fragment {
 
-
+    //views
     ImageView deco,photo,cos,veh,usercart;
     ImageButton myProf;
 
@@ -31,6 +31,7 @@ public class HomeFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
+        //link views
         deco = root.findViewById(R.id.imageDec);
         photo = root.findViewById(R.id.imagePho);
         cos = root.findViewById(R.id.imageCos);
@@ -38,6 +39,7 @@ public class HomeFragment extends Fragment {
         usercart = root.findViewById(R.id.imagecartview);
         myProf = root.findViewById(R.id.imageBtnMyprof);
 
+        //navigate to decoration fragment
         deco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +49,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //navigate to Photographer fragment
         photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +59,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //navigate to costume fragment
         cos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +69,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //navigate to costume fragment
         veh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,6 +79,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //navigate to decoration fragment
         deco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,6 +89,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //navigate to my profile
         myProf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,7 +98,7 @@ public class HomeFragment extends Fragment {
         });
 
 
-
+        //navigate to user cart
         usercart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

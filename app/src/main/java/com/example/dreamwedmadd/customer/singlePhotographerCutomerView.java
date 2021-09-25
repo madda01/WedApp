@@ -76,7 +76,7 @@ public class singlePhotographerCutomerView extends AppCompatActivity {
         descriptioneditrl.setKeyListener(null);
 
 
-
+        //book button for single photographer
         addbtneditrl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,6 +90,7 @@ public class singlePhotographerCutomerView extends AppCompatActivity {
                 editor.putString("email",emaileditrl.getText().toString());
                 editor.commit();
 
+                //navigate for user cart
                 startActivity(new Intent(context, customercart.class));
             }
         });

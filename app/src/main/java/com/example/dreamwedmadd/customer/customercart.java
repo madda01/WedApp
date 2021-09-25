@@ -52,6 +52,7 @@ public class customercart extends AppCompatActivity {
         etext8 = findViewById(R.id.etcart8);
         etext9 = findViewById(R.id.etcart9);
 
+        //link text views
         tview1 = findViewById(R.id.tvl1);
         tview2 = findViewById(R.id.tvl12);
         tview3 = findViewById(R.id.tvl3);
@@ -63,12 +64,14 @@ public class customercart extends AppCompatActivity {
         tview9 = findViewById(R.id.texvl);
 
 
+        //link button
         btn1 = findViewById(R.id.btnl1);
         btn2 = findViewById(R.id.btnl2);
         btn3 = findViewById(R.id.btnl3);
         btn4 = findViewById(R.id.btnl4);
         btn5 = findViewById(R.id.btnlbook);
 
+        //link image view
         imagel = findViewById(R.id.imagecart);
 
 
@@ -123,7 +126,7 @@ public class customercart extends AppCompatActivity {
 
         //totalprice
 
-//        totalprice = prise1 + dprice + vhlprice + ctmprioce ;
+        //totalprice = prise1 + dprice + vhlprice + ctmprioce ;
         totalprice= photoUnitTests.TotalPrice(prise1 , dprice , vhlprice , ctmprioce);
         String toprice = totalprice + "";
         etext9.setText(toprice);
@@ -175,6 +178,8 @@ public class customercart extends AppCompatActivity {
             if (pname.equals("No Photographer")) {
                 btn1.setVisibility(View.INVISIBLE);
             }
+
+            //button for remove photographer from cart
             btn1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -216,6 +221,8 @@ public class customercart extends AppCompatActivity {
             if (deconame.equals("No Decorator")) {
                 btn2.setVisibility(View.INVISIBLE);
             } else {
+
+                //button for remove decorator from cart
                 btn2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -251,6 +258,8 @@ public class customercart extends AppCompatActivity {
             if (vhname.equals("No Vehicle")) {
                 btn3.setVisibility(View.INVISIBLE);
             } else {
+
+                //button for remove vehicle from cart
                 btn3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -291,6 +300,8 @@ public class customercart extends AppCompatActivity {
             if (costumename.equals("No Costume")) {
                 btn4.setVisibility(View.INVISIBLE);
             } else {
+
+                //button for remove costume from cart
                 btn4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -331,7 +342,7 @@ public class customercart extends AppCompatActivity {
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Package Book"); //email subject
                 intent.putExtra
                         (Intent.EXTRA_TEXT,
-                                "---Package Information--" +
+                                "---Package Information---" +
                                         "\n\nPhotographer Name : "+pname+
                                         "\nPhotographer price :Rs."+pprice+
                                         "\n\nDecorator Name : "+deconame+
