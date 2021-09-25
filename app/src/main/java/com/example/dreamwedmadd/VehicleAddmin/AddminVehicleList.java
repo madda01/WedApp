@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.dreamwedmadd.LoginActivity;
+import com.example.dreamwedmadd.MainActivity;
 import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.costumeAdmin.CostumeAdminHome;
 import com.example.dreamwedmadd.database.VehicleDBHandler;
@@ -80,7 +81,7 @@ public class AddminVehicleList extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.remove("Email");
                 editor.apply();
-                startActivity(new Intent(AddminVehicleList.this, LoginActivity.class));
+                startActivity(new Intent(AddminVehicleList.this, MainActivity.class));
             }
         });
 
@@ -116,4 +117,9 @@ public class AddminVehicleList extends AppCompatActivity {
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        this.moveTaskToBack(true);
+    }
+
 }
