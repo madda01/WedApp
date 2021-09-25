@@ -20,6 +20,7 @@ import java.util.List;
 
 public class photographerAdapter extends ArrayAdapter<Photographermodel> {
 
+    //views
     private Context context;
     private int resoursee;
     List<Photographermodel> phto;
@@ -39,6 +40,7 @@ public class photographerAdapter extends ArrayAdapter<Photographermodel> {
         LayoutInflater inflater = LayoutInflater.from(context);
         View row = inflater.inflate(resoursee,parent,false);
 
+        //link views
         TextView titletv = row.findViewById(R.id.tvtitle);
         TextView titledecrption = row.findViewById(R.id.tvdecription);
         ImageView image = row.findViewById(R.id.DecoSingImg);

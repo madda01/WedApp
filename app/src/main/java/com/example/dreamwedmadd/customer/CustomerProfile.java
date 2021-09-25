@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.dreamwedmadd.LoginActivity;
+import com.example.dreamwedmadd.MainActivity;
 import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.database.DBConnection;
 import com.example.dreamwedmadd.models.Costume;
@@ -98,7 +99,7 @@ public class CustomerProfile extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.remove("Email");
                 editor.apply();
-                startActivity(new Intent(CustomerProfile.this, LoginActivity.class));
+                startActivity(new Intent(CustomerProfile.this, MainActivity.class));
             }
         });
 

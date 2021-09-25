@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.dreamwedmadd.LoginActivity;
+import com.example.dreamwedmadd.MainActivity;
 import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.costumeAdmin.CostumeAdminHome;
 import com.example.dreamwedmadd.database.photoDbHandler;
@@ -25,6 +26,7 @@ import java.util.List;
 
 public class photography_Mainlist extends AppCompatActivity {
 
+    //views
     private Button add,logout ;
     private ListView listView;
     private TextView count;
@@ -37,6 +39,7 @@ public class photography_Mainlist extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photography_mainlist);
 
+        //link views
         add = findViewById(R.id.btn1);
         listView = findViewById(R.id.photolist);
         count = findViewById(R.id.tvtext3);
@@ -59,8 +62,10 @@ public class photography_Mainlist extends AppCompatActivity {
         //get photographer count
         int photographercount = photoDbhandler.countPhotographer();
 
+        //get photographer count from Data base
         count.setText(+photographercount+" Photographers are avalable");
 
+        //button for add photographer
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,6 +73,7 @@ public class photography_Mainlist extends AppCompatActivity {
             }
         });
 
+        //user logout button
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,33 +81,41 @@ public class photography_Mainlist extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.remove("Email");
                 editor.apply();
-                startActivity(new Intent(photography_Mainlist.this, LoginActivity.class));
+                startActivity(new Intent(photography_Mainlist.this, MainActivity.class));
             }
         });
 
+        //button for if user click photographer
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                //get user clicked photographer position
                 final Photographermodel phtodetails = photogra.get(i);
 
+                //alert box for update and delete photographer
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setTitle(phtodetails.getFnamee()+" "+phtodetails.getLnamee());
                 builder.setMessage(phtodetails.getComanpnynamee());
 
+                //photographer delete button
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
+                        //intent for user navigate to the photographer delete page
                         Intent intent = new Intent(context,deletePhotographer.class);
                         intent.putExtra("id",String.valueOf(phtodetails.getId()));
                         startActivity(intent);
                     }
                 });
 
+                //photographer update button
                 builder.setNegativeButton("Update", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+
+                        //intent for user navigate to the photographer update page
                        Intent intent = new Intent(context,editPhotographer.class);
                        intent.putExtra("id",String.valueOf(phtodetails.getId()));
                        startActivity(intent);
@@ -111,4 +125,9 @@ public class photography_Mainlist extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        this.moveTaskToBack(true);
+    }
+
 }

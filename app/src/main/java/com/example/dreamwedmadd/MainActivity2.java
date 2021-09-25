@@ -56,4 +56,10 @@ public class MainActivity2 extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), messagerestpass, Toast.LENGTH_LONG).show();
 
     }
+
+    @Override
+    public void onBackPressed() {
+        this.moveTaskToBack(true);
+    }
+
 }

@@ -116,11 +116,16 @@ public class AdminDecoView extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.remove("Email");
                 editor.apply();
-                startActivity(new Intent(AdminDecoView.this, LoginActivity.class));
+                startActivity(new Intent(AdminDecoView.this, MainActivity.class));
             }
         });
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.moveTaskToBack(true);
     }
 }
 

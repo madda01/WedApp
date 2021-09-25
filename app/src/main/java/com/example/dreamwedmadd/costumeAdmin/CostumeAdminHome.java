@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.dreamwedmadd.LoginActivity;
+import com.example.dreamwedmadd.MainActivity;
 import com.example.dreamwedmadd.R;
 import com.example.dreamwedmadd.database.DBConnection;
 import com.example.dreamwedmadd.models.Costume;
@@ -74,7 +75,7 @@ public class CostumeAdminHome extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedpreferences.edit();
                 editor.remove("Email");
                 editor.apply();
-                startActivity(new Intent(CostumeAdminHome.this, LoginActivity.class));
+                startActivity(new Intent(CostumeAdminHome.this, MainActivity.class));
             }
         });
 
@@ -108,5 +109,9 @@ public class CostumeAdminHome extends AppCompatActivity {
                 builder.show();
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        this.moveTaskToBack(true);
     }
 }
