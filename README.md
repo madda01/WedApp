@@ -10,7 +10,11 @@ SLIIT 2nd Year 2nd Semester Mobile Application Development (MADD) Mini Project
 
 Devaloped by Team KDY-WD-13
 
-| Madhumini - Costume | Thameera - Decoration | Dilupa - Vehicle | Poorna - Photography
+
+| Madhumini - Costume (https://github.com/madda01)
+| Thameera - Decoration (https://github.com/ThameeraFernando)
+| Dilupa - Vehicle (https://github.com/DilupaG)
+| Poorna - Photography (https://github.com/PoornaGTX)
 
 | Lanuage - JAVA | Database - SQLite | IDE - Android Studio | Integrate Technology Service - Github
 
